@@ -90,8 +90,6 @@ const Address = () => {
                          hover:bg-pink-800 transtion cursor-pointer '>
                             Save Address
                         </button>
-
-
                 </form>
 
             </div>

@@ -62,15 +62,14 @@ const Navbar = () => {
 
   return (
  <>
-    <div className={`flex justify-between md:p-5 p-2 items-center h-20 w-full fixed  top-0 left-0 z-50 ${!isScrolled ? "bg-transparent" : "bg-gray-300"}`}>
-
+    <div className={`flex justify-between md:p-5 p-2 items-center h-20 w-full fixed  top-0 left-0 z-50 ${!isScrolled ? "bg-transparent" : "bg-gray-300  rounded-b-md"}`}>
+      
         {/* Navbar for desktop View */}
 
         <NavLink to={"/"} onClick={() => scrollTo(0,0)} className='flex justify-center items-center md:gap-3 gap-2'>
-            {/* <p className='text-4xl md:hidden text-gray-600 font-light' onClick={() =>setSideBar(true)}>< IoReorderThreeSharp/></p> */}
             <img src={assets.logo} className=' h-10 w-10 rounded-full' alt='Logo'/>
-            <p className='text-xl font-semibold'>watchStore</p>
-        </NavLink>
+            <p className='text-xl font-semibold'>TimeAura</p>
+        </NavLink>  
 
         <div className='hidden md:flex'>
             <ul className=' activeLink flex justify-between items-center gap-7 text-lg '>

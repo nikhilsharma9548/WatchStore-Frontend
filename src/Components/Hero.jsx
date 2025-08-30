@@ -32,8 +32,8 @@ const Hero = () => {
   return (
     
    <>
-   <div id='home' className='flex justify-center xl:items-center overflow-hidden z-0 relative pb-10 h-screen'>
-  <div className='w-full max-w-7xl mx-auto overflow-hidden relative xl:rounded shadow-lg mt-20 shadow-gray-600  max-md:hidden'>
+   <div id='home' className='flex justify-center xl:items-center overflow-hidden z-0 relative pb-10 h-screen '>
+  <div className='w-full max-w-7xl mx-auto overflow-hidden relative xl:rounded shadow-lg mt-20 shadow-gray-600 max-md:hidden'>
 
       <div className="flex transition-transform duration-700 ease-in-out"
           style={{ transform: `translateX(-${current * 100}%)` }}>
@@ -70,12 +70,12 @@ const Hero = () => {
 
   {/* for Mobile View */}
 
-  <div className='md:hidden pt-20 relative overflow-hidden flex flex-col justify-center items-center'>
-    <img src={assets.mobile} className='object-cover  h-full' />
-    <p className='absolute pt-28  text-center px-5
-     text-pink-800 text-2xl font-semibold'>A Summer Symphony: Baume & Mercier's Riviera In Pastel Hues</p>
-    <span className='absolute pt-60 px-10
-     text-center text-pink-700 font-semibold text-lg'>These Riviera editions present colours of summer and a French</span>
+  <div className='md:hidden pt-20 relative px-1 overflow-hidden flex flex-col justify-center items-center'>
+    <img src={assets.mobile} className='w-[800px] h-full rounded-2xl' />
+    
+    <button onClick={() =>navigate('/products')} 
+    className='absolute bottom-14 left-14 text-white px-3 font-semibold
+    py-1.5 rounded-full bg-orange-600/90'>BUY NOW</button>
   </div>
 </div>
 

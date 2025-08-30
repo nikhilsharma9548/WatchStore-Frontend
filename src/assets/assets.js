@@ -1,9 +1,9 @@
-import logo from './Images/logo.png'
+import logo from './Images/logo.svg'
 import slider1 from './Images/navbar-image.png'
 import slide2 from './Images/navbar-image2.png'
 import slide3 from './Images/navbar-image3.png'
 import slide4 from './Images/navbar-image4.png'
-import mobile from './Images/navbar-image5.png'
+import mobile from './Images/phone-4.png'
 import Bg2 from './Images/background.png'
 import upload_area from'./Images/upload_area.png';
 import boxicon from './Images/box_icon.svg'

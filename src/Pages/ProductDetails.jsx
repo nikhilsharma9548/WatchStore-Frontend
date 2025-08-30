@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useAppContext } from '../Context/Appcontext'
+import { useAppContext } from '../Context/AppContext'
 import { Link, useParams } from 'react-router-dom'
 import { MdStarRate } from "react-icons/md";
 import ProductCard from '../Components/ProductCard';

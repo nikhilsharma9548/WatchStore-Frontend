@@ -5,7 +5,7 @@ import { IoReorderThreeSharp } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
 import { RxCross2 } from "react-icons/rx";
 
-import { useAppContext } from '../Context/Appcontext';
+import { useAppContext } from '../Context/AppContext';
 import { NavLink } from 'react-router-dom';
 
 

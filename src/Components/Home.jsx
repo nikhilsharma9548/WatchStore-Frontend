@@ -7,7 +7,7 @@ import Testimonials from './Testimonials'
 import Footer from './Footer'
 import Features from './Features'
 import Loading from './Loading'
-import { useAppContext } from '../Context/Appcontext'
+import { useAppContext } from '../Context/AppContext'
 
 
 const Home = () => {

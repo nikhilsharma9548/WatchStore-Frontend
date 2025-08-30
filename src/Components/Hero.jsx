@@ -5,7 +5,7 @@ import {imageSlider} from '../assets/assets'
 import { assets } from '../assets/assets';
 import Loading from './Loading';
 import { AnimatePresence, motion} from "motion/react"
-import { useAppContext } from '../Context/Appcontext';
+import { useAppContext } from '../Context/AppContext';
 
 const Hero = () => {
  

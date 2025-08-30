@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import ProductCard from './ProductCard';
-import { AppContext, useAppContext } from '../Context/Appcontext';
+import { AppContext, useAppContext } from '../Context/AppContext';
 
 const Features = () => {
   const { products } = useAppContext()

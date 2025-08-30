@@ -1,6 +1,6 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { assets } from "../../assets/assets";
-import { useAppContext } from "../../Context/Appcontext";
+import { useAppContext } from "../../Context/AppContext";
 import { FiPlusCircle } from "react-icons/fi";
 import { RiAlignItemBottomFill } from "react-icons/ri";
 import { LuBox } from "react-icons/lu";

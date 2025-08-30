@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useAppContext } from "../Context/Appcontext";
+import { useAppContext } from "../Context/AppContext";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
 import { dummyAddress } from "../assets/assets";

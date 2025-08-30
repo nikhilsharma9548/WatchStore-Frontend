@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import ProductCard from '../Components/ProductCard'
-import { useAppContext } from '../Context/Appcontext'
+import { useAppContext } from '../Context/AppContext'
 import Footer from '../Components/Footer'
 import Navbar from '../Components/Navbar'
 

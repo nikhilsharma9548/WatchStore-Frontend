@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { MdStarRate } from "react-icons/md";
 import { IoCartOutline } from "react-icons/io5";
-import { useAppContext } from "../Context/Appcontext";
+import { useAppContext } from "../Context/AppContext";
 
 const ProductCard = ({product}) => {
 

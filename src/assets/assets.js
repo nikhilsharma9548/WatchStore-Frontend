@@ -318,13 +318,13 @@ export const dummyAddress = [
 
 export const dummyOrders = [
   {
-    _id: "67e2589a8f87e63366786400",
+    _id: "67e2589a8f87e86400",
     userId: "67b5880e4d09769c5ca61644",
     items: [
       {
         product: dummyProducts[3],
         quantity: 2,
-        _id: "67e2589a8f87e63366786401",
+        _id: "67e2589a8f3366786401",
       },
     ],
     amount: 89,
@@ -336,18 +336,18 @@ export const dummyOrders = [
     updatedAt: "2025-03-25T07:18:13.103Z",
   },
   {
-    _id: "67e258798f87e633667863f2",
+    _id: "67e258798f8767863f2",
     userId: "67b5880e4d09769c5ca61644",
     items: [
       {
         product: dummyProducts[0],
         quantity: 1,
-        _id: "67e258798f87e633667863f3",
+        _id: "67e258798f3667863f3",
       },
       {
         product: dummyProducts[1],
         quantity: 1,
-        _id: "67e258798f87e633667863f4",
+        _id: "67e258798f667863f4",
       },
     ],
     amount: 43,

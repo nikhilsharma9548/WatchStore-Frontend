@@ -1,10 +1,8 @@
 import React, { useRef, useState, useEffect, useContext } from 'react'
 import { assets } from '../assets/assets'
 import { LuShoppingCart } from "react-icons/lu";
-import { IoReorderThreeSharp } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
-import { RxCross2 } from "react-icons/rx";
-
+import { FaAngleDown } from "react-icons/fa6";
 import { useAppContext } from '../Context/AppContext';
 import { NavLink } from 'react-router-dom';
 
@@ -104,10 +102,16 @@ const Navbar = () => {
 
                
                 
-                <div className=''>
+                <div className='group'>
                   <button onClick={() => setShowUserLogin(true)}
-                   className='bg-pink-800 text-white px-6 py-2 cursor-pointer
-                   hover:bg-pink-900 rounded transition-all duration-300'>login</button>
+                    className='bg-pink-800 flex justify-center items-center gap-2 text-white px-5 py-2 cursor-pointer
+                    hover:bg-pink-900 rounded transition-all duration-300'>login 
+                    {/* <span className=' hover:rotate-180 transition-all duration-300'>< FaAngleDown/></span> */}
+                  </button>
+                  {/* <div className='hidden    opacity-0 group-hover:opacity-100 transition'>
+                    <p>my-Orders</p>
+                    <p>logout</p>
+                  </div> */}
                 </div>
          </div>
 

@@ -72,8 +72,8 @@ const Hero = () => {
 
   <div className='md:hidden pt-20 relative overflow-hidden flex flex-col justify-center items-center'>
     <img src={assets.mobile} className='object-cover  h-full' />
-    <p className='absolute top-32 text-center px-5 text-2xl font-semibold'>A Summer Symphony: Baume & Mercier's Riviera In Pastel Hues</p>
-    <span className='absolute top-52 px-10 text-center text-lg'>These Riviera editions present colours of summer and a French</span>
+    <p className='absolute pt-28  text-center px-5 text-pink-800 text-2xl font-semibold'>A Summer Symphony: Baume & Mercier's Riviera In Pastel Hues</p>
+    <span className='absolute pt-60 px-10 text-center text-pink-700 font-semibold text-lg'>These Riviera editions present colours of summer and a French</span>
   </div>
 </div>
 

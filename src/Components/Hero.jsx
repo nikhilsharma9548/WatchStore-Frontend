@@ -69,14 +69,19 @@ const Hero = () => {
   </div>
 
   {/* for Mobile View */}
-
-  <div className='md:hidden pt-20 relative px-1 overflow-hidden flex flex-col justify-center items-center'>
-    <img src={assets.mobile} className='w-[800px] h-full rounded-2xl' />
-    
-    <button onClick={() =>navigate('/products')} 
-    className='absolute bottom-24 left-14 text-white px-3 font-semibold
-    py-1.5 rounded-full bg-orange-600/90'>BUY NOW</button>
-  </div>
+  <AnimatePresence>
+    <motion.div 
+            initial ={{opacity:0, scale:0.9 }}
+            whileInView={{opacity:1,scale:1}}
+            transition={{duration:0.3}}
+    className='md:hidden pt-20 relative px-1 overflow-hidden flex flex-col justify-center items-center'>
+      <img src={assets.mobile} className='w-[800px] h-full rounded-2xl' />
+      
+      <button onClick={() =>navigate('/products')} 
+      className='absolute bottom-24 left-14 text-white px-3 font-semibold
+      py-1.5 rounded-full bg-orange-600/90'>BUY NOW</button>
+    </motion.div>
+  </AnimatePresence>
 </div>
 
    </>

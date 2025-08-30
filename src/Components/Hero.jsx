@@ -1,0 +1,84 @@
+import React, { useState } from 'react'
+import { IoIosArrowBack } from "react-icons/io";
+import { useEffect } from 'react';
+import {imageSlider} from '../assets/assets'
+import { assets } from '../assets/assets';
+import Loading from './Loading';
+import { AnimatePresence, motion} from "motion/react"
+import { useAppContext } from '../Context/Appcontext';
+
+const Hero = () => {
+ 
+    const {navigate,} = useAppContext()
+    const [current, setCurrent] = useState(0);
+
+    useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [current, imageSlider]);
+
+   // Next Slide
+  const nextSlide = () => {
+    setCurrent((prev) => (prev === imageSlider.length - 1 ? 0 : prev + 1));
+  };
+
+  // Prev Slide
+  const prevSlide = () => {
+    setCurrent((prev) => (prev === 0 ? imageSlider.length - 1 : prev - 1));
+  };
+
+  return (
+    
+   <>
+   <div id='home' className='flex justify-center xl:items-center overflow-hidden z-0 relative pb-10 h-screen'>
+  <div className='w-full max-w-7xl mx-auto overflow-hidden relative xl:rounded shadow-lg mt-20 shadow-gray-600  max-md:hidden'>
+
+      <div className="flex transition-transform duration-700 ease-in-out"
+          style={{ transform: `translateX(-${current * 100}%)` }}>
+         {imageSlider.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              alt={`slide-${index}`}
+              className="w-full h-[500px] object-cover flex-shrink-0 border-b-4 border-white"
+            />
+          ))}   
+      </div>
+      <button className='absolute left-1/2 -translate-x-1/2 bottom-10 
+            py-3 bg-pink-800 border border-gray-300 shadow-lg text-white
+            rounded-full px-8 cursor-pointer '
+            onClick={() =>{navigate('/products')}}> Discover</button>
+
+    {/* Prev Button */}
+    <button
+      onClick={prevSlide}
+      className="absolute left-2 top-1/2 text-3xl  text-white px-3 rounded-full"
+    >
+        <IoIosArrowBack/>
+    </button>
+
+    {/* Next Button */}
+    <button
+      onClick={nextSlide}
+      className="absolute right-2 top-1/2 text-3xl text-white px-3 rounded-full rotate-180"
+    >
+       <IoIosArrowBack/>
+    </button>
+  </div>
+
+  {/* for Mobile View */}
+
+  <div className='md:hidden pt-20 relative overflow-hidden flex flex-col justify-center items-center'>
+    <img src={assets.mobile} className='object-cover  h-full' />
+    <p className='absolute top-32 text-center px-5 text-2xl font-semibold'>A Summer Symphony: Baume & Mercier's Riviera In Pastel Hues</p>
+    <span className='absolute top-52 px-10 text-center text-lg'>These Riviera editions present colours of summer and a French</span>
+  </div>
+</div>
+
+   </>
+  )
+}
+
+export default Hero 

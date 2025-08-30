@@ -37,7 +37,8 @@ const Address = () => {
    }
 
     const onSubmitHandler = async(e)=>{
-        e.prevenDefault();
+        e.preventDefault();   // ✅ spelling fixed
+        console.log(address); // check ki values aa rahi hain
     }
 
   return (
@@ -61,7 +62,7 @@ const Address = () => {
                         <InputField handleChange ={handleChange} address={address} name = "lastName" type = "text"
                         placeholder = "Last Name"/>
                     </div>
-                    <InputField handleChange ={handleChange} address={address} name = "email" type = "email"
+                    <InputField handleChange ={handleChange} address={address} name ="email" type = "email"
                         placeholder = "Email address"/>
 
                     <InputField handleChange ={handleChange} address={address} name = "street" type = "text"

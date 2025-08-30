@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useAppContext } from '../../Context/Appcontext'
+import { useAppContext } from '../../Context/AppContext'
 
 const AdminLogin = () => {
 

@@ -71,10 +71,10 @@ const Hero = () => {
   {/* for Mobile View */}
   <AnimatePresence>
     <motion.div 
-            initial ={{opacity:0, scale:0.9 }}
+            initial ={{opacity:0, scale:0.7 }}
             whileInView={{opacity:1,scale:1}}
             transition={{duration:0.3}}
-    className='md:hidden mt-32 relative px-1 overflow-hidden flex flex-col justify-center items-center'>
+    className='md:hidden mt-24 relative px-1 overflow-hidden flex flex-col justify-center items-center'>
       <img src={assets.mobile} className='w-[800px] h-full rounded-2xl' />
       
       <button onClick={() =>navigate('/products')} 

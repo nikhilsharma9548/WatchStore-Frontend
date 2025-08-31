@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { MdStarRate } from "react-icons/md";
 import { IoCartOutline } from "react-icons/io5";
 import { useAppContext } from "../Context/AppContext";
+import { AnimatePresence, motion } from "motion/react";
 
 const ProductCard = ({product}) => {
 
@@ -9,7 +10,12 @@ const ProductCard = ({product}) => {
 
 
     return product && (
-        <div onClick={() => {navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0,0)}}  className="border border-gray-500/20 rounded-md md:px-4 px-3 py-2 flex justify-between flex-col bg-white  w-full shadow-lg shadow-gray-700">
+        <AnimatePresence>
+        <motion.div 
+         initial ={{opacity:0, scale:0.7 }}
+            whileInView={{opacity:1,scale:1}}
+            transition={{duration:0.3}}
+        onClick={() => {navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0,0)}}  className="border border-gray-500/20 rounded-md md:px-4 px-3 py-2 flex justify-between flex-col bg-white  w-full shadow-lg shadow-gray-700">
             <div className="group cursor-pointer flex items-center justify-center px-2">
                 <img className="group-hover:scale-105 transition max-w-24 md:max-w-36" src={product.image} alt={product.name} />
             </div>
@@ -51,7 +57,8 @@ const ProductCard = ({product}) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
+        </AnimatePresence>
     );
 };
 

@@ -2,17 +2,18 @@ import React from 'react'
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import { FaSquareInstagram } from "react-icons/fa6";
+import {NavLink} from 'react-router-dom'
 const Footer = () => {
   return (
     <>
   <div className='w-full'>
 
-      <div className='bg-[#113c5f] flex max-sm:flex-col justify-center max-sm:items-center
-     md:justify-between max-sm:gap-5 text-gray-300 md:px-20 md:py-10 p-3 mt-32'>
+      <div className='bg-[#113c5f] flex max-md:flex-col justify-center max-sm:items-center
+     md:justify-between max-sm:gap-5 text-gray-300 md:px-20 md:py-10 p-3 mt-32 gap-5'>
 
-        <div className=' flex flex-col justify-center max-sm:items-center gap-3'>
+        <div className=' flex flex-col justify-center items-center gap-3'>
             <p className='font-semibold border-b-2'>Our Information</p>
-           <div className='max-sm:flex flex-col flex gap-3'>
+           <div className='flex md:flex-col gap-3'>
             <p className='text-sm'>Badaun</p>
             <p className='text-sm'>+91 123 456 7890</p>
             <p className='text-sm'>nikhilsharma9533@gmail.com</p>
@@ -20,9 +21,9 @@ const Footer = () => {
            </div>
         </div>
 
-        <div className=' flex flex-col justify-center items-center gap-3'>
+        <div className='flex flex-col justify-center items-center gap-3'>
             <p className='font-semibold border-b-2'>About Us</p>
-            <div className='max-sm:flex gap-3 flex-col flex'>
+            <div className='flex gap-3 md:flex-col'>
             <p className='text-sm'>Contact Support</p>
             <p className='text-sm'>Privacy Policy</p>
             <p className='text-sm'>About Us</p>
@@ -32,7 +33,7 @@ const Footer = () => {
 
         <div className=' flex flex-col justify-center items-center gap-3'>
             <p className='font-semibold border-b-2'>Product</p>
-            <div className='max-sm:flex gap-3 flex-col flex'>
+            <div className='flex md:flex-col gap-3'>
             <p className='text-sm'>Luxury</p>
             <p className='text-sm'>Causal</p>
             <p className='text-sm'>Electric</p>
@@ -40,12 +41,12 @@ const Footer = () => {
             </div>
         </div>
 
-        <div className='flex flex-col gap-7 '> 
+        <div className='flex flex-col gap-3 items-center'> 
             <p className='font-semibold border-b-2'>social Media</p>
             <div className='flex gap-3 text-2xl'>
-                <span><FaSquareXTwitter/></span>
-                <span><FaLinkedin/></span>
-                <span><FaSquareInstagram/></span>
+                <NavLink to={'/'}><FaSquareXTwitter/></NavLink>
+                <NavLink to={'/'}><FaLinkedin/></NavLink>
+                <NavLink to={'https://www.instagram.com/sharmaharrdy'}><FaSquareInstagram/></NavLink>
             </div>
         </div>
     </div>

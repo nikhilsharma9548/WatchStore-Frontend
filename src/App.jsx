@@ -20,6 +20,7 @@ import AddProduct from './Components/Admin/AddProduct'
 import ProductList from './Components/Admin/ProductList'
 import Orders from './Components/Admin/Orders'
 import UserDetails from './Pages/UserDetails'
+import Loading from './Components/Loading'
 
 
 const WatchStore = () => {
@@ -28,12 +29,14 @@ const WatchStore = () => {
   const isUserDetailsPath = useLocation().pathname.includes("user-details")
   const {showUserLogin, isAdmin} = useAppContext()
   return (
-      <div>
+    
+  <div>
          {isAdminPath || isUserDetailsPath ? null :  <Navbar/>}
          {showUserLogin ? <Login/> : null}
 
-      <div className={`w-full h-full overflow-hidden`}
+    <div className={`w-full h-full overflow-hidden`}
          style={{ backgroundImage: `url(${assets.Bg2})` }}>
+
         <Routes>
           <Route path='/' element= {<Home/>} />
           <Route path='/products' element= {<AllProducts/>} />
@@ -52,12 +55,9 @@ const WatchStore = () => {
   
     {isAdminPath || isUserDetailsPath ? null : <Footer/>}
     {isAdminPath ? null : <Navbar_2 />}
-   
-      <Toaster />
-
-  
+    <Toaster />
     </div>
-      </div>
+  </div>
 
    
   )

@@ -2,6 +2,7 @@ import React from 'react'
 import { assets, categories } from '../assets/assets'
 import { useContext } from 'react'
 import {useAppContext} from '../Context/AppContext'
+import { AnimatePresence, motion} from "motion/react"
 
 
 const Category = () => {
@@ -14,8 +15,14 @@ const Category = () => {
 
         <div className='flex gap-5 sm:flex mt-10'>
 
+          <AnimatePresence>
           {categories.map((category, index) =>(
-          <div key ={index}  className= " group cursor-pointer  max-w-32  py-5 px-3 gap-2 rounded-lg flex flex-col justify-between items-center"
+          <motion.div 
+            initial ={{opacity:0, scale:0.7 }}
+            whileInView={{opacity:1,scale:1}}
+            transition={{duration:0.3}}
+          key ={index}  
+          className= " group cursor-pointer  max-w-32  py-5 px-3 gap-2 rounded-lg flex flex-col justify-between items-center"
           style = {{backgroundColor: category.bgColor}}
           onClick={() =>{
             navigate(`/products/${category.path.toLowerCase()}`);
@@ -24,7 +31,8 @@ const Category = () => {
           >
             <img src={category.image} alt={category.text} className = "group-hover:scale-108 transition duration-300 max-w-16" />
             <p className = "text-sm text-center font-medium">{category.text}</p> 
-          </div>))}
+          </motion.div>))}
+          </AnimatePresence>
         </div>
         
     

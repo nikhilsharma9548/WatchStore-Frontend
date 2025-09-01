@@ -4,12 +4,12 @@ import { useAppContext } from "../../Context/AppContext";
 import { FiPlusCircle } from "react-icons/fi";
 import { RiAlignItemBottomFill } from "react-icons/ri";
 import { LuBox } from "react-icons/lu";
+import toast from "react-hot-toast";
 
 
 const AdminLayOut = () => {
 
-    const {isAdmin, setIsAdmin} = useAppContext()
-
+    const { navigate, axios} = useAppContext()
     const sidebarLinks = [
         { name: "Add Products", path: "/admin", icon: < FiPlusCircle/> },
         { name: "Product List", path: "/admin/product-list", icon: < RiAlignItemBottomFill/> },
@@ -17,7 +17,17 @@ const AdminLayOut = () => {
     ];
 
     const logOut = async() =>{
-        setIsAdmin(false);
+       try {
+            const { data } = await axios.post('/api/admin/logout');
+            if (data.success) {
+                toast.success(data.message);
+                navigate('/')
+            }else{
+                 toast.error(data.message);
+            }
+       } catch (error) {
+          toast.error(error.message);
+       }
     }
 
     return (

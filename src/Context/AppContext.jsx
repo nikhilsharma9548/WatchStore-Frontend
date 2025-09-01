@@ -5,22 +5,14 @@ import { useEffect } from "react";
 import axios from 'axios'
 import toast from "react-hot-toast";
 
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL
+
 export const AppContext = createContext();
 
 
 export const AppContextProvider = ({children}) => {
-    //fetching the data from backend
        const [images, setImages] = useState([]);
-
-    // useEffect(() =>{
-    //         axios.get("http://localhost:3000/api/slider")
-    //         .then((res) => {
-    //             setImages(res.data)
-    //         })             
-    //         .catch((err) =>{
-    //             console.error("data not found",err)
-    //         })
-    //     },[])
 
     const currency = import.meta.env.VITE_CURRENCY;
 
@@ -31,13 +23,54 @@ export const AppContextProvider = ({children}) => {
     const [showUserLogin, setShowUserLogin] = useState(false)
    
     const [products, setProducts] = useState([]) // Store Products
-    const [cartItems, setcartItems] = useState({})
+    const [cartItems, setCartItems] = useState({})
 
-   
+
+    const fetchAdmin = async() =>{
+        try {
+            const {data} = await axios.get('/api/admin/is-auth');
+
+            if(data.success){
+                setIsAdmin(true)
+            }else{
+                 setIsAdmin(false)
+            }
+        } catch (error) {
+            setIsAdmin(false)
+            console.log(error.message)
+        }
+    }
+
+    //fetch User Auth Status , user data and caet items
+
+    const fetchUser = async() =>{
+        try {
+            const {data} = await axios.get('/api/user/is-auth');
+
+            if(data.success){
+                setUser(data.user)
+                setCartItems(data.user.cartItems)
+            }
+          
+        } catch (error) {
+            setUser(null)
+        }
+
+    }
 
 // Fetch All Products
    const fetchProducts = async () =>{
-    setProducts(dummyProducts)
+    try {
+        const {data} = await axios.get('/api/product/list')
+
+        if(data.success){
+            setProducts(data.products)
+        }else{
+            toast.error(data.message)
+        }
+    } catch (error) {
+        
+    }
    }
 
    // add Prodcts to cart
@@ -52,7 +85,7 @@ export const AppContextProvider = ({children}) => {
         
         cartData[itemId] = 1;
     }
-    setcartItems(cartData);
+    setCartItems(cartData);
     toast.success("added to cart")
    }
 
@@ -62,7 +95,7 @@ export const AppContextProvider = ({children}) => {
     let cartData = structuredClone(cartItems);
 
     cartData[itemId] = quantity;
-    setcartItems(cartData)
+    setCartItems(cartData)
     toast.success("Cart Update");
 
    } 
@@ -82,14 +115,33 @@ export const AppContextProvider = ({children}) => {
         }      
     }
    toast.success("remove from cart")
-   setcartItems(cartData)
+   setCartItems(cartData)
    }
 
    useEffect(() =>{
-
+    fetchAdmin();
     fetchProducts();
-
+    fetchUser();
    },[])
+
+   // update cart items
+   
+   useEffect(()=>{
+    const updateCart = async() =>{
+        try {
+            const{data} = await axios.post('/api/cart/update',{cartItems})
+            if(!data.success){
+                toast.error(data.message)
+            }
+        } catch (error) {
+             toast.error(error.message)
+        }
+    }
+    if(user){
+        updateCart()
+    }
+
+   },[cartItems])
 
    //Add All product
 
@@ -123,7 +175,7 @@ const getCartAmount = () =>{
 
     const value = {
         navigate, user, setUser, isAdmin, setIsAdmin, products, currency, addToCart, updateCartItem, removeFromCart, cartItems,
-        images, setImages ,showUserLogin, setShowUserLogin, searchQuery, setSearchQuery, getCartAmount, getCartCount
+        images, setImages ,showUserLogin, setShowUserLogin, searchQuery, setSearchQuery, getCartAmount, getCartCount, axios, fetchProducts, setCartItems
     }
 
     return <AppContext.Provider value={value}>

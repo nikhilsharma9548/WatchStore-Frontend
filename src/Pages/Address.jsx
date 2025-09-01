@@ -1,18 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { assets } from '../assets/assets'
+import { useAppContext } from '../Context/AppContext'
+import toast from 'react-hot-toast'
 
  //input Field Components
-    const InputField = ({type, placeholder, name, handleChange, address}) =>(
-        <input className='w-full px-2 py-2.5 border border-gray-900 rounded outline-none text-gray-700 focus:border-pink-600 transition' 
-        type= {type} 
-        placeholder={placeholder}
-        onChange={handleChange}
-        value={address[name]}
-        required
-         />
-    )
+    const InputField = ({ type, placeholder, name, handleChange, address }) => (
+  <input
+    className="w-full px-2 py-2.5 border border-gray-900 rounded outline-none text-gray-700 focus:border-pink-600 transition"
+    type={type}
+    placeholder={placeholder}
+    name={name}
+    onChange={handleChange}
+    value={address[name] || ""}   // agar undefined ho to empty string
+    required
+  />
+);
+
 
 const Address = () => {
+    const{axios,  user, navigate} = useAppContext()
 
    const [address, setAddress] = useState({
     firstName: '',
@@ -33,13 +39,28 @@ const Address = () => {
         ...prevAddress,
         [name] : value,
     }))
-    console.log(address);  
    }
 
     const onSubmitHandler = async(e)=>{
-        e.preventDefault();   // ✅ spelling fixed
-        console.log(address); // check ki values aa rahi hain
+        e.preventDefault();
+        try {
+            const { data } = await axios.post('/api/address/add', {address})
+
+            if(data.success){
+                toast.success(data.message)
+                navigate('/cart')
+            }else{
+                 toast.error(data.message)
+            }
+        } catch (error) {
+             toast.error(error.message)
+        }
     }
+    useEffect(() =>{
+        if(!user){
+            navigate('/cart')
+        }
+    },[])
 
   return (
     <div className='mt-24 pb-24 md:px-40  px-5'>

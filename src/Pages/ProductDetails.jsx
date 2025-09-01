@@ -71,12 +71,11 @@ useEffect(() => {
                     </div>
 
                     <p className="text-base font-medium mt-6">About Product</p>
-                    <ul className="list-disc ml-4 text-gray-800">
-                        {product.discription.map((desc, index) => (
-                            <li key={index}>{desc}</li>
-                        ))}
+                   <ul className="list-disc ml-4 text-gray-800">
+                      {(product.discription ?? []).map((desc, index) => (
+                        <li key={index}>{desc}</li>
+                      ))}
                     </ul>
-
                     <div className="flex items-center mt-10 gap-4 text-base">
                         <button
                         onClick={() =>addToCart(product._id)}

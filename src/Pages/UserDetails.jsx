@@ -7,9 +7,8 @@ import { HiGift } from "react-icons/hi2";
 import { ImHeadphones } from "react-icons/im";
 import { FaPlus } from "react-icons/fa6";
 import { FaUserAlt } from "react-icons/fa";
-
-
 import { useAppContext } from '../Context/AppContext'
+import toast from 'react-hot-toast';
 
 
 
@@ -25,8 +24,26 @@ const UserDetails = () => {
       setFiles(null);
     }
   };
+  
 
-  const {navigate} = useAppContext()
+  const {navigate, axios, user, setUser} = useAppContext()
+
+  const logout = async() =>{
+  try {
+    const {data} = await axios.post('/api/user/logout') 
+
+    if(data.success){
+      toast.success(data.message)
+      setUser(null);
+      navigate('/')
+    }else{
+      toast.error(data.message)
+    }
+  } catch (error) {
+     toast.error(error.message)
+  } 
+}
+
   return (
     <div className='min-h-screen'>
       <div className='flex p-5 px-2 border-b'>
@@ -57,7 +74,7 @@ const UserDetails = () => {
           </label>
 
           {/* {isImage ?  <input type='image'/> : <img src={assets.profile_img_1} className='h-16 w-16' />} */}
-          <p className='text-xl px-3'>Nikhil Sharma</p>
+          <p className='text-xl px-3'>{user ? (user.name).toUpperCase() : "GUEST"}</p>
           
         </div>
         <div className='m-4 rounded bg-gray-300/90 p-2'>
@@ -89,12 +106,9 @@ const UserDetails = () => {
             className='text-base m-2 p-2 shadow-xl justify-center rounded flex border border-gray-600 items-center gap-2 text-gray-800'>
             <span className='text-2xl'>< FaUserAlt/></span>
             Become Seller</NavLink>
-
-
         </div>
-        
 
-        <p className='p-3 text-center mx-3.5 rounded  bg-pink-700 '>logout</p>
+        <p onClick={logout} className='p-3 text-center mx-3.5 rounded  bg-pink-700 '>logout</p>
       </div>
 
     </div>

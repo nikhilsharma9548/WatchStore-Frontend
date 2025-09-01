@@ -1,31 +1,60 @@
 import { useState } from "react";
 import { assets, categories } from "../../assets/assets";
-
-
-
-   
+import { useAppContext } from "../../Context/AppContext";
+import toast from "react-hot-toast";
 
 const AddProduct = () => {
 
-     const [files, setFiles] = useState("")
+     const [files, setFiles] = useState([])
     const [name, setName] = useState('')
     const [discription, setDiscription] = useState('')
     const [category, setCategory] = useState('')
     const [price, setPrice] = useState('')
     const [offerPrice, setOfferPrice] = useState('')
+    const{axios} = useAppContext()
     
-    const onSubmitHandler = async(event) =>{
-        event.preventDefault()
+   const onSubmitHandler = async (event) => {
+  event.preventDefault();
+
+  try {
+    const productData = {
+      name,
+      discription: discription.split("\n"),
+      category,
+      price,
+      offerPrice,
+    };
+
+    const formData = new FormData();
+    formData.append("productData", JSON.stringify(productData));
+    
+    for (let i = 0; i < files.length; i++) {
+        formData.append('images',files[i])
     }
-    
-     const handleFileChange = (e) => {
-    const selectedFile = e.target.files && e.target.files[0];
-    if (selectedFile instanceof File) {
-      setFiles(selectedFile);
+
+    const { data } = await axios.post("/api/product/add", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    if (data.success) {
+      toast.success(data.message);
+      setName("");
+      setDiscription("");
+      setCategory("");
+      setPrice("");
+      setOfferPrice("");
+      setFiles([]);
     } else {
-      setFiles(null);
+      toast.error(data.message || "Something went wrong");
     }
-  };
+  } catch (error) {
+    console.error("Error while adding product:", error);
+    toast.error(error.message || "Server Error");
+  }
+};
+
 
     return (
         <div className="pt-5 no-scrollbar flex-1 h-[95vh] overflow-y-scroll flex flex-col justify-between">
@@ -33,7 +62,27 @@ const AddProduct = () => {
                 <div>
                     <p className="text-base font-medium">Product Image</p>
                     <div className="flex flex-wrap items-center gap-3 mt-2">
-                        <label htmlFor="image">
+
+                        {Array(1).fill('').map((_, index) => (
+                            <label key={index} htmlFor={`image${index}`}>
+
+                                <input 
+                                onChange={(e) =>{
+                                    const updatedFlies = [...files];
+                                    updatedFlies[index] = e.target.files[0]
+                                    setFiles(updatedFlies)
+                                } }
+                                type="file" id={`image${index}`} hidden/>
+
+                                <img src={files[index] ? URL.createObjectURL(files[index]) : 
+                                    assets.upload_area 
+                                } className="w-44 cursor-pointer"
+                                width={100}
+                            height={100}/>
+                            </label>
+
+                        ))}
+                        {/* <label htmlFor="image">
                         <input
                             onChange={handleFileChange}
                             accept="image/*"
@@ -47,7 +96,7 @@ const AddProduct = () => {
                             width={100}
                             height={100}
                         />
-        </label>
+        </label> */}
                 </div>
                 </div>
 
@@ -76,9 +125,6 @@ const AddProduct = () => {
                         {categories.map((item,index) =>(
                             <option key={index} value={item.path}>{item.path}</option>
                         ))}
-                        {/* {[{ name: 'Analog' }, { name: 'Digital' }, { name: 'Smart' }].map((item, index) => (
-                            <option key={index} value={item.name}>{item.name}</option>
-                        ))} */}
                     </select>
                 </div>
 

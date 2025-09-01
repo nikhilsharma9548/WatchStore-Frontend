@@ -2,17 +2,17 @@ import { useEffect, useState } from "react";
 import { useAppContext } from "../Context/AppContext";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
-import { dummyAddress } from "../assets/assets";
+import toast from "react-hot-toast";
 
 const Cart = () => {
     
 
-    const {products, currency, cartItems, removeFromCart, getCartCount, updateCartItem, navigate, getCartAmount} = useAppContext()
+    const {products, currency, cartItems, setCartItems, removeFromCart, getCartCount, updateCartItem, navigate, getCartAmount, axios, user} = useAppContext()
 
     const [cartArray, setCartArray] = useState([])
-    const [addresses, setAddresses] = useState(dummyAddress)
+    const [addresses, setAddresses] = useState([])
     const [showAddress, setShowAddress] = useState(false)
-    const [selectedAddress, setSelectedAddess] = useState(dummyAddress[0])
+    const [selectedAddress, setSelectedAddess] = useState(null)
     const [paymentOption, setPaymentOption] = useState("COD")
 
 
@@ -27,7 +27,52 @@ const Cart = () => {
         setCartArray(tempArray)
     }
 
+    //
+
+    const getUserAddress = async() =>{
+        try {
+            const{ data } = await axios.get('/api/address/get');
+
+            if(data.success){
+                setAddresses(data.addresses)
+                if(data.addresses.length > 0){
+                    setSelectedAddess(data.addresses[0])
+                }else{
+                    toast.error(data.message)
+                }
+            }
+        } catch (error) {
+            toast.error(error.message)
+        }
+
+    }
+
     const placeOrder =  async() =>{
+        try {
+            if(!selectedAddress){
+                return toast.error("please select an address")
+                }
+                //place order with COD
+                if(paymentOption === "COD"){
+                    const { data } = await axios.post('api/order/cod',{
+                        userId: user._id,
+                        items:cartArray.map(item => ({
+                            product: item._id,
+                            quantity:item.quantity
+                        })), address: selectedAddress._id
+                    })
+                    if(data.success){
+                        toast.success(data.message)
+                        setCartItems({})
+                        navigate('/my-orders')
+                    }else{
+                        toast.error(data.message)
+                        console.error(data.message)
+                    }
+                }
+        } catch (error) {
+            toast.error(error.message)
+        }
 
     }
 
@@ -37,6 +82,12 @@ const Cart = () => {
         }
 
     }, [products, cartItems])
+
+    useEffect(() =>{
+        if(user){
+            getUserAddress()
+        }
+    },[user])
 
 
     return products.length > 0 && cartItems ?(
@@ -58,12 +109,11 @@ const Cart = () => {
                     <div key={index} className="grid grid-cols-[2fr_1fr_1fr] bg-white pb-5 rounded mb-1 text-gray-500 items-center text-sm md:text-base font-medium pt-3 ">
                         <div className="flex items-center md:gap-6 gap-3">
                             <div onClick={() =>{navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0,0)}} className="cursor-pointer w-24 h-24 flex items-center justify-center rounded overflow-hidden">
-                                <img className="max-w-full h-full object-cover" src={product.image} alt={product.name} />
+                                <img className="max-w-full h-full object-cover" src={product.image[0]} alt={product.name} />
                             </div>
                             <div>
                                 <p className="hidden md:block font-semibold">{product.name}</p>
                                 <div className="font-normal text-gray-500/70">
-                                    {/* <p>Size: <span>{product.size || "N/A"}</span></p> */}
                                     <div className='flex items-center'>
                                         <p>Qty:</p>
                                         <select onChange={e => updateCartItem(product._id, Number(e.target.value)) } 

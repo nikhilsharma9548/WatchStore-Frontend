@@ -3,15 +3,17 @@ import { MdStarRate } from "react-icons/md";
 import { IoCartOutline } from "react-icons/io5";
 import { useAppContext } from "../Context/AppContext";
 import { AnimatePresence, motion } from "motion/react";
+import Loading from "./Loading";
 
 const ProductCard = ({product}) => {
 
-    const {currency, addToCart, removeFromCart, cartItems, navigate} = useAppContext()
+    const {currency, addToCart, removeFromCart, cartItems, navigate, loading} = useAppContext()
 
 
     return product && (
        <>
-        <AnimatePresence>
+       {!loading ?
+       ( <AnimatePresence>
         <motion.div 
          initial ={{opacity:0, scale:0.7 }}
             whileInView={{opacity:1,scale:1}}
@@ -59,7 +61,7 @@ const ProductCard = ({product}) => {
                 </div>
             </div>
         </motion.div>
-        </AnimatePresence>
+        </AnimatePresence>) : <Loading/>}
        </>
     );
 };

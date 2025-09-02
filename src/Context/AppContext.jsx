@@ -21,7 +21,7 @@ export const AppContextProvider = ({children}) => {
     const [user, setUser] = useState(null)
     const [isAdmin, setIsAdmin] = useState(false)
     const [showUserLogin, setShowUserLogin] = useState(false)
-    const [loading, SetLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]) // Store Products
     const [cartItems, setCartItems] = useState({})
 
@@ -63,8 +63,8 @@ export const AppContextProvider = ({children}) => {
         const {data} = await axios.get('/api/product/list')
            
         if(data.success){
-            SetLoading(false)
             setProducts(data.products)
+            setLoading(false)
         }else{
             toast.error(data.message)
         }
@@ -176,7 +176,7 @@ const getCartAmount = () =>{
     const value = {
         navigate, user, setUser, isAdmin, setIsAdmin, products, currency, addToCart, updateCartItem, removeFromCart, cartItems,
         images, setImages ,showUserLogin, setShowUserLogin, searchQuery, setSearchQuery, getCartAmount, getCartCount, axios, 
-        fetchProducts, setCartItems, loading, SetLoading
+        fetchProducts, setCartItems, loading, setLoading
     }
 
     return <AppContext.Provider value={value}>

@@ -1,7 +1,10 @@
 import React from 'react'
+import { useAppContext } from '../Context/AppContext';
 
 const Loading = () => {
-  return (
+  const {loading, setLoading} = useAppContext()
+  if(loading)
+    {return (
     <div className='inset-0 z-50 bg-white/40 min-h-screen items-center 
     flex justify-center w-full'>
 
@@ -15,6 +18,7 @@ const Loading = () => {
       </div>
     </div>
   );
+}
 };
 
 export default Loading;

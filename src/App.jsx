@@ -58,6 +58,7 @@ const WatchStore = () => {
   {isAdminPath ? null : <Navbar_2 />}
   <Toaster />
   </div>
+  <Loading/>  
 </div>
   </>
 

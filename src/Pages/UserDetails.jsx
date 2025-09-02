@@ -42,7 +42,7 @@ const UserDetails = () => {
         }
       });
        setUploadedUrl(res.data.imageUrl); // jo Cloudinary se URL aya usse state me save
-      alert("Image uploaded successfully!");
+      toast.success("Image uploaded successfully!");
     } catch (error) {
       console.error("Upload failed", error);
     }
@@ -76,20 +76,31 @@ const UserDetails = () => {
         </NavLink>
       </div>
 
-      <div className=''>
+      <div className='mx-5'>
 
-        <div className="p-4">
-      <h2 className="text-lg font-bold">Upload Profile Image</h2>
-
+        <div className="className='mx-3 my-5 px-5 py-5 rounded bg-gray-300/90 items-center flex justify-between">
       {/* Image preview before upload */}
       {preview && <img src={preview} alt="preview" className="w-32 h-32 rounded-full my-2" />}
-
-      {/* File input */}
-      <input type="file" accept="image/*" onChange={handleFileChange} />
-
+      {/* File input */}  
+       <label htmlFor="image">
+             <input
+                onChange={handleFileChange}
+                accept="image/*"
+                type="file"
+                id="image"
+                hidden
+             />
+              <img
+              className="w-16 cursor-pointer rounded-full border border-gray-500"
+              src={file && file instanceof File ? URL.createObjectURL(file) : assets.profile}
+              width={100}
+              height={100}
+                        />
+              {/* <p className='absolute text-2xl left-20 top-40'>{file && file instanceof File ? null : < FaPlus/>}</p> */}
+          </label>
       <button 
         onClick={handleUpload} 
-        className="bg-blue-500 text-white px-4 py-2 rounded mt-2"
+        className="bg-pink-700 text-white px-4 py-2 rounded mt-2"
       >
         Upload
       </button>
@@ -124,7 +135,7 @@ const UserDetails = () => {
           <p className='text-xl px-3'>{user ? (user.name).toUpperCase() : "GUEST"}</p>
           
         </div> */}
-        <div className='m-4 rounded bg-gray-300/90 p-2'>
+        <div className=' rounded bg-gray-300/90 p-2'>
 
           <div className='flex'>
             <NavLink to={'/my-orders'}

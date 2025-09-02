@@ -2,7 +2,7 @@ import React from 'react'
 
 const Loading = () => {
   return (
-    <div className='inset-0 z-50 bg-black-40 min-h-screen items-center 
+    <div className='inset-0 z-50 bg-black/40 min-h-screen items-center 
     flex justify-center w-full'>
 
       <div className=" flex flex-col gap-5  items-center justify-center">

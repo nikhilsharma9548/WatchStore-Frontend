@@ -73,7 +73,7 @@ const Login = () => {
 
            <button className="bg-pink-700 hover:bg-pink-800 transition-all text-white w-full py-2 rounded-md cursor-pointer">
                 {state === "register" ? "Create Account" : "Login"}
-                {loading && ( <div className=" border-5  aspect-square w-6  rounded-full
+                {!loading && ( <div className=" border-5  aspect-square w-6  rounded-full
             border-gray-300 border-t-white duration-700 animate-spin"></div>)}
             </button>
 

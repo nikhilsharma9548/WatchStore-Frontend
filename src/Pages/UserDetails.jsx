@@ -77,43 +77,7 @@ const UserDetails = () => {
       </div>
 
       <div className='mx-5'>
-
-        <div className="className='mx-3 my-5 px-5 py-5 rounded bg-gray-300/90 items-center flex justify-between">
-      {/* Image preview before upload */}
-      {preview && <img src={preview} alt="preview" className="w-32 h-32 rounded-full my-2" />}
-      {/* File input */}  
-       <label htmlFor="image">
-             <input
-                onChange={handleFileChange}
-                accept="image/*"
-                type="file"
-                id="image"
-                hidden
-             />
-              <img
-              className="w-16 cursor-pointer rounded-full border border-gray-500"
-              src={file && file instanceof File ? URL.createObjectURL(file) : assets.profile}
-              width={100}
-              height={100}
-                        />
-              {/* <p className='absolute text-2xl left-20 top-40'>{file && file instanceof File ? null : < FaPlus/>}</p> */}
-          </label>
-      <button 
-        onClick={handleUpload} 
-        className="bg-pink-700 text-white px-4 py-2 rounded mt-2"
-      >
-        Upload
-      </button>
-
-      {/* Uploaded image from Cloudinary */}
-      {uploadedUrl && (
-        <div className="mt-4">
-          <p className="text-green-600">Uploaded Image:</p>
-          <img src={uploadedUrl} alt="uploaded" className="w-32 h-32 rounded-full border" />
-        </div>
-      )}
-    </div>  
-        {/* <div className='mx-3 my-5 px-5 rounded h-24 bg-gray-300/90 items-center flex '>
+        <div className='mx-3 my-5 px-5 rounded h-24 bg-gray-300/90 items-center flex '>
 
           <label htmlFor="image">
              <input
@@ -134,7 +98,7 @@ const UserDetails = () => {
 
           <p className='text-xl px-3'>{user ? (user.name).toUpperCase() : "GUEST"}</p>
           
-        </div> */}
+        </div>
         <div className=' rounded bg-gray-300/90 p-2'>
 
           <div className='flex'>

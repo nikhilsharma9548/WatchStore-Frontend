@@ -3,11 +3,14 @@ import { useAppContext } from "../Context/AppContext";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
 import toast from "react-hot-toast";
+import Loading from "../Components/Loading";
 
 const Cart = () => {
     
 
-    const {products, currency, cartItems, setCartItems, removeFromCart, getCartCount, updateCartItem, navigate, getCartAmount, axios, user} = useAppContext()
+    const {products, currency, cartItems, setCartItems, loading,
+        removeFromCart, getCartCount, updateCartItem, setLoading,
+        navigate, getCartAmount, axios, user} = useAppContext()
 
     const [cartArray, setCartArray] = useState([])
     const [addresses, setAddresses] = useState([])
@@ -64,6 +67,7 @@ const Cart = () => {
                     if(data.success){
                         toast.success(data.message)
                         setCartItems({})
+                        setLoading(false)
                         navigate('/my-orders')
                     }else{
                         toast.error(data.message)
@@ -92,7 +96,7 @@ const Cart = () => {
 
     return products.length > 0 && cartItems ?(
        <>
-       <div className="mt-20 ">
+       {! loading ? (<div className="mt-20 ">
          <div className="  flex flex-col md:flex-row py-16  max-w-6xl w-full px-6 mx-auto">
             <div className='flex-1 max-w-4xl px-5'>
                 <h1 className="text-3xl font-medium mb-6">
@@ -197,7 +201,7 @@ const Cart = () => {
                 </button>
             </div>
         </div>
-       </div>
+       </div>) : <Loading/>}
        </>
     ) : null
 }

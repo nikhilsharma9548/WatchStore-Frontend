@@ -10,6 +10,7 @@ const ProductCard = ({product}) => {
 
 
     return product && (
+       <>
         <AnimatePresence>
         <motion.div 
          initial ={{opacity:0, scale:0.7 }}
@@ -59,6 +60,7 @@ const ProductCard = ({product}) => {
             </div>
         </motion.div>
         </AnimatePresence>
+       </>
     );
 };
 

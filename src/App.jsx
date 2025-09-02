@@ -27,37 +27,40 @@ const WatchStore = () => {
 
   const isAdminPath = useLocation().pathname.includes("admin")
   const isUserDetailsPath = useLocation().pathname.includes("user-details")
-  const {showUserLogin, isAdmin} = useAppContext()
+  const {showUserLogin, isAdmin, loading} = useAppContext()
   return (
     
-  <div>
-         {isAdminPath || isUserDetailsPath ? null :  <Navbar/>}
-         {showUserLogin ? <Login/> : null}
+  <>
+{loading ? 
+ ( <div>
+        {isAdminPath || isUserDetailsPath ? null :  <Navbar/>}
+        {showUserLogin ? <Login/> : null}
 
-    <div className={`w-full overflow-hidden`}
-         style={{ backgroundImage: `url(${assets.Bg2})` }}>
+  <div className={`w-full overflow-hidden`}
+        style={{ backgroundImage: `url(${assets.Bg2})` }}>
 
-        <Routes>
-          <Route path='/' element= {<Home/>} />
-          <Route path='/products' element= {<AllProducts/>} />
-          <Route path='/products/:category' element= {<ProducCategory/>} />
-          <Route path='/products/:category/:id' element= {<ProductDetails/>} />
-          <Route path='/cart' element= {<Cart/>} />
-          <Route path='/add-address' element= {<Address/>} />
-          <Route path='/my-orders' element= {<MyOrders/>} />
-          <Route path='/admin'  element = {isAdmin ? <AdminLayOut/> : <AdminLogin />}>
-            <Route index element = {isAdmin ? < AddProduct/> : null}/>
-            <Route path='product-list' element= {<ProductList/>} />
-            <Route path='orders' element= {<Orders/>} />
-          </Route>
-          <Route path='/user-details' element= {<UserDetails/>}/>
-        </Routes>
-  
-    {isAdminPath || isUserDetailsPath ? null : <Footer/>}
-    {isAdminPath ? null : <Navbar_2 />}
-    <Toaster />
-    </div>
+      <Routes>
+        <Route path='/' element= {<Home/>} />
+        <Route path='/products' element= {<AllProducts/>} />
+        <Route path='/products/:category' element= {<ProducCategory/>} />
+        <Route path='/products/:category/:id' element= {<ProductDetails/>} />
+        <Route path='/cart' element= {<Cart/>} />
+        <Route path='/add-address' element= {<Address/>} />
+        <Route path='/my-orders' element= {<MyOrders/>} />
+        <Route path='/admin'  element = {isAdmin ? <AdminLayOut/> : <AdminLogin />}>
+          <Route index element = {isAdmin ? < AddProduct/> : null}/>
+          <Route path='product-list' element= {<ProductList/>} />
+          <Route path='orders' element= {<Orders/>} />
+        </Route>
+        <Route path='/user-details' element= {<UserDetails/>}/>
+      </Routes>
+
+  {isAdminPath || isUserDetailsPath ? null : <Footer/>}
+  {isAdminPath ? null : <Navbar_2 />}
+  <Toaster />
   </div>
+</div> ): <Loading/>}
+  </>
 
    
   )

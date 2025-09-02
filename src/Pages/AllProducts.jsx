@@ -1,11 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import ProductCard from '../Components/ProductCard'
 import { useAppContext } from '../Context/AppContext'
-import Footer from '../Components/Footer'
-import Navbar from '../Components/Navbar'
-
+import Loading from '../Components/Loading'
 const AllProducts = () => {
-    const {products, searchQuery,} = useAppContext()
+    const {products, searchQuery,loading} = useAppContext()
     const [filteredProduct, setFilterProduct,] = useState([])
 
     useEffect(() =>{
@@ -22,9 +20,9 @@ const AllProducts = () => {
 
   return (
    <>
-   <Navbar/>
-    <div className='mt-32 md:px-10 px-3 flex flex-col pb-10'>
-        <div className='flex flex-col items-end w-max'>
+   
+   {loading ? ( <div className='mt-32 md:px-10 px-3 flex flex-col pb-10'>
+      <div className='flex flex-col items-end w-max'>
           <p className='text-3xl '>All Products</p>
           <div className='w-16  h-0.5 bg-pink-800 rounded-full'></div>
         </div>
@@ -37,7 +35,7 @@ const AllProducts = () => {
           
         </div>
 
-    </div>
+    </div>) : <Loading/> }
    </>
   )
 }

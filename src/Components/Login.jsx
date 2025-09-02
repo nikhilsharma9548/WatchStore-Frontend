@@ -22,9 +22,9 @@ const Login = () => {
             const {data} = await axios.post(`/api/user/${state}`,{name, email, password })
 
             if(data.success){
+                setLoading(false)
                 navigate('/')
                 setUser(data.user)
-                setLoading(false)
                 setShowUserLogin(false)
                 toast.success(data.message)
 

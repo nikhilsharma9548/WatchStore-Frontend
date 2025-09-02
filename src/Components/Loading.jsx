@@ -1,9 +1,12 @@
 import React from 'react'
 import { useAppContext } from '../Context/AppContext';
+import { assets } from '../assets/assets';
 
 const Loading = () => {
     return (
-    <div className='inset-0 z-50 bg-white/40 min-h-screen items-center 
+    <div 
+      style={{ backgroundImage: `url(${assets.Bg2})` }}
+    className='inset-0 z-50 bg-white/40 min-h-screen items-center 
     flex justify-center w-full'>
 
       <div className=" flex flex-col gap-5  items-center justify-center">

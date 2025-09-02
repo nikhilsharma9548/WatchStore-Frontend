@@ -14,14 +14,37 @@ import toast from 'react-hot-toast';
 
 const UserDetails = () => {
 
-   const [files, setFiles] = useState("")
+  //upload user image
+  const [file, setFile] = useState(null)
+  const [preview, setPreview] = useState(null);
+  const [uploadedUrl, setUploadedUrl] = useState("");
     
     const handleFileChange = (e) => {
-    const selectedFile = e.target.files && e.target.files[0];
-    if (selectedFile instanceof File) {
-      setFiles(selectedFile);
-    } else {
-      setFiles(null);
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+    setPreview(URL.createObjectURL(selectedFile));
+  };
+
+   const handleUpload = async () => {
+    if (!file) {
+      alert("Please select an image first!");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("image", file);
+
+    try {
+      const res = await axios.post("/api/upload-profile", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${localStorage.getItem("token")}` // agar auth lagaya hai
+        }
+      });
+       setUploadedUrl(res.data.imageUrl); // jo Cloudinary se URL aya usse state me save
+      alert("Image uploaded successfully!");
+    } catch (error) {
+      console.error("Upload failed", error);
     }
   };
   
@@ -42,7 +65,7 @@ const UserDetails = () => {
   } catch (error) {
      toast.error(error.message)
   } 
-}
+} 
 
   return (
     <div className='min-h-screen'>
@@ -54,7 +77,32 @@ const UserDetails = () => {
       </div>
 
       <div className=''>
-        <div className='mx-3 my-5 px-5 rounded h-24 bg-gray-300/90 items-center flex '>
+
+        <div className="p-4">
+      <h2 className="text-lg font-bold">Upload Profile Image</h2>
+
+      {/* Image preview before upload */}
+      {preview && <img src={preview} alt="preview" className="w-32 h-32 rounded-full my-2" />}
+
+      {/* File input */}
+      <input type="file" accept="image/*" onChange={handleFileChange} />
+
+      <button 
+        onClick={handleUpload} 
+        className="bg-blue-500 text-white px-4 py-2 rounded mt-2"
+      >
+        Upload
+      </button>
+
+      {/* Uploaded image from Cloudinary */}
+      {uploadedUrl && (
+        <div className="mt-4">
+          <p className="text-green-600">Uploaded Image:</p>
+          <img src={uploadedUrl} alt="uploaded" className="w-32 h-32 rounded-full border" />
+        </div>
+      )}
+    </div>  
+        {/* <div className='mx-3 my-5 px-5 rounded h-24 bg-gray-300/90 items-center flex '>
 
           <label htmlFor="image">
              <input
@@ -66,17 +114,16 @@ const UserDetails = () => {
              />
               <img
               className="w-16 cursor-pointer rounded-full border border-gray-500"
-              src={files && files instanceof File ? URL.createObjectURL(files) : assets.profile_img_1}
+              src={file && file instanceof File ? URL.createObjectURL(file) : assets.profile}
               width={100}
               height={100}
                         />
-              <p className='absolute text-2xl left-20 top-40 text-gray-700'>{files && files instanceof File ? null : < FaPlus/>}</p>
+              <p className='absolute text-2xl left-20 top-40 text-gray-700'>{file && file instanceof File ? null : < FaPlus/>}</p>
           </label>
 
-          {/* {isImage ?  <input type='image'/> : <img src={assets.profile_img_1} className='h-16 w-16' />} */}
           <p className='text-xl px-3'>{user ? (user.name).toUpperCase() : "GUEST"}</p>
           
-        </div>
+        </div> */}
         <div className='m-4 rounded bg-gray-300/90 p-2'>
 
           <div className='flex'>

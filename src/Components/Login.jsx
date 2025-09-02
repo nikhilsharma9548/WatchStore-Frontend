@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from 'react';
 import { useAppContext } from '../Context/AppContext';
 import toast from 'react-hot-toast';
-import Loading from './Loading';
 
 const Login = () => {
 
@@ -22,10 +21,11 @@ const Login = () => {
             const {data} = await axios.post(`/api/user/${state}`,{name, email, password })
 
             if(data.success){
-                setLoading(false)
                 navigate('/')
                 setUser(data.user)
+                setLoading(false);
                 setShowUserLogin(false)
+
                 toast.success(data.message)
 
             }else{
@@ -71,12 +71,11 @@ const Login = () => {
                 </p>
             )}
 
-          {!loading ? ( <button className="bg-pink-700 hover:bg-pink-800 transition-all text-white w-full py-2 rounded-md cursor-pointer">
+           <button className="bg-pink-700 hover:bg-pink-800 transition-all text-white w-full py-2 rounded-md cursor-pointer">
                 {state === "register" ? "Create Account" : "Login"}
-            </button>) : 
-           
-           <Loading/>
-            }
+                {loading && ( <div className=" border-5  aspect-square w-6  rounded-full
+            border-gray-300 border-t-white duration-700 animate-spin"></div>)}
+            </button>
 
         </form>
 

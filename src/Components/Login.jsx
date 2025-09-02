@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useAppContext } from '../Context/AppContext';
 import toast from 'react-hot-toast';
+import Loading from './Loading';
 
 const Login = () => {
 
@@ -73,12 +74,8 @@ const Login = () => {
           {!loading ? ( <button className="bg-pink-700 hover:bg-pink-800 transition-all text-white w-full py-2 rounded-md cursor-pointer">
                 {state === "register" ? "Create Account" : "Login"}
             </button>) : 
-            <div>
-                 <div className=" border-4  aspect-square w-14 rounded-full
-                border-blue-600 border-t-white/40 inset-0  border-r-0 border-l-0
-                animate-spin">
-                </div>
-            </div>
+           
+           <Loading/>
             }
 
         </form>

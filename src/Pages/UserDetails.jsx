@@ -96,7 +96,10 @@ const UserDetails = () => {
               <p className='absolute text-2xl left-20 top-40 text-gray-700'>{file && file instanceof File ? null : < FaPlus/>}</p>
           </label>
 
-          <p className='text-xl px-3'>{user ? (user.name).toUpperCase() : "GUEST"}</p>
+          <p className='text-xl px-3'>{user ? (user.name).toUpperCase() : "GUEST"}
+            <span className='py-1'>{user ? (user.email) : null}</span>
+          </p>
+          
           
         </div>
         <div className=' rounded bg-gray-300/90 p-2'>
@@ -130,9 +133,9 @@ const UserDetails = () => {
             Become Seller</NavLink>
         </div>
 
-        <p onClick={logout} className='p-3 text-center mx-3.5 rounded  bg-pink-700 '>
+        <p onClick={logout} className='p-3 flex w-full justify-center items-center text-center mx-3.5 rounded  bg-pink-700 '>
           logout
-          {loading && ( <div className=" border-2 pl-5 aspect-square w-5 rounded-full
+          {loading && ( <div className=" border-2 aspect-square w-5 rounded-full
          border-white border-t-transparent border-r-0 border-l-0
           animate-spin"></div>)}
         </p>

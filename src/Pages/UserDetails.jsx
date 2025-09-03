@@ -93,11 +93,11 @@ const UserDetails = () => {
               width={100}
               height={100}
                         />
-              <p className='absolute text-2xl left-20 top-40 text-white'>{file && file instanceof File ? null : < FaPlus/>}</p>
+              <p className='absolute text-2xl left-20 top-40 text-gray-200'>{file && file instanceof File ? null : < FaPlus/>}</p>
           </label>
 
           <p className='text-xl px-3 flex flex-col gap-1'>{user ? (user.name).toUpperCase() : "GUEST"}
-            <span className='py-1 text-sm'>{user ? (user.email) : null}</span>
+            <span className='text-sm'>{user ? (user.email) : null}</span>
           </p>
           
         </div>

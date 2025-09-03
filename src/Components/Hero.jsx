@@ -73,7 +73,7 @@ const Hero = () => {
     <motion.div 
             initial ={{opacity:0, scale:0.9 }}
             whileInView={{opacity:1,scale:1}}
-            transition={{duration:0.7}}
+            transition={{duration:0.5}}
     className='md:hidden mt-20 relative px-1 overflow-hidden flex flex-col justify-center items-center'>
       <img src={assets.mobile} className='w-[800px] h-full rounded-2xl' />
       

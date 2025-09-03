@@ -107,9 +107,9 @@ const logout = async() =>{
 
                     <img src={assets.profile} className='w-10 h-10 rounded-full' />
 
-                    <div className='hidden group-hover:block h-96 w-44 bg-white'>
+                    <div className='hidden group-hover:block h-96 w-44 bg-white  absolute top-10 right-0'>
                       <img src={assets.profile} className='w-14 h-14 rounded-full pb-5' />
-                      <ul className=' px-1.5 absolute top-10 right-0 
+                      <ul className=' px-1.5 
                      shadow border border-gray-700 py-2.5 rounded-md text-sm z-40'>
                       <li onClick={() => navigate('/my-orders')} className='p-1.5 hover:bg-pink-700/10 cursor-pointer'>My Orders</li>
                       <li onClick={logout} className='p-1.5 hover:bg-pink-700/10 cursor-pointer'>logout</li>

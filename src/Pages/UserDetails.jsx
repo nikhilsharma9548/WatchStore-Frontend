@@ -30,18 +30,17 @@ const UserDetails = () => {
       alert("Please select an image first!");
       return;
     }
-
     const formData = new FormData();
     formData.append("image", file);
 
     try {
-      const res = await axios.post("/api/upload-profile", formData, {
+      const {data} = await axios.post("/api/upload-profile", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${localStorage.getItem("token")}` // agar auth lagaya hai
         }
       });
-       setUploadedUrl(res.data.imageUrl); // jo Cloudinary se URL aya usse state me save
+       setUploadedUrl(data.imageUrl); // jo Cloudinary se URL aya usse state me save
       toast.success("Image uploaded successfully!");
     } catch (error) {
       console.error("Upload failed", error);
@@ -52,12 +51,14 @@ const UserDetails = () => {
   const {navigate, axios, user, setUser} = useAppContext()
 
   const logout = async() =>{
+    setLoading(true)
   try {
     const {data} = await axios.post('/api/user/logout') 
 
     if(data.success){
       toast.success(data.message)
       setUser(null);
+      setLoading(false)
       navigate('/')
     }else{
       toast.error(data.message)
@@ -75,7 +76,6 @@ const UserDetails = () => {
             <p className='text-xl font-semibold'>TimeAura</p>
         </NavLink>
       </div>
-
       <div className='mx-5'>
         <div className='mx-3 my-5 px-5 rounded h-24 bg-gray-300/90 items-center flex '>
 
@@ -130,7 +130,12 @@ const UserDetails = () => {
             Become Seller</NavLink>
         </div>
 
-        <p onClick={logout} className='p-3 text-center mx-3.5 rounded  bg-pink-700 '>logout</p>
+        <p onClick={logout} className='p-3 text-center mx-3.5 rounded  bg-pink-700 '>
+          logout
+          {loading && ( <div className=" border-2 pl-5 aspect-square w-5 rounded-full
+         border-white border-t-transparent border-r-0 border-l-0
+          animate-spin"></div>)}
+        </p>
       </div>
 
     </div>

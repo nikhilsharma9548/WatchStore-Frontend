@@ -76,8 +76,8 @@ const UserDetails = () => {
             <p className='text-xl font-semibold'>TimeAura</p>
         </NavLink>
       </div>
-      <div className=''>
-        <div className='mx-3 my-5 px-5 rounded h-24 bg-gray-300/90 items-center flex '>
+      <div className='mx-5'>
+        <div className='my-5 px-5 rounded h-24 bg-gray-300/90 items-center flex '>
 
           <label htmlFor="image">
              <input
@@ -96,7 +96,7 @@ const UserDetails = () => {
               <p className='absolute text-2xl left-20 top-40 text-gray-700'>{file && file instanceof File ? null : < FaPlus/>}</p>
           </label>
 
-          <p className='text-xl px-3'>{user ? (user.name).toUpperCase() : "GUEST"}
+          <p className='text-xl px-3 flex flex-col gap-2'>{user ? (user.name).toUpperCase() : "GUEST"}
             <span className='py-1'>{user ? (user.email) : null}</span>
           </p>
           

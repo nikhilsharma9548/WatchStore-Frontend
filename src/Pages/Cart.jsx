@@ -10,7 +10,7 @@ const Cart = () => {
 
     const {products, currency, cartItems, setCartItems, loading,
         removeFromCart, getCartCount, updateCartItem, setLoading,
-        navigate, getCartAmount, axios, user} = useAppContext()
+        navigate, getCartAmount, axios, user,setShowUserLogin} = useAppContext()
 
     const [cartArray, setCartArray] = useState([])
     const [addresses, setAddresses] = useState([])
@@ -54,6 +54,10 @@ const Cart = () => {
         try {
             if(!selectedAddress){
                 return toast.error("please select an address")
+                }
+                if(user){
+                    setShowUserLogin(true)
+                    toast.dismiss("please Login first")
                 }
                 //place order with COD
                 if(paymentOption === "COD"){

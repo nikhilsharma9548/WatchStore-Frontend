@@ -77,7 +77,7 @@ const UserDetails = () => {
         </NavLink>
       </div>
       <div className='mx-5'>
-        <div className='my-5 px-5 rounded h-24 bg-gray-300/90 items-center flex '>
+        <div className='my-5 px-5  rounded bg-gray-300/90 items-center flex '>
 
           <label htmlFor="image">
              <input
@@ -96,7 +96,7 @@ const UserDetails = () => {
               <p className='absolute text-2xl left-20 top-40 text-gray-200'>{file && file instanceof File ? null : < FaPlus/>}</p>
           </label>
 
-          <p className='text-xl px-3 flex flex-col gap-1'>{user ? (user.name).toUpperCase() : "GUEST"}
+          <p className='text-xl px-3 flex flex-col'>{user ? (user.name).toUpperCase() : "GUEST"}
             <span className='text-sm'>{user ? (user.email) : null}</span>
           </p>
           

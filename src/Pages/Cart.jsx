@@ -52,8 +52,9 @@ const Cart = () => {
 
     const placeOrder =  async() =>{
         try {
-            if(!selectedAddress){
-                return toast.error("please select an address")
+            if(!selectedAddress && !user ){
+                setShowUserLogin(true)
+                return toast.error("please Login & select an address")
                 }
                 //place order with COD
                 if(paymentOption === "COD"){

@@ -14,7 +14,7 @@ const Loading = () => {
          border-blue-600 border-t-transparent inset-0  border-r-0 border-l-0
           animate-spin">
         </div>
-        <p  className='font-sans text-xl'>Loading....</p>
+        <p  className='font-sans'>Loading....</p>
 
       </div>
     </div>

@@ -141,7 +141,6 @@ export const AppContextProvider = ({children}) => {
     if(user){
         updateCart()
     }
-
    },[cartItems])
 
    //Add All product

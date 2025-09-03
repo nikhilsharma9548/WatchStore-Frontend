@@ -77,7 +77,7 @@ const UserDetails = () => {
         </NavLink>
       </div>
       <div className='mx-5'>
-        <div className='my-5 px-5 py-5 rounded bg-gray-300/90 items-center flex '>
+        <div className='my-5 px-5 py-4 rounded bg-gray-300/90 items-center flex '>
 
           <label htmlFor="image">
              <input

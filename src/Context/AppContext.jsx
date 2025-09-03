@@ -129,12 +129,10 @@ export const AppContextProvider = ({children}) => {
    
    useEffect(()=>{
     const updateCart = async() =>{
-        setLoading(true)
         try {
             const{data} = await axios.post('/api/cart/update',{cartItems})
             if(!data.success){
                 toast.error(data.message)
-                setLoading(false)
             }
         } catch (error) {
              toast.error(error.message)

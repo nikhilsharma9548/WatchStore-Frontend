@@ -33,57 +33,52 @@ const Cart = () => {
     //
 
     const getUserAddress = async() =>{
-    try {
-        setLoading(true); // start loading
-        const { data } = await axios.get('/api/address/get');
+        try {
+            const{ data } = await axios.get('/api/address/get');
 
-        if(data.success){
-            setAddresses(data.addresses)
-            if(data.addresses.length > 0){
-                setSelectedAddess(data.addresses[0])
-            }else{
-                toast.error(data.message)
+            if(data.success){
+                setAddresses(data.addresses)
+                if(data.addresses.length > 0){
+                    setSelectedAddess(data.addresses[0])
+                }else{
+                    toast.error(data.message)
+                }
             }
+        } catch (error) {
+            toast.error(error.message)
         }
-    } catch (error) {
-        toast.error(error.message)
-    } finally {
-        setLoading(false); // stop loading
-    }
-}
 
+    }
 
     const placeOrder =  async() =>{
-    try {
-        if(!selectedAddress){
-            return toast.error("please select an address")
+        try {
+            if(!selectedAddress){
+                return toast.error("please select an address")
+                }
+                //place order with COD
+                if(paymentOption === "COD"){
+                    const { data } = await axios.post('api/order/cod',{
+                        userId: user._id,
+                        items:cartArray.map(item => ({
+                            product: item._id,
+                            quantity:item.quantity
+                        })), address: selectedAddress._id
+                    })
+                    if(data.success){
+                        toast.success(data.message)
+                        setCartItems({})
+                        setLoading(false)
+                        navigate('/my-orders')
+                    }else{
+                        toast.error(data.message)
+                        console.error(data.message)
+                    }
+                }
+        } catch (error) {
+            toast.error(error.message)
         }
 
-        setLoading(true); // start loading
-
-        if(paymentOption === "COD"){
-            const { data } = await axios.post('api/order/cod',{
-                userId: user._id,
-                items:cartArray.map(item => ({
-                    product: item._id,
-                    quantity:item.quantity
-                })),
-                address: selectedAddress._id
-            })
-            if(data.success){
-                toast.success(data.message)
-                setCartItems({})
-                navigate('/my-orders')
-            }else{
-                toast.error(data.message)
-            }
-        }
-    } catch (error) {
-        toast.error(error.message)
-    } finally {
-        setLoading(false); // stop loading
     }
-}
 
     useEffect(() =>{
         if(products.length > 0 && cartItems){

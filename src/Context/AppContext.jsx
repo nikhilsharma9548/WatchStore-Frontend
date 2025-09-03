@@ -127,28 +127,33 @@ export const AppContextProvider = ({children}) => {
 
    // update cart items
    
-   useEffect(()=>{
-    const updateCart = async() =>{
-        try {
-            const{data} = await axios.post('/api/cart/update',{cartItems})
-            if(!data.success){
-                toast.error(data.message)
-            }
-        } catch (error) {
-  console.error("Cart update error:", error); // debug ke liye
+  useEffect(() => {
+  const updateCart = async () => {
+    try {
+      const { data } = await axios.post("/api/cart/update", {
+        userId: user._id,     // 👈 important
+        cartItems,
+      });
 
-  toast.error(
-    error?.response?.data?.message?.toString() ||
-    error?.message?.toString() ||
-    "Failed to update cart"
-  );
-}
-    }
-    if(user){
-        updateCart()
-    }
+      if (!data.success) {
+        toast.error(data?.message || "Cart update failed");
+      }
+    } catch (error) {
+      console.error("Cart update error:", error);
 
-   },[cartItems])
+      toast.error(
+        error?.response?.data?.message?.toString() ||
+        error?.message?.toString() ||
+        "Failed to update cart"
+      );
+    }
+  };
+
+  // ❌ Empty cart par API call mat kar
+  if (user && Object.keys(cartItems).length > 0) {
+    updateCart();
+  }
+}, [cartItems, user]);
 
    //Add All product
 

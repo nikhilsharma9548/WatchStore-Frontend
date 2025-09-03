@@ -76,7 +76,7 @@ const UserDetails = () => {
             <p className='text-xl font-semibold'>TimeAura</p>
         </NavLink>
       </div>
-      <div className='mx-5'>
+      <div className=''>
         <div className='mx-3 my-5 px-5 rounded h-24 bg-gray-300/90 items-center flex '>
 
           <label htmlFor="image">

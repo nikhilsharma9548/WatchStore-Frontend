@@ -33,24 +33,25 @@ const Cart = () => {
     //
 
     const getUserAddress = async() =>{
-        setLoading(true)
-        try {
-            const{ data } = await axios.get('/api/address/get');
+    try {
+        setLoading(true); // start loading
+        const { data } = await axios.get('/api/address/get');
 
-            if(data.success){
-                setAddresses(data.addresses)
-                if(data.addresses.length > 0){
-                    setSelectedAddess(data.addresses[0])
-                }else{
-                    toast.error(data.message)
-                }
-                setLoading(false)
+        if(data.success){
+            setAddresses(data.addresses)
+            if(data.addresses.length > 0){
+                setSelectedAddess(data.addresses[0])
+            }else{
+                toast.error(data.message)
             }
-        } catch (error) {
-            toast.error(error.message)
         }
-
+    } catch (error) {
+        toast.error(error.message)
+    } finally {
+        setLoading(false); // stop loading
     }
+}
+
 
     const placeOrder =  async() =>{
         try {

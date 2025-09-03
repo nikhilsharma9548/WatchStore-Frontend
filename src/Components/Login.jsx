@@ -25,7 +25,6 @@ const Login = () => {
                 setUser(data.user) 
                 setLoading(false)    
                 navigate('/')
-
                 toast.success(data.message)
 
             }else{

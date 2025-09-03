@@ -133,6 +133,7 @@ export const AppContextProvider = ({children}) => {
             const{data} = await axios.post('/api/cart/update',{cartItems})
             if(!data.success){
                 toast.error(data.message)
+                 console.log(error.message)
             }
         } catch (error) {
              toast.error(error.message)

@@ -42,7 +42,7 @@ const Hero = () => {
               key={index}
               src={img}
               alt={`slide-${index}`}
-              className="w-full h-[500px] object-cover flex-shrink-0 border-b-4 border-white"
+              className="xl:w-full lg:max-w-4xl md:max-w-3xl h-[500px] object-cover flex-shrink-0 border-b-4 border-white"
             />
           ))}   
       </div>

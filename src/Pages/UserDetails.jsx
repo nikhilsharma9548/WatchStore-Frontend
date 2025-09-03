@@ -133,7 +133,7 @@ const UserDetails = () => {
             Become Seller</NavLink>
         </div>
 
-        <p onClick={logout} className='p-3 flex w-full justify-center items-center text-center mx-3.5 rounded  bg-pink-700 '>
+        <p onClick={logout} className='p-3 flex w-full justify-center items-center gap-5 text-center rounded  bg-pink-700 '>
           logout
           {loading && ( <div className=" border-2 aspect-square w-5 rounded-full
          border-white border-t-transparent border-r-0 border-l-0

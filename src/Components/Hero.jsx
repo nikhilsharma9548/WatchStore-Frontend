@@ -71,7 +71,7 @@ const Hero = () => {
   {/* for Mobile View */}
   <AnimatePresence>
     <motion.div 
-            initial ={{opacity:0, scale:0.7 }}
+            initial ={{opacity:0, scale:0.9 }}
             whileInView={{opacity:1,scale:1}}
             transition={{duration:0.7}}
     className='md:hidden mt-20 relative px-1 overflow-hidden flex flex-col justify-center items-center'>

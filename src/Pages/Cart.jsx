@@ -54,9 +54,9 @@ const Cart = () => {
         try {
             if(!selectedAddress && !user){
                 setShowUserLogin(true)
-                return toast.error("please Login and select address")
+                toast.error("please Login and select address")
                 }
-               
+
                 //place order with COD
                 if(paymentOption === "COD"){
                     const { data } = await axios.post('api/order/cod',{

@@ -33,7 +33,6 @@ const Cart = () => {
     //
 
     const getUserAddress = async() =>{
-            setLoading(true)
         try {
             const{ data } = await axios.get('/api/address/get');
 
@@ -45,7 +44,6 @@ const Cart = () => {
                     toast.error(data.message)
                 }
             }
-                  setLoading(false)
         } catch (error) {
             toast.error(error.message)
         }

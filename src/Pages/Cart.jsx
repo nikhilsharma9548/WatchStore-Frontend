@@ -10,7 +10,7 @@ const Cart = () => {
 
     const {products, currency, cartItems, setCartItems, loading,
         removeFromCart, getCartCount, updateCartItem, setLoading,
-        navigate, getCartAmount, axios, user,setShowUserLogin} = useAppContext()
+        navigate, getCartAmount, axios, user} = useAppContext()
 
     const [cartArray, setCartArray] = useState([])
     const [addresses, setAddresses] = useState([])
@@ -45,18 +45,16 @@ const Cart = () => {
                 }
             }
         } catch (error) {
-            toast.error(error.message ||  "error bhai")
+            toast.error(error.message)
         }
 
     }
 
     const placeOrder =  async() =>{
         try {
-            if(!selectedAddress && !user){
-                setShowUserLogin(true)
-                toast.error("please Login and select address")
+            if(!selectedAddress){
+                return toast.error("please select an address")
                 }
-
                 //place order with COD
                 if(paymentOption === "COD"){
                     const { data } = await axios.post('api/order/cod',{
@@ -98,7 +96,7 @@ const Cart = () => {
 
     return products.length > 0 && cartItems ?(
        <>
-       {!loading ? (<div className="mt-20 ">
+       {! loading ? (<div className="mt-20 ">
          <div className="  flex flex-col md:flex-row py-16  max-w-6xl w-full px-6 mx-auto">
             <div className='flex-1 max-w-4xl px-5'>
                 <h1 className="text-3xl font-medium mb-6">

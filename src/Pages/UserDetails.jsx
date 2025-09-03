@@ -48,7 +48,7 @@ const UserDetails = () => {
   };
   
 
-  const {navigate, axios, user, setUser, setLoading} = useAppContext()
+  const {navigate, axios, user, setUser, loading,  setLoading} = useAppContext()
 
   const logout = async() =>{
     setLoading(true)

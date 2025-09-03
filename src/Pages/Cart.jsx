@@ -92,7 +92,7 @@ const Cart = () => {
             getUserAddress()
         }else{
             setShowUserLogin(true);
-            toast.arguments("please login First")
+            toast.error("please login First")
         }
     },[user])
 

@@ -56,6 +56,7 @@ const Cart = () => {
                 setShowUserLogin(true)
                 return toast.error("please Login & select an address")
                 }
+                 setLoading(true); 
                 //place order with COD
                 if(paymentOption === "COD"){
                     const { data } = await axios.post('api/order/cod',{
@@ -77,7 +78,9 @@ const Cart = () => {
                 }
         } catch (error) {
             toast.error(error.message)
-        }
+        } finally {
+        setLoading(false); // stop loading
+    }
 
     }
 

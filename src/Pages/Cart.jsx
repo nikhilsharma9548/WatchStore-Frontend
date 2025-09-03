@@ -55,6 +55,10 @@ const Cart = () => {
             if(!selectedAddress){
                 return toast.error("please select an address")
                 }
+                if(!user){
+                    setShowUserLogin(true)
+                    toast.error("please login first")
+                }
                 //place order with COD
                 if(paymentOption === "COD"){
                     const { data } = await axios.post('api/order/cod',{
@@ -90,9 +94,6 @@ const Cart = () => {
     useEffect(() =>{
         if(user){
             getUserAddress()
-        }else{
-            setShowUserLogin(true);
-            toast.error("please login First")
         }
     },[user])
 

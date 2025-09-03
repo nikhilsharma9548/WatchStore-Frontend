@@ -54,34 +54,36 @@ const Cart = () => {
 
 
     const placeOrder =  async() =>{
-        try {
-            if(!selectedAddress){
-                return toast.error("please select an address")
-                }
-                //place order with COD
-                if(paymentOption === "COD"){
-                    const { data } = await axios.post('api/order/cod',{
-                        userId: user._id,
-                        items:cartArray.map(item => ({
-                            product: item._id,
-                            quantity:item.quantity
-                        })), address: selectedAddress._id
-                    })
-                    if(data.success){
-                        toast.success(data.message)
-                        setCartItems({})
-                        setLoading(false)
-                        navigate('/my-orders')
-                    }else{
-                        toast.error(data.message)
-                        console.error(data.message)
-                    }
-                }
-        } catch (error) {
-            toast.error(error.message)
+    try {
+        if(!selectedAddress){
+            return toast.error("please select an address")
         }
 
+        setLoading(true); // start loading
+
+        if(paymentOption === "COD"){
+            const { data } = await axios.post('api/order/cod',{
+                userId: user._id,
+                items:cartArray.map(item => ({
+                    product: item._id,
+                    quantity:item.quantity
+                })),
+                address: selectedAddress._id
+            })
+            if(data.success){
+                toast.success(data.message)
+                setCartItems({})
+                navigate('/my-orders')
+            }else{
+                toast.error(data.message)
+            }
+        }
+    } catch (error) {
+        toast.error(error.message)
+    } finally {
+        setLoading(false); // stop loading
     }
+}
 
     useEffect(() =>{
         if(products.length > 0 && cartItems){

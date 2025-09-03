@@ -135,8 +135,14 @@ export const AppContextProvider = ({children}) => {
                 toast.error(data.message)
             }
         } catch (error) {
-             toast.error(error.message)
-        }
+  console.error("Cart update error:", error); // debug ke liye
+
+  toast.error(
+    error?.response?.data?.message?.toString() ||
+    error?.message?.toString() ||
+    "Failed to update cart"
+  );
+}
     }
     if(user){
         updateCart()

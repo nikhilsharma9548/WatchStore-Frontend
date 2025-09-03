@@ -59,6 +59,7 @@ export const AppContextProvider = ({children}) => {
 
 // Fetch All Products
    const fetchProducts = async () =>{
+    setLoading(true)
     try {
         const {data} = await axios.get('/api/product/list')
            

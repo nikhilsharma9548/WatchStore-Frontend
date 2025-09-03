@@ -130,7 +130,8 @@ export const AppContextProvider = ({children}) => {
    useEffect(()=>{
     const updateCart = async() =>{
         try {
-            const{data} = await axios.post('/api/cart/update',{cartItems})
+            const{data} = await axios.post('/api/cart/update', {cartItems})
+
             if(!data.success){
                 toast.error(data.message)
                  console.log(error.message)
@@ -144,7 +145,7 @@ export const AppContextProvider = ({children}) => {
         updateCart()
     }
 
-   },[cartItems])
+   },[cartItems, user])
 
    //Add All product
 

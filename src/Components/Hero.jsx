@@ -33,7 +33,7 @@ const Hero = () => {
     
    <>
    <div id='home' className='flex justify-center xl:items-center overflow-hidden z-0 relative pb-10 '>
-  <div className='w-full max-w-7xl mx-auto overflow-hidden relative xl:rounded shadow-lg mt-33 shadow-gray-600 max-md:hidden'>
+  <div className='w-full xl:max-w-7xl lg:max-w-6xl md:max-w-5xl mx-auto overflow-hidden relative xl:rounded shadow-lg mt-33 shadow-gray-600 max-md:hidden'>
 
       <div className="flex transition-transform duration-700 ease-in-out"
           style={{ transform: `translateX(-${current * 100}%)` }}>
@@ -42,7 +42,7 @@ const Hero = () => {
               key={index}
               src={img}
               alt={`slide-${index}`}
-              className="xl:w-full lg:max-w-4xl md:max-w-3xl h-[500px] object-cover flex-shrink-0 border-b-4 border-white"
+              className="w-full h-[500px] object-cover flex-shrink-0 border-b-4 border-white"
             />
           ))}   
       </div>

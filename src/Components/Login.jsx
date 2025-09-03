@@ -22,8 +22,7 @@ const Login = () => {
 
             if(data.success){
                 setShowUserLogin(false)
-                setUser(data.user)
-                setLoading(false)
+                setUser(data.user)     
                 navigate('/')
 
                 toast.success(data.message)

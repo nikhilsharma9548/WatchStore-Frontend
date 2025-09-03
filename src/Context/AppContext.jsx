@@ -48,7 +48,6 @@ export const AppContextProvider = ({children}) => {
 
             if(data.success){
                 setUser(data.user)
-                setLoading(false)
                 setCartItems(data.user.cartItems)
             }
           

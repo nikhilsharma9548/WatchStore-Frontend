@@ -127,22 +127,28 @@ export const AppContextProvider = ({children}) => {
 
    // update cart items
    
-   useEffect(()=>{
-    const updateCart = async() =>{
-        try {
-            const{data} = await axios.post('/api/cart/update',{cartItems})
-            if(!data.success){
-                toast.error(data.message)
-            }
-        } catch (error) {
-             toast.error(error.message)
-        }
+useEffect(() => {
+  const updateCart = async () => {
+    try {
+      const { data } = await axios.post("/api/cart/update", { cartItems });
+      if (!data.success) {
+        toast.error(data?.message || "Failed to update cart");
+      }
+    } catch (error) {
+      toast.error(
+        error?.response?.data?.message ||
+        error.message ||
+        "Something went wrong"
+      );
     }
-    if(user){
-        updateCart()
-    }
+  };
 
-   },[cartItems])
+  // ❌ Empty cart ke time call mat kar
+  if (user && Object.keys(cartItems).length > 0) {
+    updateCart();
+  }
+}, [cartItems, user]);
+
 
    //Add All product
 

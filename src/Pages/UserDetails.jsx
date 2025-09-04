@@ -15,10 +15,8 @@ import toast from 'react-hot-toast';
 const UserDetails = () => {
 
   //upload user image
-  const [file, setFile] = useState(null)
-  const [preview, setPreview] = useState(null);
-  const [uploadedUrl, setUploadedUrl] = useState("");
-    
+    const [file, setFile] = useState([])
+
     const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     setFile(selectedFile);
@@ -45,6 +43,32 @@ const UserDetails = () => {
   } 
 } 
 
+const onSubmitHandler = async (event) => {
+  event.preventDefault();
+
+  try {
+    const formData = new FormData();
+    formData.append("file", JSON.stringify(file));
+    
+    formData.append("image", file);
+
+    const { data } = await axios.post("/api/user/upload", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    if (data.success) {
+      toast.success(data.message);
+      setFile(data.imageUrl);
+    } else {
+      toast.error(data.message || "Something went wrong");
+    }
+  } catch (error) {
+    console.error("Error while adding product:", error);
+    toast.error(error.message || "Server Error");
+  }
+};
   return (
     <div className='min-h-screen'>
       <div className='flex p-5 px-2 border-b'>
@@ -76,7 +100,7 @@ const UserDetails = () => {
           <p className='text-xl px-3 flex flex-col'>{user ? (user.name).toUpperCase() : "GUEST"}
             <span className='text-sm'>{user ? (user.email) : null}</span>
           </p>
-          
+          <button onClick={onSubmitHandler} className='bg-blue-500 text-white px-4 py-2 rounded mt-2'>upload</button>
         </div>
         <div className=' rounded bg-gray-300/90 p-2'>
 

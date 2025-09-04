@@ -24,7 +24,6 @@ const AddProduct = () => {
       price,
       offerPrice,
     };
-
     const formData = new FormData();
     formData.append("productData", JSON.stringify(productData));
     

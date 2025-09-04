@@ -5,6 +5,9 @@ import { CiSearch } from "react-icons/ci";
 import { useAppContext } from '../Context/AppContext';
 import { NavLink } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { HiGift } from "react-icons/hi2";
+import { FaRegHeart } from "react-icons/fa6";
+import { ImHeadphones } from "react-icons/im";
 import { LuBox } from "react-icons/lu";
 
 
@@ -112,7 +115,7 @@ const [menu, setMenu] = useState(false)
 
                     <img src={assets.profile} className='w-10 h-10 rounded-full' onClick={() =>setMenu(!menu)}/>
 
-                    {menu && (<div className='flex flex-col gap-5 h-96 w-68 rounded-xl p-5 bg-white  absolute top-10 right-0'>
+                    {menu && (<div className='flex flex-col gap-5 h-96 w-72 rounded-xl p-5 bg-white  absolute top-10 right-0'>
                      <div className='flex gap-3 justify-center items-center'>
                       <label htmlFor="image">
                       <input
@@ -139,11 +142,17 @@ const [menu, setMenu] = useState(false)
                      </div>
 
                       <ul className=' px-2 bg-gray-300
-                     shadow-lg border  py-2 rounded-md text-sm z-40'>
+                     shadow-lg py-2 rounded-md text-sm z-40'>
                       <NavLink to={'/my-orders'}
                        className='rounded cursor-pointer  flex items-center gap-2'>
                         <span className='text-xl'><LuBox/></span>
                         My Orders</NavLink>
+                        <li className='text-base w-[50vh] m-2 p-2 flex rounded shadow-xl border border-gray-600  text-gray-800'>
+                          <span>< FaRegHeart/></span>Wishlist</li>
+                       <li className='text-base w-[50vh] m-2 p-2 flex rounded shadow-xl border border-gray-600  text-gray-800'>
+                          <span>< HiGift/></span>Coupons</li>
+                        <li className='text-base w-[50vh] m-2 p-2 flex rounded shadow-xl border border-gray-600  text-gray-800'>
+                          <span>< ImHeadphones/></span>Help Center</li>
                     </ul>
                     <button onClick={logout} className='p-1.5 bg-pink-700 rounded cursor-pointer'>logout</button>
                     </div>)}

@@ -28,7 +28,7 @@ const [file, setFile] = useState(null);
   // Upload API call
   const handleUpload = async () => {
     if (!file) {
-      alert("Please select an image first!");
+      toast.error("Please select an image first!");
       return;
     }
 
@@ -44,7 +44,7 @@ const [file, setFile] = useState(null);
       });
 
       setUploadedUrl(res.data.imageUrl); // jo Cloudinary se URL aya usse state me save
-      alert("Image uploaded successfully!");
+      toast.success("Image uploaded successfully!");
     } catch (error) {
       console.error("Upload failed", error);
     }

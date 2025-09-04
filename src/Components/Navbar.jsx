@@ -110,7 +110,7 @@ const [files, setFiles] = useState("")
 
                     <img src={assets.profile} className='w-10 h-10 rounded-full' />
 
-                    <div className='hidden group-hover:block gap-10 h-96 w-68 rounded-xl p-5 bg-white  absolute top-3 right-0'>
+                    <div className='flex flex-col group-hover:block gap-10 h-96 w-68 rounded-xl p-5 bg-white  absolute top-3 right-0'>
                      <div className='flex gap-3 justify-center items-center'>
                       <label htmlFor="image">
                       <input

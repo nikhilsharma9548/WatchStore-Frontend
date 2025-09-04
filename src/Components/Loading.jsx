@@ -6,7 +6,7 @@ const Loading = () => {
     return (
     <div 
       style={{ backgroundImage: `url(${assets.Bg2})` }}
-    className='inset-0 z-50 bg-[#00BFBF] items-center 
+    className='inset-0 z-50 items-center 
     flex justify-center w-full min-h-screen '>
 
       <div className=" flex flex-col gap-5  items-center justify-center">

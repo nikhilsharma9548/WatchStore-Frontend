@@ -133,8 +133,8 @@ const [files, setFiles] = useState("")
 
                       <ul className=' px-1.5 
                      shadow border border-gray-700 py-2.5 rounded-md text-sm z-40'>
-                      <li onClick={() => navigate('/my-orders')} className='p-1.5 hover:bg-pink-700/10 cursor-pointer'>My Orders</li>
-                      <li onClick={logout} className='p-1.5 hover:bg-pink-700/10 cursor-pointer'>logout</li>
+                      <li onClick={() => navigate('/my-orders')} className='p-1.5 hover:bg-pink-700/10 rounded cursor-pointer'>My Orders</li>
+                      <li onClick={logout} className='p-1.5 hover:bg-pink-700/10 rounded cursor-pointer'>logout</li>
                     </ul>
                     </div>
                     

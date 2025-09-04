@@ -5,6 +5,7 @@ import { CiSearch } from "react-icons/ci";
 import { useAppContext } from '../Context/AppContext';
 import { NavLink } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { LuBox } from "react-icons/lu";
 
 
 const Navbar = () => {
@@ -139,9 +140,12 @@ const [menu, setMenu] = useState(false)
 
                       <ul className=' px-1.5 
                      shadow border border-gray-700 py-2.5 rounded-md text-sm z-40'>
-                      <li onClick={() => navigate('/my-orders')} className='p-1.5 hover:bg-pink-700/10 rounded cursor-pointer'>My Orders</li>
+                      <li onClick={() => navigate('/my-orders')}
+                       className='p-1.5 hover:bg-pink-700/10 rounded cursor-pointer  flex items-center gap-2'>
+                        <span><LuBox/></span>
+                        My Orders</li>
                     </ul>
-                    <button onClick={logout} className='p-1.5  hover:bg-pink-700/10 rounded cursor-pointer'>logout</button>
+                    <button onClick={logout} className='p-1.5 bg-pink-700 rounded cursor-pointer'>logout</button>
                     </div>)}
                       
                   </div>

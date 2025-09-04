@@ -116,7 +116,7 @@ const [menu, setMenu] = useState(false)
                     <img src={assets.profile} className='w-10 h-10 rounded-full' onClick={() =>setMenu(!menu)}/>
 
                     {menu && (<div className='hidden   md:flex flex-col gap-5 h-96 w-72 rounded-xl p-5 bg-white  absolute top-10 right-0'>
-                     <div className='flex gap-3 justify-center items-center'>
+                     <div className='flex gap-3  items-center'>
                       <label htmlFor="image">
                       <input
                         type="file"

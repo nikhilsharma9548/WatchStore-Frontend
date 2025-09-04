@@ -18,7 +18,7 @@ const UserDetails = () => {
     const [file, setFile] = useState([])
 
     const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
+    const selectedFile = e.target.file[0];
     setFile(selectedFile);
     setPreview(URL.createObjectURL(selectedFile));
   };

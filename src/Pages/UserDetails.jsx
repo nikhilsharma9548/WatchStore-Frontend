@@ -15,8 +15,8 @@ import toast from 'react-hot-toast';
 const UserDetails = () => {
 
   //upload user image
-    const [file, setFile] = useState([])
-
+    const [file, setFile] = useState(null)
+const [preview, setPreview] = useState(null)
     const handleFileChange = (e) => {
     const selectedFile = e.target.file[0];
     setFile(selectedFile);

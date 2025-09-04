@@ -138,10 +138,10 @@ const [menu, setMenu] = useState(false)
                   </ul>
                      </div>
 
-                      <ul className=' px-2 bg-gray-400
+                      <ul className=' px-2 bg-gray-300
                      shadow-lg border  py-2 rounded-md text-sm z-40'>
                       <NavLink to={'/my-orders'}
-                       className='hover:bg-pink-700/10 rounded cursor-pointer  flex items-center gap-2'>
+                       className='rounded cursor-pointer  flex items-center gap-2'>
                         <span className='text-xl'><LuBox/></span>
                         My Orders</NavLink>
                     </ul>

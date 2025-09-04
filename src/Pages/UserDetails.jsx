@@ -36,7 +36,7 @@ const [file, setFile] = useState(null);
     formData.append("image", file);
 
     try {
-      const res = await axios.post("/api/upload-profile", formData, {
+      const res = await axios.post("/api/user/upload-profile", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${localStorage.getItem("token")}` // agar auth lagaya hai

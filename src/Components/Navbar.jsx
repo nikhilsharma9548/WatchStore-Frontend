@@ -141,8 +141,9 @@ const [menu, setMenu] = useState(false)
                      shadow border border-gray-700 py-2.5 rounded-md text-sm z-40'>
                       <li onClick={() => navigate('/my-orders')} className='p-1.5 hover:bg-pink-700/10 rounded cursor-pointer'>My Orders</li>
                     </ul>
+                    <button onClick={logout} className='p-1.5  hover:bg-pink-700/10 rounded cursor-pointer'>logout</button>
                     </div>)}
-                      <button onClick={logout} className='p-1.5  hover:bg-pink-700/10 rounded cursor-pointer'>logout</button>
+                      
                   </div>
                 )}
          </div>

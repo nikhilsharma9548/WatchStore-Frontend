@@ -138,8 +138,8 @@ const [menu, setMenu] = useState(false)
                   </ul>
                      </div>
 
-                      <ul className=' px-1
-                     shadow border border-gray-700 py-1 rounded-md text-sm z-40'>
+                      <ul className=' px-2
+                     shadow border border-gray-700 py-2 rounded-md text-sm z-40'>
                       <NavLink to={'/my-orders'}
                        className='hover:bg-pink-700/10 rounded cursor-pointer  flex items-center gap-2'>
                         <span className='text-xl'><LuBox/></span>

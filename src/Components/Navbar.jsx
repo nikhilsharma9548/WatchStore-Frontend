@@ -131,7 +131,7 @@ const [files, setFiles] = useState("")
                       height={100}
                     />
                   </label>
-                  <ul className='flex flex-col gap-0.5'>
+                  <ul className='flex flex-col text-sm'>
                     <li>{user.name}</li>
                     <li>{user.email}</li>
                   </ul>

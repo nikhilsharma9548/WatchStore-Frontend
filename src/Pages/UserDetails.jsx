@@ -15,9 +15,6 @@ import toast from 'react-hot-toast';
 const UserDetails = () => {
 
 const [file, setFile] = useState(null);
-  const [preview, setPreview] = useState(null);
-  const [uploadedUrl, setUploadedUrl] = useState("");
-
   // File select karte hi preview banana
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -37,13 +34,8 @@ const [file, setFile] = useState(null);
 
     try {
       const res = await axios.post("/api/user/upload-profile", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${localStorage.getItem("token")}` // agar auth lagaya hai
-        }
       });
-
-      setUploadedUrl(res.data.imageUrl); // jo Cloudinary se URL aya usse state me save
+      setFile(res.data.imageUrl); // jo Cloudinary se URL aya usse state me save
       toast.success("Image uploaded successfully!");
     } catch (error) {
       console.error("Upload failed", error);

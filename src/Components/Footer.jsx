@@ -6,7 +6,7 @@ import {NavLink} from 'react-router-dom'
 const Footer = () => {
   return (
     <>
-  <div className='w-full'>
+  <div className='w-full md:mb-0 mb-10'>
 
       <div className='bg-[#113c5f] flex max-md:flex-col justify-center max-sm:items-center
      md:justify-between max-sm:gap-5 text-gray-300 md:px-20 md:py-10 p-3 mt-32 gap-5'>

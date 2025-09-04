@@ -33,8 +33,8 @@ const Hero = () => {
     
    <>
    <div id='home' className='flex justify-center xl:items-center overflow-hidden z-0 relative pb-10 '>
-  <div className='w-full xl:max-w-7xl lg:max-w-5xl md:max-w-3xl mx-auto overflow-hidden relative
-   xl:rounded shadow-lg mt-33 shadow-gray-600 max-md:hidden'>
+  <div className='w-full xl:max-w-7xl lg:max-w-5xl md:max-w-4xl mx-auto overflow-hidden relative
+   rounded shadow-lg mt-33 shadow-gray-600 max-md:hidden'>
 
       <div className="flex transition-transform duration-700 ease-in-out"
           style={{ transform: `translateX(-${current * 100}%)` }}>

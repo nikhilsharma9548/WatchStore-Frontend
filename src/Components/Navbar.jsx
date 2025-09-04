@@ -67,15 +67,17 @@ const [files, setFiles] = useState("")
             <p className='text-xl font-semibold'>TimeAura</p>
         </NavLink>  
 
-        <div className='hidden md:flex'>
-          
+        <div className='hidden md:flex'>   
             <ul className=' activeLink flex justify-between items-center gap-7 text-lg '>
-                <NavLink className='hover:text-pink-800 transition-all duration-300 cursor-pointer' to={'/'}onClick={() => scrollTo(0,0)}>Home</NavLink>
+
+                <NavLink className='hover:text-pink-800 transition-all duration-300 cursor-pointer' 
+                to={'/'}onClick={() => scrollTo(0,0)}>Home</NavLink>
                 <a className='hover:text-pink-800 transition-all duration-300 cursor-pointer'href='#features'onClick={() => navigate('/')}>features</a>
-                <NavLink className='hover:text-pink-800 transition-all duration-300 cursor-pointer' to={'/products'}onClick={() => scrollTo(0,0)}>Products</NavLink>  
-                <a className='hover:text-pink-800 transition-all duration-300 cursor-pointer' href='#testimonials'onClick={() => navigate('/')}>Testimonials</a>
-                
-                             
+                <NavLink className='hover:text-pink-800 transition-all duration-300 cursor-pointer' 
+                to={'/products'}onClick={() => scrollTo(0,0)}>Products</NavLink>  
+                <a className='hover:text-pink-800 transition-all duration-300 cursor-pointer' 
+                href='#testimonials'onClick={() => navigate('/')}>Testimonials</a>  
+
             </ul>           
         </div>
 
@@ -108,7 +110,7 @@ const [files, setFiles] = useState("")
 
                     <img src={assets.profile} className='w-10 h-10 rounded-full' />
 
-                    <div className='hidden group-hover:block h-96 w-68 rounded-xl p-5 bg-white  absolute top-3 right-0'>
+                    <div className='hidden group-hover:block gap-10 h-96 w-68 rounded-xl p-5 bg-white  absolute top-3 right-0'>
                      <label htmlFor="image">
                       <input
                         type="file"
@@ -128,7 +130,6 @@ const [files, setFiles] = useState("")
                       height={100}
                     />
                   </label>
-
 
                       <ul className=' px-1.5 
                      shadow border border-gray-700 py-2.5 rounded-md text-sm z-40'>

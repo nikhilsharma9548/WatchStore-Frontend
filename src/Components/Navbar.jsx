@@ -56,6 +56,7 @@ const logout = async() =>{
   } 
 }
 const [files, setFiles] = useState("")
+const [menu, setMenu] = useState(false)
   return (
  <>
     <div className={`flex justify-between md:p-5 p-2 items-center h-20 w-full fixed  top-0 left-0 z-50 ${!isScrolled ? "bg-transparent" : "bg-gray-300  rounded-b-md"}`}>
@@ -106,11 +107,11 @@ const [files, setFiles] = useState("")
                   </button>
                 </div>) : (
 
-                  <div className='relative group flex flex-col gap-10 cursor-pointer '>
+                  <div className='relative flex flex-col cursor-pointer '>
 
-                    <img src={assets.profile} className='w-10 h-10 rounded-full' />
+                    <img src={assets.profile} className='w-10 h-10 rounded-full' onClick={() =>setMenu(!menu)}/>
 
-                    <div className='hidden group-hover:block h-96 w-68 rounded-xl p-5 bg-white  absolute top-3 right-0'>
+                    {menu && (<div className='flex flex-col gap-5 h-96 w-68 rounded-xl p-5 bg-white  absolute top-7 right-0'>
                      <div className='flex gap-3 justify-center items-center'>
                       <label htmlFor="image">
                       <input
@@ -142,7 +143,7 @@ const [files, setFiles] = useState("")
                       <li onClick={() => navigate('/my-orders')} className='p-1.5 hover:bg-pink-700/10 rounded cursor-pointer'>My Orders</li>
                       <li onClick={logout} className='p-1.5 hover:bg-pink-700/10 rounded cursor-pointer'>logout</li>
                     </ul>
-                    </div>
+                    </div>)}
                     
                   </div>
                 )}

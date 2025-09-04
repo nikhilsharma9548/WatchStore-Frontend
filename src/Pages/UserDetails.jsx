@@ -14,34 +14,17 @@ import toast from 'react-hot-toast';
 
 const UserDetails = () => {
 
-const [file, setFile] = useState(null);
-  // File select karte hi preview banana
-  const handleFileChange = (e) => {
+  //upload user image
+  const [file, setFile] = useState(null)
+  const [preview, setPreview] = useState(null);
+  const [uploadedUrl, setUploadedUrl] = useState("");
+    
+    const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     setFile(selectedFile);
     setPreview(URL.createObjectURL(selectedFile));
   };
-
-  // Upload API call
-  const handleUpload = async () => {
-    if (!file) {
-      toast.error("Please select an image first!");
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append("image", file);
-
-    try {
-      const res = await axios.post("/api/user/upload-profile", formData, {
-      });
-      setFile(res.data.imageUrl); // jo Cloudinary se URL aya usse state me save
-      toast.success("Image uploaded successfully!");
-    } catch (error) {
-      console.error("Upload failed", error);
-    }
-  };
-
+  
   const {navigate, axios, user, setUser, loading,  setLoading} = useAppContext()
 
   const logout = async() =>{
@@ -71,32 +54,7 @@ const [file, setFile] = useState(null);
         </NavLink>
       </div>
       <div className='mx-5'>
-
-          <div className="p-4">
-      <h2 className="text-lg font-bold">Upload Profile Image</h2>
-
-      {/* Image preview before upload */}
-      {preview && <img src={preview} alt="preview" className="w-32 h-32 rounded-full my-2" />}
-
-      {/* File input */}
-      <input type="file" accept="image/*" onChange={handleFileChange} />
-
-      <button 
-        onClick={handleUpload} 
-        className="bg-blue-500 text-white px-4 py-2 rounded mt-2"
-      >
-        Upload
-      </button>
-
-      {/* Uploaded image from Cloudinary */}
-      {uploadedUrl && (
-        <div className="mt-4">
-          <p className="text-green-600">Uploaded Image:</p>
-          <img src={uploadedUrl} alt="uploaded" className="w-32 h-32 rounded-full border" />
-        </div>
-      )}
-    </div>
-        {/* <div className='my-5 px-5 py-4 rounded bg-gray-300/90 items-center flex '>
+        <div className='my-5 px-5 py-4 rounded bg-gray-300/90 items-center flex '>
 
           <label htmlFor="image">
              <input
@@ -119,7 +77,7 @@ const [file, setFile] = useState(null);
             <span className='text-sm'>{user ? (user.email) : null}</span>
           </p>
           
-        </div> */}
+        </div>
         <div className=' rounded bg-gray-300/90 p-2'>
 
           <div className='flex'>

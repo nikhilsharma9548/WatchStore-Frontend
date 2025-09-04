@@ -41,9 +41,9 @@ const MyOrders = () => {
         </div>
 
         {myOrders.map((order, index) =>(
-            <div key={index} className='border bg-cyan-50 border-gray-300 rounded-lg mb-10 p-4 py-5 max-w-4xl'>
+            <div key={index} className='border bg-cyan-50 border-gray-300 rounded-lg mb-10 p-2 md:p-4 py-5 max-w-4xl'>
                 <p className='flex justify-between md:items-center text-gray-700 max-w-4xl
-                md:font-medium max-md:flex-cold'>
+                md:font-medium max-md:flex-col'>
                     <span>OrderId :{order.orderId}</span>
                     <span>Payment : {order.paymentType}</span>
                     <span>Total Amount : {currency}{order.amount}</span>

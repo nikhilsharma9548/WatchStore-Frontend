@@ -111,7 +111,8 @@ const [files, setFiles] = useState("")
                     <img src={assets.profile} className='w-10 h-10 rounded-full' />
 
                     <div className='hidden group-hover:block gap-10 h-96 w-68 rounded-xl p-5 bg-white  absolute top-3 right-0'>
-                     <label htmlFor="image">
+                     <div className='flex gap-3'>
+                      <label htmlFor="image">
                       <input
                         type="file"
                         id="image"
@@ -130,6 +131,11 @@ const [files, setFiles] = useState("")
                       height={100}
                     />
                   </label>
+                  <ul className='flex flex-col gap-0.5'>
+                    <li>{user.name}</li>
+                    <li>{user.email}</li>
+                  </ul>
+                     </div>
 
                       <ul className=' px-1.5 
                      shadow border border-gray-700 py-2.5 rounded-md text-sm z-40'>

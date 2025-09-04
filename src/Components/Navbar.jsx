@@ -107,11 +107,11 @@ const [menu, setMenu] = useState(false)
                   </button>
                 </div>) : (
 
-                  <div className='relative flex flex-col cursor-pointer '>
+                  <div className='relative flex flex-col cursor-pointer'>
 
                     <img src={assets.profile} className='w-10 h-10 rounded-full' onClick={() =>setMenu(!menu)}/>
 
-                    {menu && (<div className='flex flex-col gap-5 h-96 w-68 rounded-xl p-5 bg-white  absolute top-7 right-0'>
+                    {menu && (<div className='flex flex-col gap-5 h-96 w-68 rounded-xl p-5 bg-white  absolute top-10 right-0'>
                      <div className='flex gap-3 justify-center items-center'>
                       <label htmlFor="image">
                       <input
@@ -124,7 +124,6 @@ const [menu, setMenu] = useState(false)
                           }
                         }}
                       />
-
                     <img
                       src={files ? URL.createObjectURL(files) : assets.profile}
                       className="w-14 h-14 cursor-pointer"
@@ -141,10 +140,9 @@ const [menu, setMenu] = useState(false)
                       <ul className=' px-1.5 
                      shadow border border-gray-700 py-2.5 rounded-md text-sm z-40'>
                       <li onClick={() => navigate('/my-orders')} className='p-1.5 hover:bg-pink-700/10 rounded cursor-pointer'>My Orders</li>
-                      <li onClick={logout} className='p-1.5 hover:bg-pink-700/10 rounded cursor-pointer'>logout</li>
                     </ul>
                     </div>)}
-                    
+                      <button onClick={logout} className='p-1.5  hover:bg-pink-700/10 rounded cursor-pointer'>logout</button>
                   </div>
                 )}
          </div>

@@ -86,7 +86,7 @@ const UserDetails = () => {
             <span>< LuBox/></span>
             Orders</NavLink>
 
-          <NavLink className='text-base w-[50vh] m-2 p-2 rounded shadow-xl border border-gray-600 flex items-center gap-2 text-gray-800'>
+          <NavLink className='text-base w-[50vh] m-2 p-2 rounded shadow-xl border border-gray-600  text-gray-800'>
            <span>< FaRegHeart/></span>
            Wishlist</NavLink>
           </div>

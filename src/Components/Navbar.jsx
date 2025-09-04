@@ -115,7 +115,7 @@ const [menu, setMenu] = useState(false)
 
                     <img src={assets.profile} className='w-10 h-10 rounded-full' onClick={() =>setMenu(!menu)}/>
 
-                    {menu && (<div className='flex flex-col gap-5 h-96 w-72 rounded-xl p-5 bg-white  absolute top-10 right-0'>
+                    {menu && (<div className='hidden   md:flex flex-col gap-5 h-96 w-72 rounded-xl p-5 bg-white  absolute top-10 right-0'>
                      <div className='flex gap-3 justify-center items-center'>
                       <label htmlFor="image">
                       <input
@@ -142,7 +142,7 @@ const [menu, setMenu] = useState(false)
                      </div>
 
                       <ul className=' px-2 bg-gray-300
-                     shadow-lg py-2 rounded-md text-sm justify-between flex flex-col gap-2 z-40'>
+                     shadow-lg py-2 rounded-md text-sm justify-evenly flex flex-col gap-2'>
                       <NavLink to={'/my-orders'}
                        className='rounded cursor-pointer  flex items-center gap-2'>
                         <span className='text-xl'><LuBox/></span>

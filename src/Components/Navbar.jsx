@@ -142,16 +142,16 @@ const [menu, setMenu] = useState(false)
                      </div>
 
                       <div className='px-2 
-                     shadow-lg py-2 rounded-md text-sm flex flex-col gap-5 h-full'>
+                     py-2 rounded-md text-sm flex flex-col gap-3.5 h-full'>
                       <NavLink to={'/my-orders'}
-                       className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1 bg-gray-300'>
+                       className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1 shadow-lg  bg-gray-300'>
                         <span className='text-xl'><LuBox/></span>
                         My Orders</NavLink>
-                        <p  className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1 bg-gray-300'>
+                        <p  className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1 shadow-lg  bg-gray-300'>
                           <span>< FaRegHeart/></span>Wishlist</p>
-                       <p  className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1 bg-gray-300'>
+                       <p  className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1 shadow-lg  bg-gray-300'>
                           <span>< HiGift/></span>Coupons</p>
-                        <p  className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1 bg-gray-300'>
+                        <p  className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1 shadow-lg  bg-gray-300'>
                           <span>< ImHeadphones/></span>Help Center</p>
                     </div>
                     <button onClick={logout} className='p-1.5 bg-pink-700 rounded cursor-pointer'>logout</button>

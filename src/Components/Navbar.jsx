@@ -63,7 +63,8 @@ const [files, setFiles] = useState("")
 const [menu, setMenu] = useState(false)
   return (
  <>
-    <div className={`flex justify-between md:p-5 p-2 items-center h-20 w-full fixed  top-0 left-0 z-50 ${!isScrolled ? "bg-transparent" : "bg-gray-300  rounded-b-md"}`}>
+    <div className={`flex justify-between md:p-5 p-2 items-center h-20 w-full fixed  top-0 left-0 z-50
+       ${!isScrolled ? "bg-transparent" : "bg-gray-300  rounded-b-md"}`}>
       
         {/* Navbar for desktop View */}
 
@@ -144,14 +145,14 @@ const [menu, setMenu] = useState(false)
                       <div className='px-2 
                      py-2 rounded-md text-sm flex flex-col gap-3.5 h-full'>
                       <NavLink to={'/my-orders'}
-                       className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1 shadow-lg  bg-gray-300'>
+                       className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1.5 shadow-lg  bg-gray-300'>
                         <span className='text-xl'><LuBox/></span>
                         My Orders</NavLink>
-                        <p  className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1 shadow-lg  bg-gray-300'>
+                        <p  className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1.5 shadow-lg  bg-gray-300'>
                           <span>< FaRegHeart/></span>Wishlist</p>
-                       <p  className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1 shadow-lg  bg-gray-300'>
+                       <p  className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1.5 shadow-lg  bg-gray-300'>
                           <span>< HiGift/></span>Coupons</p>
-                        <p  className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1 shadow-lg  bg-gray-300'>
+                        <p  className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1.5 shadow-lg  bg-gray-300'>
                           <span>< ImHeadphones/></span>Help Center</p>
                     </div>
                     <button onClick={logout} className='p-1.5 bg-pink-700 rounded cursor-pointer'>logout</button>

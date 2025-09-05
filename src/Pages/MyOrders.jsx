@@ -9,13 +9,13 @@ const MyOrders = () => {
     const {currency, axios, user, loading, setLoading} = useAppContext()
 
     const fetchMyOrders = async() =>{
-        setLoading(true)
+
         try {
             const { data } = await axios.get('/api/order/user')
 
             if(data.success){
                 setMyOrders(data.orders)
-                setLoading(false)
+
             }else{
                 console.error(data.message)
             }

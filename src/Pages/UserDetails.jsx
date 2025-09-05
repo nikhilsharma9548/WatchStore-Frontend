@@ -44,9 +44,14 @@ const UserDetails = () => {
 const [file, setFile] = useState(null);
 
   const handleUpload = async () => {
-    const formData = new FormData();
-    formData.append("image", file);
-    formData.append("userId", userId);
+  if (!user || !user._id) {
+    toast.error("User not logged in!");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("image", file);
+  formData.append("userId", user._id); // ✅ FIXED (no more ReferenceError)
 
     try {
       const { data } = await axios.post("/api/user/upload", formData, {

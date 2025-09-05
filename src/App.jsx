@@ -31,7 +31,7 @@ const WatchStore = () => {
   return (
     
   <>
-    <div>
+    {loading ?(<div>
         {isAdminPath || isUserDetailsPath ? null :  <Navbar/>}
         {showUserLogin ? <Login/> : null}
 
@@ -58,7 +58,7 @@ const WatchStore = () => {
   {isAdminPath ? null : <Navbar_2 />}
   <Toaster />
   </div>
-</div>
+</div>) : <Loading/>}
   </>
 
    

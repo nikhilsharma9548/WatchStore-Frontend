@@ -41,32 +41,6 @@ const UserDetails = () => {
   } 
 } 
 
-const [file, setFile] = useState(null);
-
-  const handleUpload = async () => {
-  if (!user || !user._id) {
-    toast.error("User not logged in!");
-    return;
-  }
-
-  const formData = new FormData();
-  formData.append("image", file);
-  formData.append("userId", user._id); // ✅ FIXED (no more ReferenceError)
-
-    try {
-      const { data } = await axios.post("/api/user/upload", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
-
-      if (data.success) {
-        toast.success("Image Uploaded Successfully");
-        console.log("User:", data.user);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return (
     <div className='min-h-screen'>
       <div className='flex p-5 px-2 border-b'>
@@ -78,7 +52,7 @@ const [file, setFile] = useState(null);
       <div className='mx-5'>
         <div className='my-5 px-5 py-4 rounded bg-gray-300/90 items-center flex '>
 
-          {!user ? (<label htmlFor="image">
+          <label htmlFor="image">
              <input
                 onChange={(e) => setFile(e.target.files[0])} 
                 accept="image/*"
@@ -94,13 +68,7 @@ const [file, setFile] = useState(null);
               height={100}
                         />
               <p className='absolute text-2xl left-20 top-40 text-gray-200'>{file && file instanceof File ? null : < FaPlus/>}</p>
-          </label>) : (
-           <img 
-  src={user?.image ? `${user.image}` : "/default-avatar.png"} 
-  className="w-16 rounded-full object-cover" 
-/>
-
-          )}
+          </label>
 
           <p className='text-xl px-3 flex flex-col'>{user ? (user.name).toUpperCase() : "GUEST"}
             <span className='text-sm'>{user ? (user.email) : null}</span>

@@ -76,7 +76,7 @@ const [file, setFile] = useState(null);
           <p className='text-xl px-3 flex flex-col'>{user ? (user.name).toUpperCase() : "GUEST"}
             <span className='text-sm'>{user ? (user.email) : null}</span>
           </p>
-          <button onClick={handleUpload} className='bg-blue-500 text-white px-4 py-2 rounded mt-2'>upload</button>
+          <button className='bg-blue-500 text-white px-4 py-2 rounded mt-2'>upload</button>
         </div>
         <div className=' rounded bg-gray-300/90 p-2'>
 

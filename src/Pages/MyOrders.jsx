@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useAppContext } from '../Context/AppContext'
-import { dummyOrders } from '../assets/assets'
 import Loading from '../Components/Loading'
 
 const MyOrders = () => {

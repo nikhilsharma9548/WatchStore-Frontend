@@ -41,6 +41,9 @@ const UserDetails = () => {
   } 
 } 
 
+const [file, setFile] = useState(null);
+
+
   return (
     <div className='min-h-screen'>
       <div className='flex p-5 px-2 border-b'>

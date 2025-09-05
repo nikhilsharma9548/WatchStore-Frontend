@@ -95,7 +95,11 @@ const [file, setFile] = useState(null);
                         />
               <p className='absolute text-2xl left-20 top-40 text-gray-200'>{file && file instanceof File ? null : < FaPlus/>}</p>
           </label>) : (
-            <img src={user.image} className="w-16 " />
+           <img 
+  src={user?.image ? `${user.image}` : "/default-avatar.png"} 
+  className="w-16 rounded-full object-cover" 
+/>
+
           )}
 
           <p className='text-xl px-3 flex flex-col'>{user ? (user.name).toUpperCase() : "GUEST"}

@@ -15,13 +15,11 @@ import toast from 'react-hot-toast';
 const UserDetails = () => {
 
   //upload user image
-    const [file, setFile] = useState(null)
-const [preview, setPreview] = useState(null)
-    const handleFileChange = (e) => {
-    const selectedFile = e.target.file[0];
-    setFile(selectedFile);
-    setPreview(URL.createObjectURL(selectedFile));
-  };
+  //   const handleFileChange = (e) => {
+  //   const selectedFile = e.target.file[0];
+  //   setFile(selectedFile);
+  //   setPreview(URL.createObjectURL(selectedFile));
+  // };
   
   const {navigate, axios, user, setUser, loading,  setLoading} = useAppContext()
 
@@ -43,32 +41,27 @@ const [preview, setPreview] = useState(null)
   } 
 } 
 
-const onSubmitHandler = async (event) => {
-  event.preventDefault();
+const [file, setFile] = useState(null);
 
-  try {
+  const handleUpload = async () => {
     const formData = new FormData();
-    formData.append("file", JSON.stringify(file));
-    
     formData.append("image", file);
+    formData.append("userId", userId);
 
-    const { data } = await axios.post("/api/user/upload", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+    try {
+      const { data } = await axios.post("/api/user/upload", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
 
-    if (data.success) {
-      toast.success(data.message);
-      setFile(data.imageUrl);
-    } else {
-      toast.error(data.message || "Something went wrong");
+      if (data.success) {
+        alert("Image Uploaded Successfully");
+        console.log("User:", data.user);
+      }
+    } catch (error) {
+      console.error(error);
     }
-  } catch (error) {
-    console.error("Error while adding product:", error);
-    toast.error(error.message || "Server Error");
-  }
-};
+  };
+
   return (
     <div className='min-h-screen'>
       <div className='flex p-5 px-2 border-b'>
@@ -82,12 +75,13 @@ const onSubmitHandler = async (event) => {
 
           <label htmlFor="image">
              <input
-                onChange={handleFileChange}
+                onChange={(e) => setFile(e.target.files[0])} 
                 accept="image/*"
                 type="file"
                 id="image"
                 hidden
              />
+             {/* <input type="file" onChange={(e) => setFile(e.target.files[0])} /> */}
               <img
               className="w-16 cursor-pointer rounded-full border border-gray-500"
               src={file && file instanceof File ? URL.createObjectURL(file) : assets.profile}
@@ -100,7 +94,7 @@ const onSubmitHandler = async (event) => {
           <p className='text-xl px-3 flex flex-col'>{user ? (user.name).toUpperCase() : "GUEST"}
             <span className='text-sm'>{user ? (user.email) : null}</span>
           </p>
-          <button onClick={onSubmitHandler} className='bg-blue-500 text-white px-4 py-2 rounded mt-2'>upload</button>
+          <button onClick={handleUpload} className='bg-blue-500 text-white px-4 py-2 rounded mt-2'>upload</button>
         </div>
         <div className=' rounded bg-gray-300/90 p-2'>
 

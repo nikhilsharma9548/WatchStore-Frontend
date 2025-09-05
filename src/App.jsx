@@ -31,7 +31,7 @@ const WatchStore = () => {
   return (
     
   <>
-    {loading ?(<div>
+    {!loading ?(<div>
         {isAdminPath || isUserDetailsPath ? null :  <Navbar/>}
         {showUserLogin ? <Login/> : null}
 

@@ -145,6 +145,7 @@ const [menu, setMenu] = useState(false)
                       <div className='px-2 
                      py-2 rounded-md text-sm flex flex-col gap-3.5 h-full'>
                       <NavLink to={'/my-orders'}
+                      onClick={() => {setMenu(false)}}
                        className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1.5 shadow-lg  bg-gray-300'>
                         <span className='text-xl'><LuBox/></span>
                         My Orders</NavLink>

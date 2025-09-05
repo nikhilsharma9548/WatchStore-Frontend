@@ -33,7 +33,6 @@ const MyOrders = () => {
 
   return (
     <>
-    {!loading ? (
         <div className='mt-24 md:px-20 px-10 pb-16 '>
         <div className='flex flex-col items-end w-max mb-8'>
             <p className='text-3xl'>My Orders</p>
@@ -77,7 +76,6 @@ const MyOrders = () => {
 
         ))}
     </div>
-    ) : <Loading/>}
     </>
   )
 }

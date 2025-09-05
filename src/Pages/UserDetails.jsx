@@ -59,7 +59,7 @@ const [file, setFile] = useState(null);
       });
 
       if (data.success) {
-        alert("Image Uploaded Successfully");
+        toast.success("Image Uploaded Successfully");
         console.log("User:", data.user);
       }
     } catch (error) {
@@ -78,7 +78,7 @@ const [file, setFile] = useState(null);
       <div className='mx-5'>
         <div className='my-5 px-5 py-4 rounded bg-gray-300/90 items-center flex '>
 
-          <label htmlFor="image">
+          {!user ? (<label htmlFor="image">
              <input
                 onChange={(e) => setFile(e.target.files[0])} 
                 accept="image/*"
@@ -94,7 +94,9 @@ const [file, setFile] = useState(null);
               height={100}
                         />
               <p className='absolute text-2xl left-20 top-40 text-gray-200'>{file && file instanceof File ? null : < FaPlus/>}</p>
-          </label>
+          </label>) : (
+            <img src={user.image} className="w-16 " />
+          )}
 
           <p className='text-xl px-3 flex flex-col'>{user ? (user.name).toUpperCase() : "GUEST"}
             <span className='text-sm'>{user ? (user.email) : null}</span>

@@ -43,32 +43,28 @@ const UserDetails = () => {
 
 const [file, setFile] = useState([]);
 
-const onSubmitHandler = async(event) =>{
-
+const onSubmitHandler = async (event) => {
   event.preventDefault();
+
   try {
     const formData = new FormData();
-    // formData.append("image", JSON.stringify(image));
+    formData.append("image", file[0]); // single file
+    formData.append("userId", user._id); // current logged-in user ka ID bhejo
 
-    for(let i = 0; i< file.length; i++) {
-      formData.append('image',file[i])
-    }
-    const { data } = await axios.post("/api/user/upload", formData,{
-      headers : {
-        "Content-Type": "multipart/form-data",
-      },
+    const { data } = await axios.post("/api/user/upload", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
     });
 
-    if(data.success){
+    if (data.success) {
       toast.success(data.message);
-    }else{
-        toast.error(data.message);
+      setUser({ ...user, image: data.image }); // update user image in context
+    } else {
+      toast.error(data.message);
     }
   } catch (error) {
-      toast.error(error.message);
+    toast.error(error.message);
   }
-}
-
+};
 
   return (
     <div className='min-h-screen'>
@@ -81,29 +77,27 @@ const onSubmitHandler = async(event) =>{
       <div className='mx-5'>
         <div className='my-5 px-5 py-4 rounded bg-gray-300/90 items-center justify-between flex '>
 
-        {Array(1).fill('').map((_, index) =>(
-                 <label key={index} htmlFor={`image${index}`}>
-             <input
-                onChange={(e) => {
-                  const updatedFiles = [...file];
-                  updatedFiles[index] = e.target.files[0]
-                  setFile(updatedFiles)
-                }} 
-                accept="image/*"
-                type="file" 
-                id={`image${index}`}
-                hidden
-             />
-              <img
-              className="w-16 cursor-pointer rounded-full border border-gray-500"
-              src={file[index] ? URL.createObjectURL(file[index]) : assets.profile}
-              width={100}
-              height={100}
-                        />
-              <p className='absolute text-2xl left-20 top-40 text-gray-200'>< FaPlus/></p>
-          </label>
+        <label htmlFor="image">
+  <input
+    type="file"
+    id="image"
+    hidden
+    accept="image/*"
+    onChange={(e) => setFile([e.target.files[0]])}
+  />
+  <img
+    className="w-16 h-16 rounded-full border"
+    src={
+      file[0]
+        ? URL.createObjectURL(file[0])
+        : user?.image
+        ? user.image
+        : assets.profile
+    }
+    alt="Profile"
+  />
+</label>
 
-        ))}
 
           <p className='text-xl flex flex-col'>{user ? (user.name).toUpperCase() : "GUEST"}
             <span className='text-sm'>{user ? (user.email) : null}</span>

@@ -11,7 +11,7 @@ const Loading = () => {
 
       <div className=" flex flex-col gap-5  items-center justify-center">
         <div className=" border-2  aspect-square w-14 rounded-full
-         border-t-transparent  border-blue-500 inset-0  border-r-0 
+         border-t-white   border-gray-200 inset-0
           animate-spin">
         </div>
       </div>

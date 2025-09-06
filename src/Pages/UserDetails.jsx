@@ -41,7 +41,33 @@ const UserDetails = () => {
   } 
 } 
 
-const [file, setFile] = useState(null);
+const [file, setFile] = useState([]);
+
+const onSubmitHandler = async(event) =>{
+
+  event.preventDefault();
+  try {
+    const formData = new FormData();
+    // formData.append("image", JSON.stringify(image));
+
+    for(let i = 0; i< file.length; i++) {
+      formData.append('image',file[i])
+    }
+    const { data } = await axios.post("/api/user/upload", formData,{
+      headers : {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    if(data.success){
+      toast.success(data.message);
+    }else{
+        toast.error(data.message);
+    }
+  } catch (error) {
+      toast.error(error.message);
+  }
+}
 
 
   return (
@@ -53,30 +79,36 @@ const [file, setFile] = useState(null);
         </NavLink>
       </div>
       <div className='mx-5'>
-        <div className='my-5 px-5 py-4 rounded bg-gray-300/90 items-center flex '>
+        <div className='my-5 px-5 py-4 rounded bg-gray-300/90 items-center justify-between flex '>
 
-          <label htmlFor="image">
+        {Array(1).fill('').map((_, index) =>(
+                 <label key={index} htmlFor={`image${index}`}>
              <input
-                onChange={(e) => setFile(e.target.files[0])} 
+                onChange={(e) => {
+                  const updatedFiles = [...file];
+                  updatedFiles[index] = e.target.files[0]
+                  setFile(updatedFiles)
+                }} 
                 accept="image/*"
-                type="file"
-                id="image"
+                type="file" 
+                id={`image${index}`}
                 hidden
              />
-             {/* <input type="file" onChange={(e) => setFile(e.target.files[0])} /> */}
               <img
               className="w-16 cursor-pointer rounded-full border border-gray-500"
-              src={file && file instanceof File ? URL.createObjectURL(file) : assets.profile}
+              src={file[index] ? URL.createObjectURL(file[index]) : assets.profile}
               width={100}
               height={100}
                         />
-              <p className='absolute text-2xl left-20 top-40 text-gray-200'>{file && file instanceof File ? null : < FaPlus/>}</p>
+              <p className='absolute text-2xl left-20 top-40 text-gray-200'>< FaPlus/></p>
           </label>
 
-          <p className='text-xl px-3 flex flex-col'>{user ? (user.name).toUpperCase() : "GUEST"}
+        ))}
+
+          <p className='text-xl flex flex-col'>{user ? (user.name).toUpperCase() : "GUEST"}
             <span className='text-sm'>{user ? (user.email) : null}</span>
           </p>
-          <button className='bg-blue-500 text-white px-4 py-2 rounded mt-2'>upload</button>
+          <button className='bg-blue-500 flex justify-end text-white px-4 py-2 rounded mt-2' onClick={onSubmitHandler}>upload</button>
         </div>
         <div className=' rounded bg-gray-300/90 p-2'>
 
@@ -109,12 +141,12 @@ const [file, setFile] = useState(null);
             Become Seller</NavLink>
         </div>
 
-        <p onClick={logout} className='p-3 flex w-full justify-center items-center gap-5 mt-10  text-center rounded  bg-pink-700 '>
+        <div onClick={logout} className='p-3 flex w-full justify-center items-center gap-5 mt-10  text-center rounded  bg-pink-700 '>
           logout
           {loading && ( <div className=" border-2 aspect-square w-5 rounded-full
          border-white border-t-transparent border-r-0 border-l-0
           animate-spin"></div>)}
-        </p>
+        </div>
       </div>
 
     </div>

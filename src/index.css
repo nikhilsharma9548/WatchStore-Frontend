@@ -19,6 +19,8 @@ html {
 .active-link {
   border-bottom: 3px solid white;
 }
-/* .active-Link{
-  color: #9D174D;
-} */
+
+.dark{
+  background-color: #0F172A;
+  color: white;
+}

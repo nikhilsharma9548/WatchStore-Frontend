@@ -1,80 +1,105 @@
-import React from 'react';
-import { assets, dummyTestimonial } from '../assets/assets';
+import React, { useState } from 'react';
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { assets, dummyProducts, dummyTestimonial } from '../assets/assets'
+import { IoMailOutline } from "react-icons/io5"
 
 
 const Testimonials = () => {
-  
-  const [visible, setVisible] = React.useState(false);
-    const [position, setPosition] = React.useState({ x: 0, y: 0 });
-    const divRef = React.useRef(null);
 
-    const handleMouseMove = (e) => {
-        const bounds = divRef.current.getBoundingClientRect();
-        setPosition({ x: e.clientX - bounds.left, y: e.clientY - bounds.top });
-    };
+  const [index, setIndex] = useState(0);
+
+  const nextSlide = () => {
+    setIndex((prevIndex) => (prevIndex + 1) % dummyTestimonial.length);
+  };
+
+  const prevSlide = () => {
+    setIndex((prevIndex) => (prevIndex - 1 + dummyTestimonial.length) % dummyTestimonial.length);
+  };
+
+
 
     return (
     
-      <div id='testimonials' className='pb-14 md:px-10 px-5 flex flex-col w-full space-y-7 scroll-mt-24 '>
+      <div id='testimonials' className=' pb-14 md:px-10 px-5 flex flex-col w-full space-y-7 scroll-mt-24 '>
 
          <h2 className='text-3xl flex border-b-2 w-32'>Testimonials</h2>
-          
-          <div className='max-w-4xl grid sm:grid-cols-2 md:grid-cols-3 gap-10 justify-center '>
-             {dummyTestimonial.map((testimonial, index)=>(
-        <div key={index} ref={divRef} onMouseMove={handleMouseMove} onMouseEnter={() => setVisible(true)} onMouseLeave={() => setVisible(false)}
-            className="relative md:w-60 lg:w-68 w-80 h-80 rounded-xl p-0.5 bg-white backdrop-blur-md text-gray-800 overflow-hidden shadow-lg cursor-pointer"
-        >
-            {visible && (
-                <div className="pointer-events-none blur-xl bg-gradient-to-r from-red-400 via-pink-500 to-purple-900 size-60 absolute z-0 transition-opacity duration-300"
-                    style={{ top: position.y - 120, left: position.x - 120,}}
-                />
-            )}
+       
+          <div className='  flex max-md:flex-col-reverse justify-center gap-64'>
+            <div className='w-96 sm:w-[350px] h-96 relative top-14'>
+             <div className="md:w-[450px] h-96 relative top-14 flex rounded-2xl overflow-hidden">
+  {/* Row container (saare testimonials ek row me) */}
+  <div
+    className="flex transition-transform duration-1000 ease-in-out"
+    style={{ transform: `translateX(-${index * 100}%)` }}
+  >
+    {dummyTestimonial.map((item, i) => (
+      <div
+        key={i}
+        className="flex-shrink-0 flex flex-col p-6 bg-gray-100 shadow-lg w-full max-w-md mx-auto"
+        style={{ minWidth: "100%" }} // <-- Har slide ki width 100%
+      >
+        <img
+          src={item.image}
+          alt={item.name}
+          className="w-16 h-16 rounded-full object-cover shadow-md"
+        />
+        <h3 className="mt-4 font-bold text-xl">{item.name}</h3>
+        <p>{item.rating}</p>
+        <p className="text-gray-500">{item.role}</p>
+        <span className='font-semibold mt-2'>feedback</span>
+        <p className="text-gray-700 w-60">{item.feedback}</p>
+      </div>
+    ))}
+  </div>
 
-            
-              <div className="relative z-10 bg-white p-6 h-full w-full rounded-[10px] flex flex-col items-center justify-center text-center">
-                <img src={testimonial.image} className="w-24 h-24 rounded-full shadow-md my-4" />
-                <h2 className="text-sm text-gray-800 mb-1">{testimonial.feedback}</h2>
-                <p className="text-sm text-indigo-500 font-medium mb-4">{testimonial.name}</p>
-                <p className="text-sm text-gray-500 mb-4 px-4">{testimonial.rating}</p>
+  {/* Navigation Buttons */}
+  <div className="flex gap-4 mt-6 absolute right-0 -translate-x-1/2">
+    <button
+      onClick={prevSlide}
+      className="p-3 bg-pink-700 rounded-full hover:bg-pink-800"
+    >
+      <FaChevronLeft />
+    </button>
+    <button
+      onClick={nextSlide}
+      className="p-3 bg-pink-700 rounded-full hover:bg-pink-800"
+    >
+      <FaChevronRight />
+    </button>
+  </div>
+</div>
+
+
+
             </div>
-        </div> ))}
+            <div className='md:flex relative hidden'>
+               <div className=' bg-pink-700 md:h-80 md:w-80  lg-h-96 lg:w-96 xl:h-[450px] xl:w-[450px] rounded-full '></div>
+              <img src={assets.testimonials} className='absolute right-28 top-16  w-[450px] object-cover rounded-full' />  
+            </div>
+           
           </div>
+          
+           <div className="mt-32 lg:mt-20 max-w-5xl py-16 md:pl-20 md:w-full mx-2 md:mx-auto p-4 flex flex-col md:flex-row items-center justify-between text-left bg-pink-700 rounded-2xl gap-5 md:gap-0 md:p-10 text-white">
+                <div>
+                    <div>
+                        <p className="">Trusted by 12k+ customers</p>
+                        <div className="flex items-center gap-2">
+                            <span className="text-sm ">4.5/5 • 2300+ Reviews</span>
+                        </div>
+                    </div>
+                    <h1 className="text-4xl md:text-[46px] max-md:mt-3 text-balance md:leading-[60px] max-w-md font-semibold bg-clip-text">
+                        Join our TimeAura & Stay Updated
+                    </h1>
+                </div>
+                <div className="flex items-center gap-2 text-black  bg-white max-md:mt-6 pl-2 md:pl-4 h-11 text-sm rounded-full overflow-hidden">
+                  <p className='text-xl'><IoMailOutline/></p>
+                    <input type="text" placeholder="Enter your email..." className="outline-none h-11 text-black" />
+                    <button className="md:px-6 px-2 h-10 mr-1 rounded-full border text-white bg-pink-700/80">Subscribe</button>
+                </div>
+            </div>
         </div>
     );
 }
 
 export default Testimonials
 
-
-
-
-
-
-// return (
-  //   <div id='testimonials' className='pb-14 md:px-0 flex flex-col w-full space-y-7 scroll-mt-24 '>
-  //       <h2 className='text-3xl flex border-b-2 w-32 relative left-10'>Testimonials</h2>
-  //       <p className='md:text-base text-gray-700 mt-3'></p>
-
-  //             <div className='flex flex-col items-center '>
-  //               <div className='grid sm:grid-cols-2 lg:grid-cols-3  gap-8 overflow-hidden'>
-  //               {dummyTestimonial.map((testimonial, index)=>(
-  //                 <div key={index}
-  //                 className=' h-68 w-72  text-sm text-left border border-gray-500/30 pb-6 rounded-lg bg-white shadow-[opx_4px_15px_0px] shadow-black/5 overflow-hidden '>
-  //                     <div className='flex items-center gap-4 px-5 py-4 bg-gray-500/10'>
-  //                       <img src={testimonial.image} alt={testimonial.name}
-  //                       className='h-12 w-12 rounded-full' />
-  //                       <div>
-  //                         <h1 className='text-lg font-medium text-gray-800'>{testimonial.name}</h1>
-  //                         <p className='text-gray-800/80'>{testimonial.role}</p>
-  //                       </div>
-  //                     </div>
-  //                     <p className='p-[10px_0px_0px_15px]'>{testimonial.rating}</p>  
-  //                     <p className='m-5'>{testimonial.feedback}</p>
-  //                     <p className='text-blue-500 underline px-5 hover:cursor-pointer'>Read more</p>
-  //                 </div>
-  //               ))}
-  //             </div>
-  //             </div>
-  //   </div>
-    
-  // )

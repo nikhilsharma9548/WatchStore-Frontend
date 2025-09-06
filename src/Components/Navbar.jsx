@@ -64,7 +64,7 @@ const [menu, setMenu] = useState(false)
   return (
  <>
     <div className={`flex justify-between md:p-5 p-2 items-center h-20 w-full fixed  top-0 left-0 z-50
-       ${!isScrolled ? "bg-transparent" : "bg-gray-300  rounded-b-md"}`}>
+       ${!isScrolled ? "bg-transparent" : "bg-gray-300"}`}>
       
         {/* Navbar for desktop View */}
 

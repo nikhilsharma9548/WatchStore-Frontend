@@ -10,10 +10,12 @@ const MyOrders = () => {
     const fetchMyOrders = async() =>{
 
         try {
+            setLoading(true)
             const { data } = await axios.get('/api/order/user')
 
             if(data.success){
                 setMyOrders(data.orders)
+                setLoading(false)
 
             }else{
                 console.error(data.message)
@@ -32,7 +34,7 @@ const MyOrders = () => {
 
   return (
     <>
-        <div className='mt-24 md:px-20 px-10 pb-16 '>
+        { loading ? (<div className='mt-24 md:px-20 px-10 pb-16 '>
         <div className='flex flex-col items-end w-max mb-8'>
             <p className='text-3xl'>My Orders</p>
             <div className='w-16  h-0.5 bg-pink-800 rounded-full'></div>
@@ -74,7 +76,7 @@ const MyOrders = () => {
             </div>
 
         ))}
-    </div>
+    </div>) : <Loading />}
     </>
   )
 }

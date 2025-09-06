@@ -8,6 +8,7 @@ import Bg2 from './Images/background.png'
 import upload_area from'./Images/upload_area.png';
 import boxicon from './Images/box_icon.svg'
 import profile from './Images/profile_icon.png'
+import testimonials from './Images/background-2.jpg'
 
 import addAdress from './Images/add_address_image.svg'
 import profile_img_1 from './Images/profile_img_1.png' 
@@ -37,7 +38,8 @@ export const assets = {
     upload_area,
     boxicon,
     profile,
-
+    
+    testimonials,
     profile_img_1,
     profile_img_2,
     profile_img_3,
@@ -53,9 +55,7 @@ export const imageSlider = [
       slide2,
       slide3,
       slide4,
-];
-
-
+];  
 export const categories = [
   {
     text: "Analog Watches",

@@ -43,28 +43,16 @@ const UserDetails = () => {
 
 const [file, setFile] = useState([]);
 
-const onSubmitHandler = async (event) => {
-  event.preventDefault();
+const handleUpload = async (e) => {
+  const formData = new FormData();
+  formData.append("image", e.target.files[0]);
 
-  try {
-    const formData = new FormData();
-    formData.append("image", file[0]); // single file
-    formData.append("userId", user._id); // current logged-in user ka ID bhejo
+  const res = await axios.post("/api/user/upload", formData);
 
-    const { data } = await axios.post("/api/user/upload", formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    });
-
-    if (data.success) {
-      toast.success(data.message);
-      setUser({ ...user, image: data.image }); // update user image in context
-    } else {
-      toast.error(data.message);
-    }
-  } catch (error) {
-    toast.error(error.message);
-  }
+  const data = await res.json();
+  console.log(data);
 };
+
 
   return (
     <div className='min-h-screen'>
@@ -83,7 +71,7 @@ const onSubmitHandler = async (event) => {
     id="image"
     hidden
     accept="image/*"
-    onChange={(e) => setFile([e.target.files[0]])}
+    onChange={(e) => {setFile([e.target.files[0]]),handleUpload()}}
   />
   <img
     className="w-16 h-16 rounded-full border"

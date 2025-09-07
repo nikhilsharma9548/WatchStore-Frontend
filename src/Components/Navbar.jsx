@@ -147,11 +147,15 @@ const handleUpload = async (e) => {
                      <div className='flex gap-3  items-center'>
                       <label htmlFor="image">
                           <input type="file" id="image" onChange={handleUpload} hidden/>
-                            <img
+                            {!user ? (<img
                           className="w-16 h-16 rounded-full border cursor-pointer "
                            src={file instanceof File ? URL.createObjectURL(file) : assets.profile}
                           alt="Profile"
-                        />
+                        />) : (
+                          <img 
+                          className="w-16 h-16 rounded-full border cursor-pointer"
+                          src={file instanceof File ? URL.createObjectURL(file) : user.image} />
+                        )}
                       </label>
                   <ul className='flex flex-col text-sm'>
                     <li>{user.name}</li>

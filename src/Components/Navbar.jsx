@@ -149,10 +149,7 @@ const handleUpload = async (e) => {
                           <input type="file" onChange={handleUpload} hidden/>
                             <img
                           className="w-16 h-16 rounded-full border cursor-pointer "
-                          src={
-                            file[0]
-                              ? URL.createObjectURL(file[0])
-                              : assets.profile
+                          src={file ?  URL.createObjectURL(file): assets.profile
                           }
                           alt="Profile"
                         />

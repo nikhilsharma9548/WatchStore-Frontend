@@ -146,7 +146,7 @@ const handleUpload = async (e) => {
                     {menu && (<div className='hidden   md:flex flex-col gap-5 h-96 w-72 rounded-xl p-5 bg-white  absolute top-10 right-0'>
                      <div className='flex gap-3  items-center'>
                       <label htmlFor="image">
-                          <input type="file" onChange={handleUpload} hidden/>
+                          <input type="file" id="image" onChange={handleUpload} hidden/>
                             <img
                           className="w-16 h-16 rounded-full border cursor-pointer "
                            src={file instanceof File ? URL.createObjectURL(file) : assets.profile}

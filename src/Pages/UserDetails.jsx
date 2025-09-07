@@ -86,8 +86,6 @@ const handleUpload = async (e) => {
     src={
       file[0]
         ? URL.createObjectURL(file[0])
-        : user?.image
-        ? user.image
         : assets.profile
     }
     alt="Profile"

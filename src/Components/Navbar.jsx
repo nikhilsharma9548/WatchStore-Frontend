@@ -114,7 +114,7 @@ const [menu, setMenu] = useState(false)
 
                   <div className='relative flex flex-col cursor-pointer'>
 
-                    <img src={assets.profile} className='w-10 h-10 rounded-full' onClick={() =>setMenu(!menu)}/>
+                    <img src={user ? user.image : assets.profile} className='w-10 h-10 rounded-full' onClick={() =>setMenu(!menu)}/>
 
                     {menu && (<div className='hidden   md:flex flex-col gap-5 h-96 w-72 rounded-xl p-5 bg-white  absolute top-10 right-0'>
                      <div className='flex gap-3  items-center'>

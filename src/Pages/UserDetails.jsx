@@ -90,7 +90,7 @@ const handleUpload = async (e) => {
           <p className='text-xl flex flex-col'>{user ? (user.name).toUpperCase() : "GUEST"}
             <span className='text-sm'>{user ? (user.email) : null}</span>
           </p>
-          <button className='bg-blue-500 flex justify-end text-white px-4 py-2 rounded mt-2' onClick={onSubmitHandler}>upload</button>
+          {/* <button className='bg-blue-500 flex justify-end text-white px-4 py-2 rounded mt-2' onClick={onSubmitHandler}>upload</button> */}
         </div>
         <div className=' rounded bg-gray-300/90 p-2'>
 

@@ -44,13 +44,27 @@ const UserDetails = () => {
 const [file, setFile] = useState([]);
 
 const handleUpload = async (e) => {
-  const formData = new FormData();
-  formData.append("image", e.target.files[0]);
+  try {
+    const formData = new FormData();
+    formData.append("image", e.target.files[0]);
 
-  const res = await axios.post("/api/user/upload", formData);
+    const res = await axios.post("/api/user/upload", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+      withCredentials: true, // agar cookies bhejni hai
+    });
 
-  const data = await res.json();
-  console.log(data);
+    const data = res.data;
+    console.log("Response:", data);
+
+    if (data.success) {
+      toast.success("Image Uploaded Successfully!");
+    } else {
+      toast.error(data.message);
+    }
+  } catch (error) {
+    console.error("Upload Error:", error);
+    toast.error("Failed to upload image.");
+  }
 };
 
 

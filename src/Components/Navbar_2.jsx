@@ -28,7 +28,7 @@ const Navbar_2 = () => {
     <div className='md:hidden flex justify-center md:p-5 p-2 items-center h-16 w-full
          fixed bg-gray-100 bottom-0 overflow-hidden border border-gray-400'>
         <div className='  flex fixed  w-full px-5 mt-1'>
-            <ul className='  activeLink flex fixed justify-between items-center gap-7 text-lg w-full'>
+            <ul className='  activeLink flex justify-between items-center gap-7 text-lg w-full'>
                 <NavLink 
                 className={({isActive}) =>`flex flex-col justify-center items-center cursor-pointer
                  ${active === 'home' && isActive ? "text-pink-800 " : "text-gray-500" }`} 

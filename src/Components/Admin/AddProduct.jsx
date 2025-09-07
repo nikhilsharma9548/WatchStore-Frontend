@@ -81,21 +81,6 @@ const AddProduct = () => {
                             </label>
 
                         ))}
-                        {/* <label htmlFor="image">
-                        <input
-                            onChange={handleFileChange}
-                            accept="image/*"
-                            type="file"
-                            id="image"
-                            hidden
-                        />
-                        <img
-                            className="w-44 cursor-pointer"
-                            src={files && files instanceof File ? URL.createObjectURL(files) : assets.upload_area }
-                            width={100}
-                            height={100}
-                        />
-        </label> */}
                 </div>
                 </div>
 

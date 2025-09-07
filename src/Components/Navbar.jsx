@@ -59,8 +59,35 @@ const logout = async() =>{
      toast.error(error.message)
   } 
 }
-const [files, setFiles] = useState("")
 const [menu, setMenu] = useState(false)
+
+const [file, setFile] = useState([]);
+
+const handleUpload = async (e) => {
+  try {
+    const formData = new FormData();
+    formData.append("image", e.target.files[0]);
+
+    const res = await axios.post("/api/user/upload", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+      withCredentials: true, // agar cookies bhejni hai
+    });
+
+    const data = res.data;
+    console.log("Response:", data);
+
+    if (data.success) {
+      toast.success("Image Uploaded Successfully!");
+    } else {
+      toast.error(data.message);
+    }
+  } catch (error) {
+    console.error("Upload Error:", error);
+    toast.error("Failed to upload image.");
+  }
+};
+
+
   return (
  <>
     <div className={`flex justify-between md:p-5 p-2 items-center h-20 w-full fixed  top-0 left-0 z-50
@@ -119,23 +146,17 @@ const [menu, setMenu] = useState(false)
                     {menu && (<div className='hidden   md:flex flex-col gap-5 h-96 w-72 rounded-xl p-5 bg-white  absolute top-10 right-0'>
                      <div className='flex gap-3  items-center'>
                       <label htmlFor="image">
-                      <input
-                        type="file"
-                        id="image"
-                        hidden
-                        onChange={(e) => {
-                          if (e.target.files && e.target.files.length > 0) {
-                            setFiles(e.target.files[0]); // ✅ sirf ek file store kar rahe
+                          <input type="file" onChange={handleUpload} hidden/>
+                            <img
+                          className="w-16 h-16 rounded-full border cursor-pointer "
+                          src={
+                            file[0]
+                              ? URL.createObjectURL(file[0])
+                              : assets.profile
                           }
-                        }}
-                      />
-                    <img
-                      src={files ? URL.createObjectURL(files) : assets.profile}
-                      className="w-14 h-14 cursor-pointer"
-                      width={100}
-                      height={100}
-                    />
-                  </label>
+                          alt="Profile"
+                        />
+                      </label>
                   <ul className='flex flex-col text-sm'>
                     <li>{user.name}</li>
                     <li>{user.email}</li>

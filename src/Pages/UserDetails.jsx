@@ -80,9 +80,9 @@ const handleUpload = async (e) => {
         <div className='my-5 px-5 py-4 rounded bg-gray-300/90 items-center gap-5 flex '>
 
         <label htmlFor="image">
-  <input type="file" onChange={handleUpload} />
-  <img
-    className="w-16 h-16 rounded-full border"
+    <input type="file" onChange={handleUpload} hidden/>
+      <img
+    className="w-16 h-16 rounded-full border cursor-pointer "
     src={
       file[0]
         ? URL.createObjectURL(file[0])

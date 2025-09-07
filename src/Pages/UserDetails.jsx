@@ -66,13 +66,7 @@ const handleUpload = async (e) => {
         <div className='my-5 px-5 py-4 rounded bg-gray-300/90 items-center justify-between flex '>
 
         <label htmlFor="image">
-  <input
-    type="file"
-    id="image"
-    hidden
-    accept="image/*"
-    onChange={(e) => {setFile([e.target.files[0]]),handleUpload()}}
-  />
+  <input type="file" onChange={handleUpload} />
   <img
     className="w-16 h-16 rounded-full border"
     src={

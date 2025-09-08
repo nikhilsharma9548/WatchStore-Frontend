@@ -8,9 +8,11 @@ import { useAppContext } from '../Context/AppContext'
 
 
 const Home = () => {
+
+  const {theme} = useAppContext()
   return (
     <>
-      <div className='w-full'>
+      <div className={`w-full  ${!theme && "dark"}`}>
         <Hero />
         < Category />   
         < Features/>  

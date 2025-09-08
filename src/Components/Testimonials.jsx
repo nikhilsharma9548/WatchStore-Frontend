@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { assets, dummyProducts, dummyTestimonial } from '../assets/assets'
+import { assets, dummyTestimonial } from '../assets/assets'
 import { IoMailOutline } from "react-icons/io5"
 
 

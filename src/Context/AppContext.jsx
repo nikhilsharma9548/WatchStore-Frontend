@@ -174,11 +174,12 @@ const getCartAmount = () =>{
     }
     return Math.floor(totalAmount * 100) / 100; 
 }
-
+// theme toggler
+const [theme, setTheme] = useState(false)
     const value = {
         navigate, user, setUser, isAdmin, setIsAdmin, products, currency, addToCart, updateCartItem, removeFromCart, cartItems,
         images, setImages ,showUserLogin, setShowUserLogin, searchQuery, setSearchQuery, getCartAmount, getCartCount, axios, 
-        fetchProducts, setCartItems, loading, setLoading
+        fetchProducts, setCartItems, loading, setLoading, theme, setTheme
     }
 
     return <AppContext.Provider value={value}>

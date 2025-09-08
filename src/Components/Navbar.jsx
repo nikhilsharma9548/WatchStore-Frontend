@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useContext } from 'react'
-import { assets, imageSlider } from '../assets/assets'
+import { assets} from '../assets/assets'
 import { LuShoppingCart } from "react-icons/lu";
 import { CiSearch } from "react-icons/ci";
 import { useAppContext } from '../Context/AppContext';
@@ -8,14 +8,16 @@ import toast from 'react-hot-toast';
 import { HiGift } from "react-icons/hi2";
 import { FaRegHeart } from "react-icons/fa6";
 import { ImHeadphones } from "react-icons/im";
+import { CiLight } from "react-icons/ci";
 import { LuBox } from "react-icons/lu";
+import { FaMoon } from "react-icons/fa6";
 
 
 const Navbar = () => {
 
     const[isScrolled, setIsScrolled] = useState(false)
 
-    const {navigate ,setShowUserLogin, searchQuery, user, setSearchQuery,getCartCount, axios, setUser, getCartAmount} = useAppContext();
+    const {navigate ,setShowUserLogin, searchQuery, user, setSearchQuery,getCartCount, axios, setUser, theme, setTheme, getCartAmount} = useAppContext();
 
     //change the navbar color
     useEffect(() => {
@@ -91,7 +93,7 @@ const handleUpload = async (e) => {
   return (
  <>
     <div className={`flex justify-between md:p-5 p-2 items-center h-20 w-full fixed  top-0 left-0 z-50
-       ${!isScrolled ? "bg-transparent" : "bg-gray-300"}`}>
+       ${!isScrolled ? "bg-transparent" : "bg-gray-300"} ${!theme && "dark border-b-2 border-gray-100"}`}>
       
         {/* Navbar for desktop View */}
 
@@ -125,6 +127,15 @@ const handleUpload = async (e) => {
             </div>
 
             {/* cart section */}
+            <div onClick={() => setTheme(!theme)}>
+              { !theme ? 
+              <p className='text-2xl relative left-4 cursor-pointer'><CiLight/></p> : 
+              <p className='text-2xl relative left-4 cursor-pointer'><FaMoon/></p>
+              }
+              
+           
+            </div>
+
 
             <div onClick={() => {navigate('/cart'); scrollTo(0,0)}} className="relative cursor-pointer px-5">
                <p className='text-2xl'> < LuShoppingCart/> </p>

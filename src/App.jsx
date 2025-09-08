@@ -20,14 +20,13 @@ import AddProduct from './Components/Admin/AddProduct'
 import ProductList from './Components/Admin/ProductList'
 import Orders from './Components/Admin/Orders'
 import UserDetails from './Pages/UserDetails'
-import Loading from './Components/Loading'
 
 
 const WatchStore = () => {
 
   const isAdminPath = useLocation().pathname.includes("admin")
   const isUserDetailsPath = useLocation().pathname.includes("user-details")
-  const {showUserLogin, isAdmin, loading} = useAppContext()
+  const {showUserLogin, isAdmin, theme} = useAppContext()
   return (
     
   <>

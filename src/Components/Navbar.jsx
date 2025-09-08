@@ -9,6 +9,7 @@ import { HiGift } from "react-icons/hi2";
 import { FaRegHeart } from "react-icons/fa6";
 import { ImHeadphones } from "react-icons/im";
 import { LuBox } from "react-icons/lu";
+import { userAppContext } from '../Context/UserContext';
 
 
 const Navbar = () => {
@@ -16,6 +17,7 @@ const Navbar = () => {
     const[isScrolled, setIsScrolled] = useState(false)
 
     const {navigate ,setShowUserLogin, searchQuery, user, setSearchQuery,getCartCount, axios, setUser, getCartAmount} = useAppContext();
+     const {handleUpload} = userAppContext()
 
     //change the navbar color
     useEffect(() => {
@@ -63,29 +65,29 @@ const [menu, setMenu] = useState(false)
 
 const [file, setFile] = useState([]);
 
-const handleUpload = async (e) => {
-  try {
-    const formData = new FormData();
-    formData.append("image", e.target.files[0]);
+// const handleUpload = async (e) => {
+//   try {
+//     const formData = new FormData();
+//     formData.append("image", e.target.files[0]);
 
-    const res = await axios.post("/api/user/upload", formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-      withCredentials: true, // agar cookies bhejni hai
-    });
+//     const res = await axios.post("/api/user/upload", formData, {
+//       headers: { "Content-Type": "multipart/form-data" },
+//       withCredentials: true, // agar cookies bhejni hai
+//     });
 
-    const data = res.data;
-    console.log("Response:", data);
+//     const data = res.data;
+//     console.log("Response:", data);
 
-    if (data.success) {
-      toast.success("Image Uploaded Successfully!");
-    } else {
-      toast.error(data.message);
-    }
-  } catch (error) {
-    console.error("Upload Error:", error);
-    toast.error("Failed to upload image.");
-  }
-};
+//     if (data.success) {
+//       toast.success("Image Uploaded Successfully!");
+//     } else {
+//       toast.error(data.message);
+//     }
+//   } catch (error) {
+//     console.error("Upload Error:", error);
+//     toast.error("Failed to upload image.");
+//   }
+// };
 
 
   return (

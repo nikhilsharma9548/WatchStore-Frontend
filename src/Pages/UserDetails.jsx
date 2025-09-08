@@ -9,7 +9,6 @@ import { FaPlus } from "react-icons/fa6";
 import { FaUserAlt } from "react-icons/fa";
 import { useAppContext } from '../Context/AppContext'
 import toast from 'react-hot-toast';
-import { userAppContext } from '../Context/UserContext';
 
 
 
@@ -23,7 +22,6 @@ const UserDetails = () => {
   // };
   
   const {navigate, axios, user, setUser, loading,  setLoading} = useAppContext()
-  const {handleUpload} = userAppContext()
 
   const logout = async() =>{
     setLoading(true)
@@ -43,6 +41,31 @@ const UserDetails = () => {
   } 
 } 
 
+const [file, setFile] = useState([]);
+
+const handleUpload = async (e) => {
+  try {
+    const formData = new FormData();
+    formData.append("image", e.target.files[0]);
+
+    const res = await axios.post("/api/user/upload", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+      withCredentials: true, // agar cookies bhejni hai
+    });
+
+    const data = res.data;
+    console.log("Response:", data);
+
+    if (data.success) {
+      toast.success("Image Uploaded Successfully!");
+    } else {
+      toast.error(data.message);
+    }
+  } catch (error) {
+    console.error("Upload Error:", error);
+    toast.error("Failed to upload image.");
+  }
+};
 
 
   return (

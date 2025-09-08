@@ -81,14 +81,14 @@ const handleUpload = async (e) => {
 
         <label htmlFor="image">
     <input type="file" id="image" onChange={handleUpload} hidden/>
-      {!user.image ? (<img
+      {user && user.image ? (<img
     className="w-16 h-16 rounded-full border cursor-pointer "
-     src={file instanceof File ? URL.createObjectURL(file) : assets.profile}
+     src={file instanceof File ? URL.createObjectURL(file) : user.image}
     alt="Profile"
   />) : (
     <img 
     className="w-16 h-16 rounded-full border cursor-pointer"
-    src={file instanceof File ? URL.createObjectURL(file) : user.image} />
+    src={file instanceof File ? URL.createObjectURL(file) : assets.profile} />
   )}
 </label>
 

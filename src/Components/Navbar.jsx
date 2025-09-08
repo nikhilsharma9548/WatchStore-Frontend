@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useContext } from 'react'
-import { assets } from '../assets/assets'
+import { assets, imageSlider } from '../assets/assets'
 import { LuShoppingCart } from "react-icons/lu";
 import { CiSearch } from "react-icons/ci";
 import { useAppContext } from '../Context/AppContext';
@@ -147,14 +147,14 @@ const handleUpload = async (e) => {
                      <div className='flex gap-3  items-center'>
                       <label htmlFor="image">
                           <input type="file" id="image" onChange={handleUpload} hidden/>
-                            {!user ? (<img
+                            {user && user.image ? (<img
                           className="w-16 h-16 rounded-full border cursor-pointer "
-                           src={file instanceof File ? URL.createObjectURL(file) : assets.profile}
+                           src={file instanceof File ? URL.createObjectURL(file) : user.image}
                           alt="Profile"
                         />) : (
                           <img 
                           className="w-16 h-16 rounded-full border cursor-pointer"
-                          src={file instanceof File ? URL.createObjectURL(file) : user.image} />
+                          src={file instanceof File ? URL.createObjectURL(file) : assets.profile} />
                         )}
                       </label>
                   <ul className='flex flex-col text-sm'>

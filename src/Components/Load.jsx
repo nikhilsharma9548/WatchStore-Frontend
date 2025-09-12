@@ -4,19 +4,24 @@ import { useAppContext } from "../Context/AppContext";
 
  const Load = () => {
     const {showSplash, setShowSplash} = useAppContext()
-    
+ const [animate, setAnimate] = useState(false);
+
   useEffect(() => {
-    // Pehle check karo localStorage me splash ka status
     const alreadyShown = localStorage.getItem("splashShown");
 
     if (!alreadyShown) {
-      setShowSplash(true); // Show karo splash
-      localStorage.setItem("splashShown", "true"); // Mark karo as shown
-
-      const timer = setTimeout(() => setShowSplash(false), 2000);
-      return () => clearTimeout(timer);
+      // First time visit → animation on
+      setAnimate(true);
+      localStorage.setItem("splashShown", "true");
+    } else {
+      // Next visits → no animation, just instantly show
+      setAnimate(false);
     }
+
+    const timer = setTimeout(() => setShowSplash(false), 2000);
+    return () => clearTimeout(timer);
   }, []);
+  
   return (
     <div className="relative min-h-screen bg-[#C3E0E5] flex items-center justify-center">
       {/* Splash Screen */}

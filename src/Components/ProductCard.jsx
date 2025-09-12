@@ -18,7 +18,7 @@ const ProductCard = ({product}) => {
          initial ={{opacity:0, scale:0.7 }}
             whileInView={{opacity:1,scale:1}}
             transition={{duration:0.7}}
-        onClick={() => {navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0,0)}}  className="border border-gray-500/20 rounded-md md:px-4 px-3 py-2 flex justify-between flex-col bg-[#41729F]  w-full shadow-lg shadow-gray-700">
+        onClick={() => {navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0,0)}}  className="border border-gray-500/20 rounded-md md:px-4 px-3 py-2 flex justify-between flex-col bg-white  w-full shadow-lg shadow-gray-700">
             <div className="group cursor-pointer flex items-center justify-center px-2">
                 <img className="group-hover:scale-105 transition max-w-24 md:max-w-36" src={product.image[0]} alt={product.name} />
             </div>

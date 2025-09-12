@@ -53,16 +53,16 @@ const Testimonials = () => {
   </div>
 
   {/* Navigation Buttons */}
-  <div className="flex gap-4 mt-6 absolute right-0 -translate-x-1/2">
+  <div className="flex gap-4 mt-6 text-white absolute right-0 -translate-x-1/2">
     <button
       onClick={prevSlide}
-      className="p-3 bg-pink-700 rounded-full hover:bg-pink-800"
+      className="p-3 bg-[#274472] rounded-full hover:bg-blue-950"
     >
       <FaChevronLeft />
     </button>
     <button
       onClick={nextSlide}
-      className="p-3 bg-pink-700 rounded-full hover:bg-pink-800"
+      className="p-3 bg-[#274472] rounded-full hover:bg-blue-950"
     >
       <FaChevronRight />
     </button>
@@ -73,13 +73,13 @@ const Testimonials = () => {
 
             </div>
             <div className='md:flex relative hidden'>
-               <div className=' bg-pink-700 md:h-80 md:w-80  lg-h-96 lg:w-96 xl:h-[450px] xl:w-[450px] rounded-full '></div>
-              <img src={assets.testimonials} className='absolute right-28 top-16  w-[450px] object-cover rounded-full' />  
+               <div className=' bg-[#274472] md:h-80 md:w-80  lg-h-96 lg:w-96 xl:h-[450px] xl:w-[450px] rounded-full '></div>
+              <img src={assets.testimonials} className='absolute right-28 top-16  w-[420px] object-cover rounded-full' />  
             </div>
            
           </div>
           
-           <div className="mt-32 lg:mt-20 max-w-5xl py-16 md:pl-20 md:w-full mx-2 md:mx-auto p-4 flex flex-col md:flex-row items-center justify-between text-left bg-pink-700 rounded-2xl gap-5 md:gap-0 md:p-10 text-white">
+           <div className="mt-32 lg:mt-20 max-w-5xl py-16 md:pl-20 md:w-full mx-2 md:mx-auto p-4 flex flex-col md:flex-row items-center justify-between text-left bg-[#274472] rounded-2xl gap-5 md:gap-0 md:p-10 text-white">
                 <div>
                     <div>
                         <p className="">Trusted by 12k+ customers</p>
@@ -94,7 +94,7 @@ const Testimonials = () => {
                 <div className="flex items-center gap-2 text-black  bg-white max-md:mt-6 pl-2 md:pl-4 h-11 text-sm rounded-full overflow-hidden">
                   <p className='text-xl'><IoMailOutline/></p>
                     <input type="text" placeholder="Enter your email..." className="outline-none h-11 text-black" />
-                    <button className="md:px-6 px-2 h-10 mr-1 rounded-full border text-white bg-pink-700/80">Subscribe</button>
+                    <button className="md:px-6 px-2 h-10 mr-1 rounded-full border text-white bg-[#274472]/90">Subscribe</button>
                 </div>
             </div>
         </div>

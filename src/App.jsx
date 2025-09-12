@@ -20,24 +20,22 @@ import AddProduct from './Components/Admin/AddProduct'
 import ProductList from './Components/Admin/ProductList'
 import Orders from './Components/Admin/Orders'
 import UserDetails from './Pages/UserDetails'
-
+import Load from './Components/load'
 
 const WatchStore = () => {
 
   const isAdminPath = useLocation().pathname.includes("admin")
   const isUserDetailsPath = useLocation().pathname.includes("user-details")
-  const {showUserLogin, isAdmin, theme} = useAppContext()
+  const {showUserLogin, isAdmin, theme, showSplash} = useAppContext()
   return (
     
   <>
-    <div>
+    {!showSplash ? (<div>
         {isAdminPath || isUserDetailsPath ? null :  <Navbar/>}
         {showUserLogin ? <Login/> : null}
 
-  <div className={`w-full overflow-hidden bg-[#C3E0E5] ${theme ? "dark" : ""}`}
-        // style={{ backgroundImage: `url(${assets.Bg2})` }}
-        >
-
+  <div className={`w-full overflow-hidden bg-[#C3E0E5] ${theme ? "dark" : ""}`}>
+   
       <Routes>
         <Route path='/' element= {<Home/>} />
         <Route path='/products' element= {<AllProducts/>} />
@@ -58,7 +56,8 @@ const WatchStore = () => {
   {isAdminPath ? null : <Navbar_2 />}
   <Toaster />
   </div>
-</div>
+
+</div>): <Load/>}
   </>
 
    

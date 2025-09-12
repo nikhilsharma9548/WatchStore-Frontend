@@ -93,7 +93,7 @@ const handleUpload = async (e) => {
   return (
  <>
     <div className={`flex justify-between md:p-5 p-2 items-center h-20 w-full fixed  top-0 left-0 z-50
-       ${!isScrolled ? "bg-transparent" : "bg-gray-300"} ${!theme && "dark border-b-2 border-gray-100"}`}>
+       ${!isScrolled ? "bg-transparent" : "bg-gray-300"} ${theme && "dark border-b-2 border-gray-100"}`}>
       
         {/* Navbar for desktop View */}
 

@@ -12,7 +12,7 @@ const Home = () => {
   const {theme} = useAppContext()
   return (
     <>
-      <div className={`w-full  ${!theme && "dark"}`}>
+      <div className={`w-full`}>
         <Hero />
         < Category />   
         < Features/>  

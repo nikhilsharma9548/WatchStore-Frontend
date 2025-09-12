@@ -102,12 +102,12 @@ const handleUpload = async (e) => {
 
           <div className='flex'>
             <NavLink to={'/my-orders'}
-          className='text-base w-[50vh] m-2 p-2 shadow-xl rounded border border-gray-600 flex items-center max-w-sm text-gray-800 gap-2'>
-            <span>< LuBox/></span>
+          className='text-base w-[50vh] m-2 p-2 shadow-xlrounded border border-gray-600 flex items-center max-w-sm text-gray-800 gap-2'>
+            <span className='text-2xl'>< LuBox/></span>
             Orders</NavLink>
 
-          <NavLink className='text-base w-[50vh] m-2 p-2 rounded shadow-xl border flex items-center  border-gray-600  text-gray-800'>
-           <span>< FaRegHeart/></span>
+          <NavLink className='text-base w-[50vh] m-2 p-2 rounded shadow-xl gap-2 border flex items-center  border-gray-600  text-gray-800'>
+           <span className='text-2xl'>< FaRegHeart/></span>
            Wishlist</NavLink>
           </div>
 
@@ -129,7 +129,7 @@ const handleUpload = async (e) => {
             Become Seller</NavLink>
         </div>
 
-        <div onClick={logout} className='p-3 flex w-full justify-center items-center gap-5 mt-10  text-center rounded  bg-pink-700 '>
+        <div onClick={logout} className='p-3 flex w-full justify-center items-center gap-5 mt-10  text-center rounded  bg-[#274472]'>
           logout
           {loading && ( <div className=" border-2 aspect-square w-5 rounded-full
          border-white border-t-transparent border-r-0 border-l-0

@@ -93,7 +93,7 @@ const handleUpload = async (e) => {
   return (
  <>
     <div className={`flex justify-between md:p-5 p-2 items-center h-20 w-full fixed  top-0 left-0 z-50
-       ${!isScrolled ? "bg-transparent" : "bg-gray-300"} ${theme && "dark border-b-2 border-gray-100"}`}>
+       ${!isScrolled ? "bg-transparent" : "bg-[#5885AF]"} ${theme && "dark border-b-2 border-gray-100"}`}>
       
         {/* Navbar for desktop View */}
 
@@ -119,10 +119,10 @@ const handleUpload = async (e) => {
          <div className='flex items-center md:gap-5 gap-2  px-0 text-gray-700'>
 
           {/* search Bar */}
-            <div className="hidden max-w-96 xl:min-w-96 lg:flex items-center text-base gap-2 border-2 border-gray-600 px-3 rounded-full">
+            <div className="hidden max-w-96 xl:min-w-96 lg:flex items-center text-base gap-2 border-2 border-gray-800 px-3 rounded-full">
                 <input
                 value={searchQuery} 
-                onChange={(e)=> setSearchQuery(e.target.value)} className="py-2.5 w-full bg-transparent outline-none px-3 " type="text" placeholder="Search products" />
+                onChange={(e)=> setSearchQuery(e.target.value)} className="py-2.5 w-full bg-transparent  outline-none px-3 " type="text" placeholder="Search products" />
                 <p className='text-xl  cursor-pointer '>< CiSearch/></p>
             </div>
 
@@ -131,22 +131,19 @@ const handleUpload = async (e) => {
               { !theme ? 
               <p className='text-2xl relative left-4 cursor-pointer'><CiLight/></p> : 
               <p className='text-2xl relative left-4 cursor-pointer'><FaMoon/></p>
-              }
-              
-           
+              }   
             </div>
-
 
             <div onClick={() => {navigate('/cart'); scrollTo(0,0)}} className="relative cursor-pointer px-5">
                <p className='text-2xl'> < LuShoppingCart/> </p>
-               <button className="absolute -top-2 right-1 text-xs text-white bg-pink-800 w-[18px] h-[18px]
+               <button className="absolute -top-2 right-1 text-xs text-white bg-[#274472] w-[18px] h-[18px]
                 rounded-full">{getCartCount()}</button>
             </div>
                         
                {!user ? (<div className='group'>
                    <button onClick={() => setShowUserLogin(true)}
-                    className='bg-pink-800 flex justify-center items-center gap-2 text-white px-5 py-2 cursor-pointer
-                    hover:bg-pink-900 rounded transition-all duration-300'>login 
+                    className='bg-[#274472] flex justify-center items-center gap-2 text-white px-5 py-2 cursor-pointer
+                    hover:bg-blue-950 rounded transition-all duration-300'>login 
                   </button>
                 </div>) : (
 
@@ -159,7 +156,7 @@ const handleUpload = async (e) => {
                       <label htmlFor="image">
                           <input type="file" id="image" onChange={handleUpload} hidden/>
                             {user && user.image ? (<img
-                          className="w-16 h-16 rounded-full border cursor-pointer "
+                          className="w-16 h-16 rounded-full border cursor-pointer"
                            src={file instanceof File ? URL.createObjectURL(file) : user.image}
                           alt="Profile"
                         />) : (

@@ -1,6 +1,5 @@
 import React from 'react'
-import { assets, categories } from '../assets/assets'
-import { useContext } from 'react'
+import {categories } from '../assets/assets'
 import {useAppContext} from '../Context/AppContext'
 import { AnimatePresence, motion} from "motion/react"
 
@@ -22,7 +21,7 @@ const Category = () => {
             whileInView={{opacity:1,scale:1}}
             transition={{duration:0.3}}
           key ={index}  
-          className= " group cursor-pointer  max-w-32  py-5 px-3 gap-2 rounded-lg flex flex-col justify-between items-center"
+          className= " group cursor-pointer bg-[#41729F]  max-w-32  py-5 px-3 gap-2 rounded-lg flex flex-col justify-between items-center"
           style = {{backgroundColor: category.bgColor}}
           onClick={() =>{
             navigate(`/products/${category.path.toLowerCase()}`);

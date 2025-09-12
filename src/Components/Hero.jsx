@@ -48,7 +48,7 @@ const Hero = () => {
           ))}   
       </div>
       <button className='absolute left-1/2 -translate-x-1/2 bottom-10 
-            py-3 bg-pink-800 border border-gray-300 shadow-lg text-white
+            py-3 bg-[#274472] border border-gray-300 shadow-lg text-white
             rounded-full px-8 cursor-pointer '
             onClick={() =>{navigate('/products')}}> Discover</button>
 

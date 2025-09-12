@@ -45,7 +45,7 @@ const ProductCard = ({product}) => {
                     </p>
                     <div className="text-[#274472]">
                         {!cartItems[product._id] ? (
-                            <button className="flex items-center justify-center gap-1 bg-pink-100 border border-pink-300 md:w-[80px] w-[64px] h-[34px] rounded text-pink-600 font-medium cursor-pointer" onClick={() => addToCart(product._id)} >
+                            <button className="flex items-center justify-center gap-1 bg-[#274472]/20 border border-[#274472]/40 md:w-[80px] w-[64px] h-[34px] rounded text-pink-600 font-medium cursor-pointer" onClick={() => addToCart(product._id)} >
                                 <p><IoCartOutline/></p>
                                 Add
                             </button>

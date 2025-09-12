@@ -4,11 +4,19 @@ import { useAppContext } from "../Context/AppContext";
 
  const Load = () => {
     const {showSplash, setShowSplash} = useAppContext()
+    
   useEffect(() => {
-    const timer = setTimeout(() => setShowSplash(false), 2000); // 2 sec me gayab
-    return () => clearTimeout(timer);
-  }, []);
+    // Pehle check karo localStorage me splash ka status
+    const alreadyShown = localStorage.getItem("splashShown");
 
+    if (!alreadyShown) {
+      setShowSplash(true); // Show karo splash
+      localStorage.setItem("splashShown", "true"); // Mark karo as shown
+
+      const timer = setTimeout(() => setShowSplash(false), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
   return (
     <div className="relative min-h-screen bg-[#C3E0E5] flex items-center justify-center">
       {/* Splash Screen */}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Home from './Components/Home'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { assets } from './assets/assets'
@@ -21,16 +21,25 @@ import ProductList from './Components/Admin/ProductList'
 import Orders from './Components/Admin/Orders'
 import UserDetails from './Pages/UserDetails'
 import Load from './Components/Load'
+import Loading from './Components/Loading'
 
 const WatchStore = () => {
 
   const isAdminPath = useLocation().pathname.includes("admin")
   const isUserDetailsPath = useLocation().pathname.includes("user-details")
-  const {showUserLogin, isAdmin, theme, showSplash} = useAppContext()
+  const {showUserLogin, isAdmin, loading, theme, setLoading} = useAppContext()
+
+  useEffect(() => {
+  const timer = setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+  })
+  
   return (
-    
   <>
- <div>
+ {!loading ? (<div>
         {isAdminPath || isUserDetailsPath ? null :  <Navbar/>}
         {showUserLogin ? <Login/> : null}
 
@@ -57,7 +66,7 @@ const WatchStore = () => {
   <Toaster />
   </div>
 
-</div>
+</div>) : <Loading/>}
   </>
 
    

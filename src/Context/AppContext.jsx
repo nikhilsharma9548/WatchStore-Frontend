@@ -175,7 +175,7 @@ const getCartAmount = () =>{
     return Math.floor(totalAmount * 100) / 100; 
 }
 
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(true);       
   
 // theme toggler
 const [theme, setTheme] = useState(false)

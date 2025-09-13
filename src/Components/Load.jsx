@@ -9,15 +9,15 @@ import { useAppContext } from "../Context/AppContext";
     const alreadyShown = sessionStorage.getItem("splashShown");
 
     if (!alreadyShown) {
-      // Pehli baar visit → splash dikhao
+
       sessionStorage.setItem("splashShown", "true");
       const timer = setTimeout(() => {
-        setShowSplash(false); // splash band karo 2 sec baad
+        setShowSplash(false);
       }, 2000);
 
       return () => clearTimeout(timer);
     } else {
-      // Agar pehle se visit kiya hai → splash ko immediately band kar do
+      
       setShowSplash(false);
     }
   }, [setShowSplash]);

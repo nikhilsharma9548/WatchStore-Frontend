@@ -127,12 +127,12 @@ const handleUpload = async (e) => {
             </div>
 
             {/* cart section */}
-            <div onClick={() => setTheme(!theme)}>
+            {/* <div onClick={() => setTheme(!theme)}>
               { !theme ? 
               <p className='text-2xl relative left-4 cursor-pointer'><CiLight/></p> : 
               <p className='text-2xl relative left-4 cursor-pointer'><FaMoon/></p>
               }   
-            </div>
+            </div> */}
 
             <div onClick={() => {navigate('/cart'); scrollTo(0,0)}} className="relative cursor-pointer px-5">
                <p className='text-2xl'> < LuShoppingCart/> </p>

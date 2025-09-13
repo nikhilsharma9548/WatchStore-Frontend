@@ -21,7 +21,7 @@ const Category = () => {
             whileInView={{opacity:1,scale:1}}
             transition={{duration:0.3}}
           key ={index}  
-          className= " group cursor-pointer max-w-32  py-5 px-3 gap-2 rounded-lg flex flex-col justify-between items-center shadow-gray-600 shadow-lg"
+          className= "group cursor-pointer max-w-32  py-5 px-3 gap-2 rounded-lg flex flex-col justify-between items-center shadow-gray-600 shadow-lg"
           style = {{backgroundColor: category.bgColor}}
           onClick={() =>{
             navigate(`/products/${category.path.toLowerCase()}`);

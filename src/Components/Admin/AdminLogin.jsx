@@ -37,7 +37,7 @@ const AdminLogin = () => {
         <form onSubmit={onSubmitHandler} className='flex items-center text-sm text-gray-600 rounded-xl bg-gray-200'>
             <div className='flex flex-col gap-5 m-auto items-center p-8 py-12 min-w-80 sm:min-w-88 
             rounded-xl shadow-xl border border-gray-200'>
-                <p className='text-2xl m-auto'><span className='text-pink-700'>Admin</span>Login</p>
+                <p className='text-2xl m-auto'><span className='text-3xl text-[#274472]'>Admin</span>Login</p>
 
                 <div className='w-full'>
                     <p>email</p>
@@ -56,7 +56,7 @@ const AdminLogin = () => {
                     required
                     />     
                 </div>
-                <button className='bg-pink-700 text-white w-full py-2 cursor-pointer '>Login</button>
+                <button className='bg-[#274472] text-white w-full py-2 cursor-pointer '>Login</button>
             </div>
 
 

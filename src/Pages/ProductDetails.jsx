@@ -55,9 +55,9 @@ useEffect(() => {
                     <div className="flex items-center gap-0.5">
                                         {Array(5).fill('').map((_, i) => (
                                              4 > i ? (
-                                                <p key={i} className="text-pink-700"><MdStarRate/></p>
+                                                <p key={i} className="text-[#274472]"><MdStarRate/></p>
                                             ) : (
-                                                <p key={i} className="text-pink-300/80"><MdStarRate/></p>
+                                                <p key={i} className="text-[#274472]/40"><MdStarRate/></p>
                                             )
                     
                                         ))}
@@ -84,7 +84,7 @@ useEffect(() => {
                         </button>
                         <button
                         onClick={() =>{addToCart(product._id); navigate('/cart')}}
-                        className="w-full py-3.5 cursor-pointer font-medium bg-pink-700 text-white hover:bg-pink-800 transition " >
+                        className="w-full py-3.5 cursor-pointer font-medium bg-[#274472] text-white hover:bg-[#274472]/80 transition " >
                             Buy now
                         </button>
                     </div>
@@ -96,7 +96,7 @@ useEffect(() => {
         <div className='flex flex-col mt-[119px]'>
           <div className=' flex flex-col items-end w-max '>
             <p className='text-3xl '>Related Products</p>
-            <div className='w-20 h-0.5 bg-pink-800 rounded-full'></div>
+            <div className='w-20 h-0.5 bg-[#274472] rounded-full'></div>
           </div>
 
           <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-6 mt-6 w-full'>
@@ -105,7 +105,7 @@ useEffect(() => {
             ))}
           </div>
 
-          <button onClick={() => {navigate('/products'); scrollTo(0,0)}} className='mx-auto cursor-pointer px-12 my-16 py-2.5 border rounded text-pink-700 hover:text-blue-600 transition'>See More</button>
+          <button onClick={() => {navigate('/products'); scrollTo(0,0)}} className='mx-auto cursor-pointer px-12 my-16 py-2.5 border rounded text-[#274472] hover:text-blue-600 transition'>See More</button>
         </div>
     </div>
     </>

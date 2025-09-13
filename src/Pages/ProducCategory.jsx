@@ -21,7 +21,7 @@ const filteredProducts = products.filter((product) => product.category.toLowerCa
         { searchCategory && (
             <div className='flex flex-col items-end w-max'>
                 <p className='text-3xl pl-10'>{searchCategory.text}</p>
-                <div className='w-20  h-0.5 bg-pink-800 rounded-full'></div>
+                <div className='w-20  h-0.5 bg-[#274472] rounded-full'></div>
             </div>
         )}
 

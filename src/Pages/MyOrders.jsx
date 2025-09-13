@@ -37,7 +37,7 @@ const MyOrders = () => {
         { !loading ? (<div className='mt-24 md:px-20 px-10 pb-16 '>
         <div className='flex flex-col items-end w-max mb-8'>
             <p className='text-3xl'>My Orders</p>
-            <div className='w-16  h-0.5 bg-pink-800 rounded-full'></div>
+            <div className='w-16  h-0.5 bg-[#274472] rounded-full'></div>
         </div>
 
         {myOrders.map((order, index) =>(

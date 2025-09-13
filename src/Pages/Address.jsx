@@ -67,7 +67,7 @@ const Address = () => {
 
         <div className='flex flex-col relative md:right-20 items-end w-max'>
             <p className='text-3xl'>Add Shipping <span className='text-pink-700'>Address</span></p>
-            <div className='w-16  h-0.5 bg-pink-800 rounded-full'></div>
+            <div className='w-16  h-0.5 bg-[#274472] rounded-full'></div>
         </div>
 
          <div className='flex flex-col-reverse md:flex-row justify-between mt-10'>
@@ -107,7 +107,7 @@ const Address = () => {
                         <InputField handleChange ={handleChange} address={address} name = "phone" type = "number"
                         placeholder = "Phone"/>
 
-                        <button className='w-full mt-6 bg-pink-700 text-white py-3
+                        <button className='w-full mt-6 bg-[#274472] text-white py-3
                          hover:bg-pink-800 transtion cursor-pointer '>
                             Save Address
                         </button>

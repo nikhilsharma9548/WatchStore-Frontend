@@ -47,7 +47,7 @@ const AdminLayOut = () => {
                 {sidebarLinks.map((item) => (
                     <NavLink to={item.path} key={item.name} end ={item.path === '/admin'}
                         className={({isActive}) =>`flex items-center py-3 px-4 gap-3 text-2xl
-                            ${isActive ? "border-r-4 md:border-r-[6px] bg-pink-400/10 border-pink-800 text-pink-700"
+                            ${isActive ? "border-r-4 md:border-r-[6px] bg-pink-400/10 border-[#274472] text-[#274472]"
                                 : "hover:bg-gray-100/50 border-white text-gray-700"
                             }`}>
                             {item.icon}

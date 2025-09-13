@@ -101,7 +101,7 @@ const Cart = () => {
          <div className="  flex flex-col md:flex-row py-16  max-w-6xl w-full px-6 mx-auto">
             <div className='flex-1 max-w-4xl px-5'>
                 <h1 className="text-3xl font-medium mb-6">
-                    Shopping Cart <span className="text-sm text-pink-500">{getCartCount()}</span>
+                    Shopping Cart <span className="text-sm text-[#274472]">{getCartCount()}</span>
                 </h1>
 
                 <div className="grid grid-cols-[2fr_1fr_1fr] text-gray-500 text-base font-medium pb-3 ">
@@ -134,7 +134,7 @@ const Cart = () => {
                         </div>
                         <p className="text-center">{currency}{product.offerPrice * product.quantity}</p>
                         <button onClick={() => removeFromCart(product._id)} className="cursor-pointer mx-auto">
-                            <p className="text-xl text-pink-700"><ImCross /> </p>
+                            <p className="text-xl text-[#274472]"><ImCross /> </p>
                         </button>
                     </div>)
                 )}
@@ -155,7 +155,7 @@ const Cart = () => {
                     <p className="text-sm font-medium uppercase">Delivery Address</p>
                     <div className="relative flex justify-between items-start mt-2">
                         <p className="text-gray-500">{selectedAddress ? `${selectedAddress.street}, ${selectedAddress.city}, ${selectedAddress.state}, ${selectedAddress.country}` : "No address found"}</p>
-                        <button onClick={() => setShowAddress(!showAddress)} className="text-pink-700 hover:underline cursor-pointer">
+                        <button onClick={() => setShowAddress(!showAddress)} className="text-[#274472] hover:underline cursor-pointer">
                             Change
                         </button>
                         {showAddress && (
@@ -165,7 +165,7 @@ const Cart = () => {
                                    {address.street}, {address.city}, {address.state},
                                    {address.country},
                                 </p>))}
-                                <p onClick={() => navigate('/add-address')} className="text-pink-600 text-center cursor-pointer p-2 hover:bg-pink-600/10">
+                                <p onClick={() => navigate('/add-address')} className="text-[#274472] text-center cursor-pointer p-2 hover:bg-[#274472]/10">
                                     Add address
                                 </p>
                             </div>
@@ -197,7 +197,7 @@ const Cart = () => {
                     </p>
                 </div>
 
-                <button onClick={placeOrder} className="w-full py-3 mt-6 cursor-pointer bg-pink-700 text-white font-medium hover:bg-pink-800 transition">
+                <button onClick={placeOrder} className="w-full py-3 mt-6 cursor-pointer bg-{#274472} text-white font-medium hover:bg-[#274472]/80 transition">
                     {paymentOption === "COD" ? "Placed Order" : "Proceed to CheckOut"}
                 </button>
             </div>

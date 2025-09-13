@@ -1,6 +1,7 @@
 import {useEffect, useState } from 'react'
 import ProductCard from '../Components/ProductCard'
 import { useAppContext } from '../Context/AppContext'
+import { CiSearch } from "react-icons/ci";
 
 import Loading from '../Components/Loading'
 

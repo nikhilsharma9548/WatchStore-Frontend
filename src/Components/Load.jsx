@@ -10,7 +10,7 @@ import { useAppContext } from "../Context/AppContext";
 
     if (!alreadyShown) {
       // Pehli baar visit → splash dikhao
-      localStorage.setItem("splashShown", "true");
+      sessionStorage.setItem("splashShown", "true");
       const timer = setTimeout(() => {
         setShowSplash(false); // splash band karo 2 sec baad
       }, 2000);

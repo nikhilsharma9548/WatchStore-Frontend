@@ -6,7 +6,7 @@ import { useAppContext } from "../Context/AppContext";
  const { showSplash, setShowSplash } = useAppContext();
 
   useEffect(() => {
-    const alreadyShown = localStorage.getItem("splashShown");
+    const alreadyShown = sessionStorage.getItem("splashShown");
 
     if (!alreadyShown) {
       // Pehli baar visit → splash dikhao

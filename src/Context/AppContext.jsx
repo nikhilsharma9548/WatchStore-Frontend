@@ -176,6 +176,7 @@ const getCartAmount = () =>{
 }
 
   const [showSplash, setShowSplash] = useState(true);
+  
 // theme toggler
 const [theme, setTheme] = useState(false)
     const value = {

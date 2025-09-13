@@ -30,7 +30,7 @@ const WatchStore = () => {
   return (
     
   <>
-    {!showSplash ? (<div>
+ <div>
         {isAdminPath || isUserDetailsPath ? null :  <Navbar/>}
         {showUserLogin ? <Login/> : null}
 
@@ -57,7 +57,7 @@ const WatchStore = () => {
   <Toaster />
   </div>
 
-</div>): <Load/>}
+</div>
   </>
 
    

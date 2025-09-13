@@ -5,19 +5,20 @@ import Testimonials from './Testimonials'
 import Features from './Features'
 import Loading from './Loading'
 import { useAppContext } from '../Context/AppContext'
+import Load from './Load'
 
 
 const Home = () => {
 
-  const {theme} = useAppContext()
+  const {theme, showSplash} = useAppContext()
   return (
     <>
-      <div className={`w-full`}>
+         {!showSplash ? (<div className={`w-full`}>
         <Hero />
         < Category />   
         < Features/>  
         < Testimonials />
-    </div>
+    </div>): <Load/>}
     </>
     
   )

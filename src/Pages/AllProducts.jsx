@@ -24,13 +24,13 @@ const AllProducts = () => {
   return (
    <>
    
-   {!loading ? ( <div className='mt-32 md:px-10 px-3 flex flex-col pb-10'>
+   {!loading ? ( <div className='mt-32 md:px-10 px-3 justify-end flex flex-col pb-10'>
         <div className='flex flex-col items-end w-max'>
           <p className='text-3xl '>All Products</p>   
           <div className='w-16  h-0.5 bg-[#274472] rounded-full'></div>
         </div>
 
-         <div className="lg:hidden justify-self-end max-w-96 mt-5 flex items-center text-base gap-2 border-2 border-gray-800 px-3 rounded-full">
+         <div className="lg:hidden max-w-96 mt-5 flex items-center text-base gap-2 border-2 border-gray-800 px-3 rounded-full">
                           <input
                           value={searchQuery} 
                           onChange={(e)=> setSearchQuery(e.target.value)} className="py-2.5 w-full bg-transparent  outline-none px-3 " type="text" placeholder="Search products" />

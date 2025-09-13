@@ -24,7 +24,7 @@ const AllProducts = () => {
   return (
    <>
    
-   {!loading ? ( <div className='mt-32 md:px-10 px-3 justify-end flex flex-col pb-10'>
+   {!loading ? ( <div className='mt-32 md:px-10 px-3  flex flex-col pb-10'>
         <div className='flex flex-col items-end w-max'>
           <p className='text-3xl '>All Products</p>   
           <div className='w-16  h-0.5 bg-[#274472] rounded-full'></div>

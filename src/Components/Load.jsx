@@ -25,7 +25,7 @@ const Load = () => {
   if (!showSplash) return null; // splash off hone par kuch render na karo
 
   return (
-    <div className="fixed inset-0 bg-[#C3E0E5] flex items-center justify-center z-50 animate-fade">
+    <div className="fixed bg-[#C3E0E5] flex items-center justify-center z-50 animate-fade">
       <img src={assets.logo} className="h-10 w-10 rounded-full" alt="" />
       <h1 className="text-4xl font-bold text-gray-900">TimeAura</h1>
     </div>

@@ -139,7 +139,7 @@ const Cart = () => {
                     </div>)
                 )}
 
-                <button onClick={()=>{navigate('/products'); scrollTo(0,0)}} className="group cursor-pointer flex items-center mt-8 gap-2 text-pink-600 font-medium">
+                <button onClick={()=>{navigate('/products'); scrollTo(0,0)}} className="group cursor-pointer flex items-center mt-8 gap-2 text-[#274472] font-medium">
                     <p className="hover:-translate-x-1 transition">< FaArrowLeftLong/></p>
                     Continue Shopping
                 </button>

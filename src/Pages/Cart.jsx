@@ -94,6 +94,9 @@ const Cart = () => {
         }
     },[user])
 
+    //online paymnet integration
+
+    
 
     return products.length > 0 && cartItems ?(
        <>

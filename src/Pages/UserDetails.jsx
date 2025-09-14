@@ -29,6 +29,11 @@ const UserDetails = () => {
     const {data} = await axios.post('/api/user/logout') 
 
     if(data.success){
+
+       if(!user){
+        toast.error("You are not logged in")
+        return;
+      }
       toast.success(data.message)
       setUser(null);
       setLoading(false)
@@ -70,14 +75,14 @@ const handleUpload = async (e) => {
 
   return (
     <div className='min-h-screen'>
-      <div className='flex p-5 px-2 border-b'>
+      <div className='flex p-5 px-2  border-b'>
          <NavLink to={"/"} onClick={() => scrollTo(0,0)} className='flex justify-center items-center md:gap-3 gap-2'>
             <img src={assets.logo} className=' h-10 w-10 rounded-full' alt='Logo'/>
             <p className='text-xl font-semibold'>TimeAura</p>
         </NavLink>
       </div>
-      <div className='mx-5'>
-        <div className='my-5 px-5 py-4 rounded bg-gray-300/90 items-center gap-5 flex '>
+      <div className='mx-5 '>
+        <div className='my-5 px-5 py-4 rounded bg-[#5885AF]/30 shadow-xl shadow-gray-600 items-center gap-5 flex '>
 
         <label htmlFor="image">
     <input type="file" id="image" onChange={handleUpload} hidden/>
@@ -98,11 +103,11 @@ const handleUpload = async (e) => {
           </p>
           {/* <button className='bg-blue-500 flex justify-end text-white px-4 py-2 rounded mt-2' onClick={onSubmitHandler}>upload</button> */}
         </div>
-        <div className=' rounded bg-gray-300/90 p-2'>
+        <div className=' rounded bg-[#5885AF]/30 shadow-xl shadow-gray-600 mt-10 p-2'>
 
           <div className='flex'>
             <NavLink to={'/my-orders'}
-          className='text-base w-[50vh] m-2 p-2 shadow-xlrounded border border-gray-600 flex items-center max-w-sm text-gray-800 gap-2'>
+          className='text-base w-[50vh] m-2 p-2 shadow-xl  rounded border  border-gray-600 flex items-center max-w-sm text-gray-800 gap-2'>
             <span className='text-2xl'>< LuBox/></span>
             Orders</NavLink>
 
@@ -140,5 +145,6 @@ const handleUpload = async (e) => {
     </div>
   )
 }
+
 
 export default UserDetails

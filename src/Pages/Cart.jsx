@@ -72,8 +72,8 @@ const Cart = () => {
                         toast.error(data.message)
                         console.error(data.message)
                     }
-                }
-                //place order with online payment
+                }else{
+                     //place order with online payment
                 const { data } = await axios.post('api/order/stripe',{
                         userId: user._id,
                         items:cartArray.map(item => ({
@@ -87,6 +87,8 @@ const Cart = () => {
                         toast.error(data.message)
                         console.error(data.message)
                     }
+                }
+               
         } catch (error) {
             toast.error(error.message)
         } finally {

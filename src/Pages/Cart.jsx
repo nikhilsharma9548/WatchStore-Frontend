@@ -73,6 +73,20 @@ const Cart = () => {
                         console.error(data.message)
                     }
                 }
+                //place order with online payment
+                const { data } = await axios.post('api/order/stripe',{
+                        userId: user._id,
+                        items:cartArray.map(item => ({
+                            product: item._id,
+                            quantity:item.quantity
+                        })), address: selectedAddress._id
+                    })
+                    if(data.success){
+                        window.location.replace(data.url)
+                    }else{
+                        toast.error(data.message)
+                        console.error(data.message)
+                    }
         } catch (error) {
             toast.error(error.message)
         } finally {
@@ -96,7 +110,52 @@ const Cart = () => {
 
     //online paymnet integration
 
-    
+//     const loadRazorpayScript = () => {
+//   return new Promise((resolve) => {
+//     if (document.getElementById("razorpay-sdk")) return resolve(true);
+//     const script = document.createElement("script");
+//     script.id = "razorpay-sdk";
+//     script.src = "https://checkout.razorpay.com/v1/checkout.js";
+//     script.onload = () => resolve(true);
+//     script.onerror = () => resolve(false);
+//     document.body.appendChild(script);
+//   });
+// };
+// const handlePayment = async () => {
+//     const ok = await loadRazorpayScript();
+//     if (!ok) return alert("Razorpay SDK failed to load");
+
+//     // 1) Create order on server
+//     const { data } = await axios.post("/api/payment/create-order", {
+//       offerPrice, // in rupees
+//     });
+
+//     const order = data.order;
+
+//     const options = {
+//       key: "YOUR_KEY_ID", // RAZORPAY_KEY_ID (test key ok)
+//       amount: order.offerPrice,
+//       currency: order.currency,
+//       name: "Nikhil Watch Store",
+//       description: "Watch purchase",
+//       order_id: order.id,
+//       handler: async function (response) {
+//         // response has razorpay_payment_id, razorpay_order_id, razorpay_signature
+//         // 2) Verify on server
+//         await axios.post("/api/payment/verify-payment", response);
+//         alert("Payment successful and verified!");
+//       },
+//       prefill: {
+//         name: "",
+//         email: "",
+//         contact: "",
+//       },
+//       theme: { color: "#3399cc" },
+//     };
+
+//     const rzp = new window.Razorpay(options);
+//     rzp.open();
+//   };
 
     return products.length > 0 && cartItems ?(
        <>

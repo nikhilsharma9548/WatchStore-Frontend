@@ -53,6 +53,7 @@ const WatchStore = () => {
         <Route path='/cart' element= {<Cart/>} />
         <Route path='/add-address' element= {<Address/>} />
         <Route path='/my-orders' element= {<MyOrders/>} />
+        <Route path='/loader' element= {<Loading/>} />
         <Route path='/admin'  element = {isAdmin ? <AdminLayOut/> : <AdminLogin />}>
           <Route index element = {isAdmin ? < AddProduct/> : null}/>
           <Route path='product-list' element= {<ProductList/>} />

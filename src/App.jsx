@@ -29,17 +29,17 @@ const WatchStore = () => {
   const isUserDetailsPath = useLocation().pathname.includes("user-details")
   const {showUserLogin, isAdmin, loading, theme, setLoading} = useAppContext()
 
-  useEffect(() => {
-  const timer = setTimeout(() => {
-        setLoading(false);
-      }, 2000);
+  // useEffect(() => {
+  // const timer = setTimeout(() => {
+  //       setLoading(false);
+  //     }, 2000);
 
-      return () => clearTimeout(timer);
-  })
+  //     return () => clearTimeout(timer);
+  // })
   
   return (
   <>
- {!loading ? (<div>
+<div>
         {isAdminPath || isUserDetailsPath ? null :  <Navbar/>}
         {showUserLogin ? <Login/> : null}
 
@@ -66,7 +66,7 @@ const WatchStore = () => {
   <Toaster />
   </div>
 
-</div>) : <Loading/>}
+</div>
   </>
 
    

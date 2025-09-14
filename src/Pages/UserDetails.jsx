@@ -137,7 +137,7 @@ const handleUpload = async (e) => {
         <div onClick={logout} className='text-white p-3 flex w-full justify-center items-center gap-5 mt-10  text-center rounded  bg-[#274472]'>
           logout
           {loading && ( <div className=" border-2 aspect-square w-5 rounded-full
-         border-white border-t-transparent border-r-0 border-l-0
+         border-white border-t-transparent border-r-0
           animate-spin"></div>)}
         </div>
       </div>

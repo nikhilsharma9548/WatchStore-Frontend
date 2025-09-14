@@ -32,6 +32,7 @@ const UserDetails = () => {
 
        if(!user){
         toast.error("You are not logged in")
+        setLoading(false)
         return;
       }
       toast.success(data.message)

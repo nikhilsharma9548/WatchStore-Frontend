@@ -40,6 +40,8 @@ const MyOrders = () => {
             <div className='w-16  h-0.5 bg-[#274472] rounded-full'></div>
         </div>
 
+         {myOrders.length === 0 && (<p className='text-2xl text-gray-700'>No Orders Yet</p>)}
+
         {myOrders.map((order, index) =>(
             <div key={index} className='border bg-cyan-50 border-gray-300 rounded-lg mb-10 p-2 md:p-4 py-5 max-w-4xl'>
                 <p className='flex justify-between md:items-center text-gray-700 max-w-4xl
@@ -53,8 +55,6 @@ const MyOrders = () => {
                         order.items.length !== index + 1 && "border-b" 
                     } border-gray-300 flex flex-col md:flex-row md:items-center justify-between p-4
                         py-5 md:gap-16 w-full max-w-4xl `}>
-
-                            {myOrders.length === 0 && (<p className='text-2xl text-gray-700'>No Orders Yet</p>)}
 
                         <div className='flex items-center mb-4 md:mb-0'>
                          <div className='bg-white shadow shadow-gray-300 p-4 rounded-lg'>

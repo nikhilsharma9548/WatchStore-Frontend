@@ -39,9 +39,6 @@ const MyOrders = () => {
             <p className='text-3xl'>My Orders</p>
             <div className='w-16  h-0.5 bg-[#274472] rounded-full'></div>
         </div>
-
-         {myOrders.length === 0 && (<p className='text-2xl text-center flex items-center justify-center text-gray-700'>No Orders Yet</p>)}
-
         {myOrders.map((order, index) =>(
             <div key={index} className='border bg-cyan-50 border-gray-300 rounded-lg mb-10 p-2 md:p-4 py-5 max-w-4xl'>
                 <p className='flex justify-between md:items-center text-gray-700 max-w-4xl

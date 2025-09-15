@@ -34,13 +34,13 @@ const MyOrders = () => {
 
   return (
     <>
-        { !loading ? (<div className={`mt-24 md:px-20 px-10 pb-16 ${myOrders.length === 0 && "h-[70vh] flex flex-col justify-center items-center"}`}>
+        { !loading ? (<div className={`mt-24 md:px-20 px-10 pb-16 ${myOrders.length === 0 && "h-[70vh]"}`}>
         <div className='flex flex-col items-end w-max mb-8'>
             <p className='text-3xl'>My Orders</p>
             <div className='w-16  h-0.5 bg-[#274472] rounded-full'></div>
         </div>
 
-         {myOrders.length === 0 && (<p className='text-2xl text-gray-700'>No Orders Yet</p>)}
+         {myOrders.length === 0 && (<p className='text-2xl text-center flex items-center justify-center text-gray-700'>No Orders Yet</p>)}
 
         {myOrders.map((order, index) =>(
             <div key={index} className='border bg-cyan-50 border-gray-300 rounded-lg mb-10 p-2 md:p-4 py-5 max-w-4xl'>

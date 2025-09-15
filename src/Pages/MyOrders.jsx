@@ -34,7 +34,7 @@ const MyOrders = () => {
 
   return (
     <>
-        { !loading ? (<div className='mt-24 md:px-20 px-10 pb-16 '>
+        { !loading ? (<div className={`mt-24 md:px-20 px-10 pb-16 ${myOrders.length === 0 && "h-[70vh]"}`}>
         <div className='flex flex-col items-end w-max mb-8'>
             <p className='text-3xl'>My Orders</p>
             <div className='w-16  h-0.5 bg-[#274472] rounded-full'></div>
@@ -53,6 +53,8 @@ const MyOrders = () => {
                         order.items.length !== index + 1 && "border-b" 
                     } border-gray-300 flex flex-col md:flex-row md:items-center justify-between p-4
                         py-5 md:gap-16 w-full max-w-4xl `}>
+
+                            {myOrders.length === 0 && (<p className='text-2xl text-gray-700'>No Orders Yet</p>)}
 
                         <div className='flex items-center mb-4 md:mb-0'>
                          <div className='bg-white shadow shadow-gray-300 p-4 rounded-lg'>

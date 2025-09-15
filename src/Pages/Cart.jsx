@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useAppContext } from "../Context/AppContext";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import Loading from "../Components/Loading";
 
 const Cart = () => {
@@ -83,6 +83,7 @@ const Cart = () => {
                     })
                     if(data.success){
                         window.location.replace(data.url)
+                        toast.success(data.message)
                     }else{
                         toast.error(data.message)
                         console.error(data.message)

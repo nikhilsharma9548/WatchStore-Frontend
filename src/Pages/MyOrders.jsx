@@ -26,6 +26,29 @@ const MyOrders = () => {
         }
     }
 
+     const cancelOrder = async () => {
+    try {
+      setLoading(true);
+
+      const response = await axios.post("/api/orders/cancel", {
+        orderId: order._id,
+        userId: localStorage.getItem("userId"), // ya context se userId
+      });
+
+      if (response.data.success) {
+        alert("✅ Order cancelled successfully!");
+        window.location.reload(); // refresh orders
+      } else {
+        alert("❌ " + response.data.message);
+      }
+    } catch (error) {
+      console.error(error);
+      alert("❌ Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  };
+
     useEffect(() =>{
         if(user){
       fetchMyOrders()
@@ -74,6 +97,7 @@ const MyOrders = () => {
                         <p className='text-green-400 text-xl'>Amount: {currency}{item.product.offerPrice * item.quantity}</p>
                     </div>
                 ))}
+                <button  onClick={cancelOrder}>Cancel</button>
             </div>
 
         ))}

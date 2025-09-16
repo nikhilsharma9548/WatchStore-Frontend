@@ -27,7 +27,7 @@ const MyOrders = () => {
         }
     }
 
-   const cancelOrder = async () => {
+   const cancelOrder = async (orderId) => {
      try {
             const data = await axios.post("/api/order/cancel", { orderId });
             if (data.success) {
@@ -92,7 +92,7 @@ const MyOrders = () => {
                         <p className='text-green-400 text-xl'>Amount: {currency}{item.product.offerPrice * item.quantity}</p>
                     </div>
                 ))}
-                <button   onClick={cancelOrder}
+                <button  onClick={() => cancelOrder(order._id)}
                 className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg mt-2">Cancel</button>
             </div>
 

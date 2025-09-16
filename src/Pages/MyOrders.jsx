@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useAppContext } from '../Context/AppContext'
 import Loading from '../Components/Loading'
+import toast from 'react-hot-toast'
 
 const MyOrders = () => {
 
@@ -30,20 +31,20 @@ const MyOrders = () => {
     try {
       setLoading(true);
 
-      const response = await axios.post("/api/orders/cancel", {
+      const data = await axios.post("/api/order/cancel", {
         orderId: order._id,
-        userId: localStorage.getItem("userId"), // ya context se userId
+        userId: user._id, // ya context se userId
       });
 
-      if (response.data.success) {
-        alert("✅ Order cancelled successfully!");
+      if (data.success) {
+        toast.success("Order cancelled");
         window.location.reload(); // refresh orders
       } else {
-        alert("❌ " + response.data.message);
+        toast.error(data.message);
       }
     } catch (error) {
       console.error(error);
-      alert("❌ Something went wrong");
+       toast.error(data.message);
     } finally {
       setLoading(false);
     }

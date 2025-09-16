@@ -27,18 +27,21 @@ const MyOrders = () => {
         }
     }
 
-     const cancelOrder = async (orderId) => {
+    const cancelOrder = async (orderId) => {
   try {
     setLoading(true);
 
-    const response = await axios.post("/api/order/cancel", {
-      orderId, // ab yaha direct parameter use hoga
-      userId: user._id,
-    });
+    const response = await axios.post("/api/order/cancel", { orderId });
 
     if (response.data.success) {
       toast.success("Order cancelled");
-      window.location.reload(); // ya state se update kar sakte ho
+      
+      // Better UX: update state without reloading page
+      setMyOrders((prevOrders) =>
+        prevOrders.map((order) =>
+          order._id === orderId ? { ...order, status: "cancelled" } : order
+        )
+      );
     } else {
       toast.error(response.data.message);
     }
@@ -49,6 +52,7 @@ const MyOrders = () => {
     setLoading(false);
   }
 };
+
 
     useEffect(() =>{
         if(user){

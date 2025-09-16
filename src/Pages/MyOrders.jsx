@@ -27,19 +27,18 @@ const MyOrders = () => {
         }
     }
 
-    const cancelOrder = async (orderId) => {
+   const cancelOrder = async (orderId) => {
   try {
     setLoading(true);
 
     const response = await axios.post("/api/order/cancel", { orderId });
 
     if (response.data.success) {
-      toast.success("Order cancelled");
-      
-      // Better UX: update state without reloading page
-      setMyOrders((prevOrders) =>
-        prevOrders.map((order) =>
-          order._id === orderId ? { ...order, status: "cancelled" } : order
+      toast.success(response.data.message);
+      // Refresh orders without full reload
+      setMyOrders((prev) =>
+        prev.map((o) =>
+          o._id === orderId ? { ...o, status: "cancelled" } : o
         )
       );
     } else {
@@ -52,6 +51,7 @@ const MyOrders = () => {
     setLoading(false);
   }
 };
+
 
 
     useEffect(() =>{

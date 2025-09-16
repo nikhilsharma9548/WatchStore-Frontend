@@ -28,6 +28,18 @@ const MyOrders = () => {
     }
 
    const cancelOrder = async () => {
+     try {
+            const data = await axios.post("/api/order/cancel", { orderId });
+            if (data.success) {
+                toast.success(data.message);
+                onCancel(orderId); // frontend state update
+            } else {
+                toast.error(response.data.message);
+            }
+        } catch (error) {
+            console.error(error);
+            toast.error("Error cancelling order");
+        }
 };
 
 
@@ -80,7 +92,7 @@ const MyOrders = () => {
                         <p className='text-green-400 text-xl'>Amount: {currency}{item.product.offerPrice * item.quantity}</p>
                     </div>
                 ))}
-                <button   onClick={() => cancelOrder(order._id)}
+                <button   onClick={cancelOrder}
                 className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg mt-2">Cancel</button>
             </div>
 

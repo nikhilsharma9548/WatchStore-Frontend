@@ -27,28 +27,28 @@ const MyOrders = () => {
         }
     }
 
-     const cancelOrder = async () => {
-    try {
-      setLoading(true);
+     const cancelOrder = async (orderId) => {
+  try {
+    setLoading(true);
 
-      const response = await axios.post("/api/order/cancel", {
-        orderId: order._id,
-        userId: user._id, // ya context se userId
-      });
+    const response = await axios.post("/api/order/cancel", {
+      orderId, // ab yaha direct parameter use hoga
+      userId: user._id,
+    });
 
-      if (response.data.success) {
-        toast.success("Order cancelled");
-        window.location.reload(); // refresh orders
-      } else {
-        alert("❌ " + response.data.message);
-      }
-    } catch (error) {
-      console.error(error);
-      alert("❌ Something went wrong");
-    } finally {
-      setLoading(false);
+    if (response.data.success) {
+      toast.success("Order cancelled");
+      window.location.reload(); // ya state se update kar sakte ho
+    } else {
+      toast.error(response.data.message);
     }
-  };
+  } catch (error) {
+    console.error(error);
+    toast.error("Something went wrong");
+  } finally {
+    setLoading(false);
+  }
+};
 
     useEffect(() =>{
         if(user){

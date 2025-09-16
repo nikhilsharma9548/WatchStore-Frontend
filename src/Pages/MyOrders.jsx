@@ -27,19 +27,26 @@ const MyOrders = () => {
         }
     }
 
-   const cancelOrder = async (orderId) => {
-     try {
-            const data = await axios.post("/api/order/cancel", { orderId });
-            if (data.success) {
-                toast.success(data.message);
-                onCancel(orderId); // frontend state update
-            } else {
-                toast.error(response.data.message);
-            }
-        } catch (error) {
-            console.error(error);
-            toast.error("Error cancelling order");
+  const cancelOrder = async (orderId) => {
+    try {
+        const response = await axios.post("/api/order/cancel", { orderId });
+        const data = response.data;
+
+        if (data.success) {
+            toast.success(data.message);
+
+            // Frontend state update: remove or mark cancelled
+            setMyOrders(prev => prev.map(order =>
+                order._id === orderId ? { ...order, status: "Cancelled" } : order
+            ));
+
+        } else {
+            toast.error(data.message);
         }
+    } catch (error) {
+        console.error(error);
+        toast.error("Error cancelling order");
+    }
 };
 
 

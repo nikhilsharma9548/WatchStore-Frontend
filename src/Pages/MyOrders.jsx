@@ -31,20 +31,20 @@ const MyOrders = () => {
     try {
       setLoading(true);
 
-      const data = await axios.post("/api/order/cancel", {
+      const response = await axios.post("/api/order/cancel", {
         orderId: order._id,
         userId: user._id, // ya context se userId
       });
 
-      if (data.success) {
+      if (response.data.success) {
         toast.success("Order cancelled");
         window.location.reload(); // refresh orders
       } else {
-        toast.error(data.message);
+        alert("❌ " + response.data.message);
       }
     } catch (error) {
       console.error(error);
-       toast.error(data.message);
+      alert("❌ Something went wrong");
     } finally {
       setLoading(false);
     }

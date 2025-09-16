@@ -27,33 +27,7 @@ const MyOrders = () => {
         }
     }
 
-   const cancelOrder = async (orderId) => {
-  try {
-    setLoading(true);
-
-const response = await axios.post(
-  "/api/order/cancel",
-  { orderId },
-  { headers: { Authorization: `Bearer ${user.token}` } }
-);
-
-    if (response.data.success) {
-      toast.success(response.data.message);
-      // Refresh orders without full reload
-      setMyOrders((prev) =>
-        prev.map((o) =>
-          o._id === orderId ? { ...o, status: "cancelled" } : o
-        )
-      );
-    } else {
-      toast.error(response.data.message);
-    }
-  } catch (error) {
-    console.error(error);
-    toast.error("Something went wrong");
-  } finally {
-    setLoading(false);
-  }
+   const cancelOrder = async () => {
 };
 
 

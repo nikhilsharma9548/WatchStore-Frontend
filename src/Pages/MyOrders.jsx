@@ -31,7 +31,11 @@ const MyOrders = () => {
   try {
     setLoading(true);
 
-    const response = await axios.post("/api/order/cancel", { orderId });
+const response = await axios.post(
+  "/api/order/cancel",
+  { orderId },
+  { headers: { Authorization: `Bearer ${user.token}` } }
+);
 
     if (response.data.success) {
       toast.success(response.data.message);

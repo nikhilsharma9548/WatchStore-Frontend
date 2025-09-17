@@ -90,17 +90,17 @@ const handleUpload = async (e) => {
 };
 
 // theme toggler 
-
 const toggleTheme = async () => {
   const newTheme = theme === "light" ? "dark" : "light";
   setTheme(newTheme);
   document.documentElement.className = newTheme;
   localStorage.setItem("theme", newTheme);
 
-  // backend me save karo
   try {
-    await axios.put("/api/user/theme", { theme: newTheme },
-       { withCredentials: true }
+    await axios.put(
+      `${import.meta.env.VITE_BACKEND_URL}/api/user/theme`,
+      { theme: newTheme },
+      { withCredentials: true } // 👈 force cookie send
     );
   } catch (err) {
     console.log("Failed to save theme to backend", err);

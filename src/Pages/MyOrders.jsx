@@ -71,7 +71,11 @@ const MyOrders = () => {
                             {order.items.map((item, idx) => (
                                 <div key={idx} className={`relative text-gray-500/70 ${
                                     order.items.length !== idx + 1 && "border-b"
-                                } border-gray-300 flex flex-col md:flex-row md:items-center justify-between p-4 py-5 md:gap-16 w-full max-w-4xl`}>
+                                } border-gray-300 flex flex-col md:flex-row md:items-center justify-between p-4 py-5 md:gap-16 w-full max-w-4xl
+                                ${
+    order.status === "Cancelled" ? "bg-red-50 text-red-600" : "bg-green-50 text-green-600"
+  }
+                                `}>
 
                                     <div className='flex items-center mb-4 md:mb-0'>
                                         <div className='bg-white shadow shadow-gray-300 p-4 rounded-lg'>

@@ -38,6 +38,7 @@ const WatchStore = () => {
   // })
   
   return (
+    
   <>
 <div>
         {isAdminPath || isUserDetailsPath ? null :  <Navbar/>}

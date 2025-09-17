@@ -26,20 +26,21 @@ const MyOrders = () => {
 
     // 🟢 Order Cancel Function
     const cancelOrder = async (orderId) => {
-        try {
-            const { data } = await axios.put(`/api/order/cancel/${orderId}`)
+  try {
+    const { data } = await axios.put(`/api/order/cancel/${orderId}`);
 
-            if (data.success) {
-                toast.success("Order Cancelled ✅")
-                fetchMyOrders() // Cancel hone ke baad list refresh
-            } else {
-                toast.error(data.message)
-            }
-        } catch (error) {
-            toast.error("Something went wrong!")
-            console.log(error)
-        }
+    if (data.success) {
+      toast.success("Order Cancelled");
+      fetchMyOrders(); // refresh
+    } else {
+      toast.error(data.message);
     }
+  } catch (error) {
+    toast.error("Something went wrong!");
+    console.error(error);
+  }
+};
+
 
     useEffect(() => {
         if (user) fetchMyOrders()

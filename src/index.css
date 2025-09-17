@@ -57,3 +57,8 @@ html {
                     background-size: 300% 300%;
                     animation: shine 4s ease-out infinite;
                   }
+
+                  /* index.css ya App.css me daal */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

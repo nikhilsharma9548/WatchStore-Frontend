@@ -92,20 +92,19 @@ const handleUpload = async (e) => {
 // theme toggler 
 const toggleTheme = async () => {
   const newTheme = theme === "light" ? "dark" : "light";
+
+  // 🔥 Pehle UI update karo (instant feel)
   setTheme(newTheme);
   document.documentElement.className = newTheme;
   localStorage.setItem("theme", newTheme);
 
-  try {
-    await axios.put(
-      `${import.meta.env.VITE_BACKEND_URL}/api/user/theme`,
-      { theme: newTheme },
-      { withCredentials: true } // 👈 force cookie send
-    );
-  } catch (err) {
-    console.log("Failed to save theme to backend", err);
+  // 🔄 Backend ko async call, UI ko block mat karo
+  if (user) {
+    axios.put("/api/user/theme", { theme: newTheme })
+      .catch((err) => console.log("Failed to save theme to backend", err));
   }
 };
+
 
 useEffect(() => {
   if (user) {

@@ -66,7 +66,7 @@ const MyOrders = () => {
                                 order.status === "Cancelled" ? "bg-red-50 text-red-600" : "bg-cyan-50 text-green-600"} 
                                 border  border-gray-300 rounded-lg mb-10 p-2 md:p-4 py-5 max-w-4xl`}>
                             <p className='flex justify-between md:items-center text-gray-700 max-w-4xl
-                                md:font-medium max-md:flex-col'>
+                                md:font-medium max-md:flex-col pl-2'>
                                 <span>OrderId: {order.orderId}</span>
                                 <span>Payment: {order.paymentType}</span>
                                 <span>Total Amount: {currency}{order.amount}</span>

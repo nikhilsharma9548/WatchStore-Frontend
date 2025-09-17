@@ -20,11 +20,11 @@ html {
   border-bottom: 3px solid white;
 }
 
-.dark{
+/* .dark{
   background-color: #1F2937;
   color: white;
   box-shadow: white;
-}
+} */
 
 
 @keyframes fade {

@@ -68,9 +68,6 @@ const Testimonials = () => {
     </button>
   </div>
 </div>
-
-
-
             </div>
             <div className='md:flex relative hidden'>
                <div className=' bg-[#274472] md:h-80 md:w-80  lg-h-96 lg:w-96 xl:h-[450px] xl:w-[450px] rounded-full '></div>
@@ -79,24 +76,16 @@ const Testimonials = () => {
            
           </div>
           
-           <div className="mt-32 lg:mt-20 max-w-5xl py-16 md:pl-20 md:w-full mx-2 md:mx-auto p-4 flex flex-col md:flex-row items-center justify-between text-left bg-[#274472] rounded-2xl gap-5 md:gap-0 md:p-10 text-white">
-                <div>
-                    <div>
-                        <p className="">Trusted by 12k+ customers</p>
-                        <div className="flex items-center gap-2">
-                            <span className="text-sm ">4.5/5 • 2300+ Reviews</span>
-                        </div>
-                    </div>
-                    <h1 className="text-4xl md:text-[46px] max-md:mt-3 text-balance md:leading-[60px] max-w-md font-semibold bg-clip-text">
-                        Join our TimeAura & Stay Updated
-                    </h1>
-                </div>
-                <div className="flex items-center gap-2 text-black  bg-white max-md:mt-6 pl-2 md:pl-4 h-11 text-sm rounded-full overflow-hidden">
-                  <p className='text-xl'><IoMailOutline/></p>
-                    <input type="text" placeholder="Enter your email..." className="outline-none h-11 text-black" />
-                    <button className="md:px-6 px-2 h-10 mr-1 rounded-full border text-white bg-[#274472]/90">Subscribe</button>
-                </div>
-            </div>
+           <section className="mt-20 flex flex-col items-center justify-center mx-auto max-md:mx-2 max-md:px-2 max-w-5xl w-full text-center rounded-2xl py-20 md:py-24   bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${assets.Bg2})` }}>
+                <h1 className="text-2xl md:text-3xl font-medium text-black  max-w-2xl">Empower Your Sales & Marketing with a Next-Gen AI Workforce</h1>
+                <div className="h-[3px] w-32 my-1"></div>
+                <p className="text-sm md:text-base text-black max-w-xl">
+                    Leverage AI Agents for real-time calling and unified multi-channel engagement, optimizing customer interactions at scale.
+                </p>
+                <button className="px-8 py-2.5 mt-4 text-sm bg-gradient-to-r from-cyan-600 to-blue-400 hover:scale-105 transition duration-300 text-white rounded-full">
+                    Get Started
+                </button>
+            </section>
         </div>
     );
 }

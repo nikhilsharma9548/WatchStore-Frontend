@@ -28,7 +28,7 @@ const MyOrders = () => {
     }
 
  
-const handleCancel = async () => {
+const handleCancel = async (orderId) => {
     try {
         const { data } = await axios.post('/api/order/cancel', {
             orderId: orderId,

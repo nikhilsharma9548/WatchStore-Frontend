@@ -152,7 +152,7 @@ useEffect(() => {
 
             {/* theme toggler */}
             <div onClick={toggleTheme }>
-              {user.theme !== "light" ? 
+              {user?.theme !== "light" ? 
               <p className='text-2xl relative left-4 cursor-pointer'><CiLight/></p> : 
               <p className='text-2xl relative left-4 cursor-pointer'><FaMoon/></p>
               }   

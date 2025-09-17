@@ -27,11 +27,13 @@ const MyOrders = () => {
     // 🟢 Order Cancel Function
     const cancelOrder = async (orderId) => {
   try {
+    setLoading(true);
     const { data } = await axios.put(`/api/order/cancel/${orderId}`);
 
     if (data.success) {
       toast.success("Order Cancelled");
       fetchMyOrders(); // refresh
+      setLoading(false);
     } else {
       toast.error(data.message);
     }

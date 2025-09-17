@@ -99,7 +99,9 @@ const toggleTheme = async () => {
 
   // backend me save karo
   try {
-    await axios.put("/api/user/theme", { theme: newTheme });
+    await axios.put("/api/user/theme", { theme: newTheme },
+       { withCredentials: true }
+    );
   } catch (err) {
     console.log("Failed to save theme to backend", err);
   }

@@ -60,7 +60,9 @@ const MyOrders = () => {
                     )}
 
                     {myOrders.map((order, index) => (
-                        <div key={index} className='border bg-cyan-50 border-gray-300 rounded-lg mb-10 p-2 md:p-4 py-5 max-w-4xl'>
+                        <div key={index} className={`  ${
+    order.status === "Cancelled" ? "bg-red-50 text-red-600" : "bg-green-50 text-green-600"
+  } border bg-cyan-50 border-gray-300 rounded-lg mb-10 p-2 md:p-4 py-5 max-w-4xl`}>
                             <p className='flex justify-between md:items-center text-gray-700 max-w-4xl
                                 md:font-medium max-md:flex-col'>
                                 <span>OrderId: {order.orderId}</span>
@@ -71,11 +73,7 @@ const MyOrders = () => {
                             {order.items.map((item, idx) => (
                                 <div key={idx} className={`relative text-gray-500/70 ${
                                     order.items.length !== idx + 1 && "border-b"
-                                } border-gray-300 flex flex-col md:flex-row md:items-center justify-between p-4 py-5 md:gap-16 w-full max-w-4xl
-                                ${
-    order.status === "Cancelled" ? "bg-red-50 text-red-600" : "bg-green-50 text-green-600"
-  }
-                                `}>
+                                } border-gray-300 flex flex-col md:flex-row md:items-center justify-between p-4 py-5 md:gap-16 w-full max-w-4xl`}>
 
                                     <div className='flex items-center mb-4 md:mb-0'>
                                         <div className='bg-white shadow shadow-gray-300 p-4 rounded-lg'>
@@ -103,7 +101,7 @@ const MyOrders = () => {
                             {order.status !== "Cancelled" && (
                                 <button
                                       onClick={() => cancelOrder(order._id)}
-                                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded mt-2">
+                                    className="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded mt-2">
                                     Cancel
                                 </button>
                             )}

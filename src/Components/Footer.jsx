@@ -25,10 +25,10 @@ const Footer = () => {
                         <a href="#">
                            <p className='hover:-translate-y-1 duration-150'><BsTwitterX/></p>
                         </a>
-                        <a href="#">
+                        <a href="https://github.com/nikhilsharma9548  ">
                             <p className='text-xl hover:-translate-y-1 duration-150'><FaGithub/></p>
                         </a>
-                        <a href="#">
+                        <a href="https://www.linkedin.com/in/nikhil-sharma-43a013341">
                             <p className='text-xl hover:-translate-y-1 duration-150'><FiLinkedin/></p>
                         </a>
                     </div>

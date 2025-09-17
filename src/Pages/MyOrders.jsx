@@ -73,12 +73,12 @@ const MyOrders = () => {
                          </div>
                         </div>
 
-                        <div className={`${status ? "text-green-400" : "text-red-700"} flex flex-col justify-center md:ml-8 mb-4 md:mb-0`}>
+                        <div className={`${!status ? "text-green-400" : "text-red-700"} flex flex-col justify-center md:ml-8 mb-4 md:mb-0`}>
                             <p>Quantity : {item.quantity || 1}</p>
                            {status ?  <p>Status : {order.status || 1}</p> : <p>Status : cancelled</p>}
                             <p>{new Date(order.createdAt).toLocaleDateString()}</p>
                         </div>
-                        <p className='text-green-400 text-xl'>Amount: {currency}{item.product.offerPrice * item.quantity}</p>
+                        <p className={`${!status ? "text-green-400" : "text-red-700"}`}>Amount: {currency}{item.product.offerPrice * item.quantity}</p>
                     </div>
                 ))}
                 <button

@@ -27,29 +27,18 @@ const MyOrders = () => {
         }
     }
 
-  const cancelOrder = async (orderId) => {
-    try {
-        const response = await axios.post("/api/order/cancel", { orderId });
-        const data = response.data;
-
-        if (data.success) {
-            toast.success(data.message);
-
-            // Frontend state update: remove or mark cancelled
-            setMyOrders(prev => prev.map(order =>
-                order._id === orderId ? { ...order, status: "Cancelled" } : order
-            ));
-
-        } else {
-            toast.error(data.message);
-        }
-    } catch (error) {
-        console.error(error);
-        toast.error("Error cancelling order");
+  const handleCancel = async (orderId) => {
+  try {
+    const response = await axios.post(`/api/order/cancel/${orderId}`);
+    if (response.data.success) {
+      toast.success("Order cancelled successfully!");
+      window.location.reload(); // page refresh to show updated status
     }
+  } catch (error) {
+    console.log(error);
+    toast.error("Failed to cancel order.");
+  }
 };
-
-
 
     useEffect(() =>{
         if(user){
@@ -100,6 +89,7 @@ const MyOrders = () => {
                     </div>
                 ))}
                 <button 
+                onClick={() => handleCancel(order._id)}
                 className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg mt-2">Cancel</button>
             </div>
 

@@ -27,12 +27,13 @@ const MyOrders = () => {
         }
     }
 
-  const handleCancel = async (orderId) => {
+ 
+const handleCancel = async (orderId) => {
   try {
     const response = await axios.post(`/api/order/cancel/${orderId}`);
     if (response.data.success) {
       toast.success("Order cancelled successfully!");
-      window.location.reload(); // page refresh to show updated status
+      fetchMyOrders(); // ✅ page reload ki jagah fresh data fetch karo
     }
   } catch (error) {
     console.log(error);

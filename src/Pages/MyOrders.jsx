@@ -83,13 +83,13 @@ const MyOrders = () => {
                                         </div>
                                     </div>
 
-                                    <div className={`${order.status == "cancelled" ? "text-red-600" : "text-green-400"} flex flex-col justify-center md:ml-8 mb-4 md:mb-0`}>
+                                    <div className={`${order.status === "cancelled" ? "text-red-600" : "text-green-400"} flex flex-col justify-center md:ml-8 mb-4 md:mb-0`}>
                                         <p>Quantity: {item.quantity || 1}</p>
                                         <p>Status: {order.status}</p>
                                         <p>{new Date(order.createdAt).toLocaleDateString()}</p>
                                     </div>
 
-                                    <p className={`${order.status == "cancelled" ? "text-red-600" : "text-green-400"}`}>
+                                    <p className={`${order.status === "cancelled" ? "text-red-600" : "text-green-400"}`}>
                                         Amount: {currency}{item.product.offerPrice * item.quantity}
                                     </p>
                                 </div>
@@ -99,7 +99,7 @@ const MyOrders = () => {
                             {order.status !== "cancelled" && (
                                 <button
                                       onClick={() => cancelOrder(order._id)}
-                                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg mt-2">
+                                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded mt-2">
                                     Cancel
                                 </button>
                             )}

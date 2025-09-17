@@ -16,8 +16,9 @@ import { FaMoon } from "react-icons/fa6";
 const Navbar = () => {
 
     const[isScrolled, setIsScrolled] = useState(false)
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
-    const {navigate ,setShowUserLogin, searchQuery, user, setSearchQuery,getCartCount, axios, setUser, theme, setTheme, getCartAmount} = useAppContext();
+    const {navigate ,setShowUserLogin, searchQuery, user, setSearchQuery,getCartCount, axios, setUser,getCartAmount} = useAppContext();
 
     //change the navbar color
     useEffect(() => {
@@ -111,7 +112,7 @@ useEffect(() => {
     setTheme(user.theme || "light");
     document.documentElement.className = user.theme || "light";
   }
-}, [user]);
+}, [user, theme]);
 
   return (
  <>

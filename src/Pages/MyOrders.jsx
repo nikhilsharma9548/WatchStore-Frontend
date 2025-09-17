@@ -41,7 +41,8 @@ const handleCancel = async () => {
             toast.error(data.message)
         }
     } catch (error) {
-        
+        console.log(error.message)
+        toast.error("Something went wrong")
     }
 
 };

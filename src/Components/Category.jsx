@@ -9,11 +9,10 @@ const Category = () => {
 
   return (
    <>
-     <div className=' px-5 md:px-10 pb-20 ' >
+     <div className=' px-2 md:px-10 pb-20' >
         <p className='text-3xl border-b-2 w-44 pb-2'>Category</p>
 
-        <div className='flex gap-5 sm:flex mt-10'>
-
+        <div className='flex gap-5 mt-10'>
           <AnimatePresence>
           {categories.map((category, index) =>(
           <motion.div 
@@ -21,7 +20,7 @@ const Category = () => {
             whileInView={{opacity:1,scale:1}}
             transition={{duration:0.3}}
           key ={index}  
-          className= "group cursor-pointer max-w-32  py-5 px-3 gap-2 rounded-lg flex flex-col justify-between items-center shadow-gray-600 shadow-lg"
+          className= "group cursor-pointer w-40  py-5 px-3 gap-2 rounded-lg flex flex-col justify-between items-center shadow-gray-600 shadow-lg"
           style = {{backgroundColor: category.bgColor}}
           onClick={() =>{
             navigate(`/products/${category.path.toLowerCase()}`);

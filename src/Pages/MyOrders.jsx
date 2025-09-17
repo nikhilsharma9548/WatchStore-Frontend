@@ -28,7 +28,21 @@ const MyOrders = () => {
     }
 
  
-const handleCancel = async (orderId) => {
+const handleCancel = async () => {
+    try {
+        const { data } = await axios.post('/api/order/cancel', {
+            orderId: orderId,
+            userId: user._id
+        })
+        if(data.success){
+            toast.success(data.message)
+            fetchMyOrders()
+        } else{
+            toast.error(data.message)
+        }
+    } catch (error) {
+        
+    }
 
 };
 
@@ -81,7 +95,7 @@ const handleCancel = async (orderId) => {
                     </div>
                 ))}
                 <button 
-                onClick={() => handleCancel(order._id)}
+                onClick={handleCancel}
                 className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg mt-2">Cancel</button>
             </div>
 

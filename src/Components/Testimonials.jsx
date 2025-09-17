@@ -26,7 +26,7 @@ const Testimonials = () => {
        
           <div className='  flex max-md:flex-col-reverse justify-center gap-64'>
             <div className='w-96 sm:w-[350px] h-96 relative top-14'>
-             <div className="md:w-[450px] h-96 relative top-14 flex rounded-2xl overflow-hidden">
+             <div className="md:w-[450px] h-96 relative top-14 flex rounded-2xl ml-2 overflow-hidden">
   {/* Row container (saare testimonials ek row me) */}
   <div
     className="flex transition-transform duration-1000 ease-in-out"
@@ -76,7 +76,7 @@ const Testimonials = () => {
            
           </div>
           
-           <section className="mt-20 flex flex-col items-center justify-center mx-auto max-md:mx-2 max-md:px-2 max-w-5xl w-full text-center rounded-2xl py-20 md:py-24   bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${assets.Bg2})` }}>
+           <section className="md:mt-20 mt-32  flex flex-col items-center justify-center mx-auto max-md:px-2 max-w-5xl w-full text-center rounded-2xl py-20 md:py-24  bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${assets.Bg2})` }}>
                 <h1 className="text-2xl md:text-3xl font-medium text-black  max-w-2xl">Empower Your Sales & Marketing with a Next-Gen AI Workforce</h1>
                 <div className="h-[3px] w-32 my-1"></div>
                 <p className="text-sm md:text-base text-black max-w-xl">

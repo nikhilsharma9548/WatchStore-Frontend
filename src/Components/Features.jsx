@@ -15,7 +15,7 @@ const Features = () => {
                      <ProductCard key={index} product={product}/>
                 ))}
             </div>
-    </div>)
+    </div>
         
         </>
     );

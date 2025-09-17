@@ -34,7 +34,7 @@ const Footer = () => {
                     </div>
                 </div>
         
-                <div className="w-1/2 flex flex-wrap md:flex-nowrap justify-between">
+                <div className="md:w-1/2 w-full flex flex-wrap md:flex-nowrap gap-20 md:justify-between">
                     <div>
                         <h2 className="font-semibold text-gray-300 mb-5">RESOURCES</h2>
                         <ul className="text-sm text-gray-50 space-y-2 list-none">

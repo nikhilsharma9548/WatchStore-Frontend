@@ -47,7 +47,8 @@ const Testimonials = () => {
                 <h1 className="text-4xl md:text-5xl md:leading-[60px] font-semibold max-w-xl mt-5 bg-gradient-to-r from-white to-cyan-200 text-transparent bg-clip-text">Unlock your next big opportunity.</h1>
 
                 <div className="button-bg rounded-full mt-5 p-0.5 hover:scale-105 transition duration-300 active:scale-100">
-                <button className="px-8 text-sm py-3 text-white rounded-full font-medium bg-[#274472] hover:bg-[#1e3250] duration-150">
+                <button onClick={() => navigate('/products')}
+                 className="px-8 text-sm py-3 text-white rounded-full font-medium bg-[#274472] hover:bg-[#1e3250] duration-150">
                     Shop Now
                 </button>
             </div>

@@ -61,7 +61,7 @@ const MyOrders = () => {
 
                     {myOrders.map((order, index) => (
                         <div key={index} className={`  ${
-                                order.status === "Cancelled" ? "bg-red-200 text-red-600" : "bg-cyan-50 text-green-600"} 
+                                order.status === "Cancelled" ? "bg-red-100 text-red-600" : "bg-cyan-50 text-green-600"} 
                                 border  border-gray-300 rounded-lg mb-10 p-2 md:p-4 py-5 max-w-4xl`}>
                             <p className='flex justify-between md:items-center text-gray-700 max-w-4xl
                                 md:font-medium max-md:flex-col'>

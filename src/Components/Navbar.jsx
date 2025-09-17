@@ -172,7 +172,7 @@ const handleUpload = async (e) => {
                   </ul>
                      </div>
 
-                      <div className='px-2 
+                      <div className=' 
                      py-2 rounded-md text-sm flex flex-col gap-3.5 h-full'>
                       <NavLink to={'/my-orders'}
                       onClick={() => {setMenu(false)}}
@@ -186,7 +186,7 @@ const handleUpload = async (e) => {
                         <p  className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1.5 shadow-lg  bg-gray-300'>
                           <span>< ImHeadphones/></span>Help Center</p>
                     </div>
-                    <button onClick={logout} className='p-1.5 bg-[#274472] rounded cursor-pointer'>logout</button>
+                    <button onClick={logout} className='p-1.5 bg-[#274472] text-white rounded cursor-pointer'>logout</button>
                     </div>)}
                       
                   </div>

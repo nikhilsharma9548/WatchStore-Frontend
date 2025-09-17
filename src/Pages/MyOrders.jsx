@@ -29,16 +29,7 @@ const MyOrders = () => {
 
  
 const handleCancel = async (orderId) => {
-  try {
-    const response = await axios.post(`/api/order/cancel/${orderId}`);
-    if (response.data.success) {
-      toast.success("Order cancelled successfully!");
-      fetchMyOrders(); // ✅ page reload ki jagah fresh data fetch karo
-    }
-  } catch (error) {
-    console.log(error);
-    toast.error("Failed to cancel order.");
-  }
+
 };
 
     useEffect(() =>{

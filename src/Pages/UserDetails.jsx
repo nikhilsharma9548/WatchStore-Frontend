@@ -75,15 +75,15 @@ const handleUpload = async (e) => {
 
 
   return (
-    <div className='min-h-screen'>
+    <div className='min-h-screen '>
       <div className='flex p-5 px-2  border-b'>
          <NavLink to={"/"} onClick={() => scrollTo(0,0)} className='flex justify-center items-center md:gap-3 gap-2'>
             <img src={assets.logo} className=' h-10 w-10 rounded-full' alt='Logo'/>
-            <p className='text-xl font-semibold'>TimeAura</p>
+            <p className='text-xl font-semibold dark:text-gray-200'>TimeAura</p>
         </NavLink>
       </div>
-      <div className='mx-5 '>
-        <div className='my-5 px-5 py-4 rounded bg-[#5885AF]/30 shadow-xl shadow-gray-600 items-center gap-5 flex '>
+      <div className='mx-5 dark:text-white'>
+        <div className='my-5 px-5 py-4 rounded bg-[#5885AF]/30 dark:bg-gray-950/60 items-center gap-5 flex '>
 
         <label htmlFor="image">
     <input type="file" id="image" onChange={handleUpload} hidden/>
@@ -97,40 +97,38 @@ const handleUpload = async (e) => {
     src={file instanceof File ? URL.createObjectURL(file) : assets.profile} />
   )}
 </label>
-
-
           <p className='text-xl flex flex-col'>{user ? (user.name).toUpperCase() : "GUEST"}
             <span className='text-sm'>{user ? (user.email) : null}</span>
           </p>
-          {/* <button className='bg-blue-500 flex justify-end text-white px-4 py-2 rounded mt-2' onClick={onSubmitHandler}>upload</button> */}
         </div>
-        <div className=' rounded bg-[#5885AF]/30 shadow-xl shadow-gray-600 mt-10 p-2'>
 
-          <div className='flex'>
+
+        <div className=' rounded bg-[#5885AF]/30 dark:bg-gray-950/60 mt-10 p-2'>
+          <div className='flex dark:text-gray-200 '>
             <NavLink to={'/my-orders'}
-          className='text-base w-[50vh] m-2 p-2 shadow-xl  rounded border  border-gray-600 flex items-center max-w-sm text-gray-800 gap-2'>
+          className='text-base w-[50vh] m-2 p-2 shadow-xl  rounded border  border-gray-600 flex items-center max-w-sm  gap-2'>
             <span className='text-2xl'>< LuBox/></span>
             Orders</NavLink>
 
-          <NavLink className='text-base w-[50vh] m-2 p-2 rounded shadow-xl gap-2 border flex items-center  border-gray-600  text-gray-800'>
+          <NavLink className='text-base w-[50vh] m-2 p-2 rounded shadow-xl gap-2 border flex items-center  border-gray-600'>
            <span className='text-2xl'>< FaRegHeart/></span>
            Wishlist</NavLink>
           </div>
 
           <div className='flex'>
             <NavLink
-            className='text-base w-[50vh] m-2 p-2 shadow-xl rounded flex border border-gray-600 items-center gap-2 text-gray-800'>
+            className='text-base w-[50vh] m-2 p-2 shadow-xl rounded flex border border-gray-600 items-center gap-2'>
             <span className='text-2xl'>< HiGift/></span>
             Coupons</NavLink>
 
-          <NavLink className='text-base w-[50vh] m-2 p-2 rounded shadow-xl flex border border-gray-600 items-center gap-2 text-gray-800'>
+          <NavLink className='text-base w-[50vh] m-2 p-2 rounded shadow-xl flex border border-gray-600 items-center gap-2'>
            <span>< ImHeadphones/></span>
            Help Center</NavLink>
           </div>
 
             <NavLink
             to={'/admin'}
-            className='text-base m-2 p-2 shadow-xl justify-center rounded flex border border-gray-600 items-center gap-2 text-gray-800'>
+            className='text-base m-2 p-2 shadow-xl justify-center rounded flex border border-gray-600 items-center gap-2'>
             <span className='text-2xl'>< FaUserAlt/></span>
             Become Seller</NavLink>
         </div>

@@ -18,7 +18,7 @@ const Footer = () => {
                      <img src={assets.darkLogo} className='w-10' />
                     <span>TimeAura</span>
                    </div>   
-                    <p className="mt-6 text-sm text-gray-200 pb-2">
+                    <p className="mt-3 text-sm text-gray-200 pb-4">
                        Discover premium watches at WatchStore. Stylish designs,
                         secure shopping, and fast delivery – all in one place.
                     </p>

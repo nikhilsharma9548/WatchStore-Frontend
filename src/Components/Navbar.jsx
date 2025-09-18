@@ -11,6 +11,7 @@ import { ImHeadphones } from "react-icons/im";
 import { CiLight } from "react-icons/ci";
 import { LuBox } from "react-icons/lu";
 import { FaMoon } from "react-icons/fa6";
+import { useTheme } from '../Context/ThemeContext';
 
 
 
@@ -18,7 +19,7 @@ const Navbar = () => {
 
     const[isScrolled, setIsScrolled] = useState(false)
 
-    const {navigate ,setShowUserLogin, searchQuery, user, setSearchQuery,getCartCount, axios, setUser, theme} = useAppContext();
+    const {navigate ,setShowUserLogin, searchQuery, user, setSearchQuery,getCartCount, axios, setUser} = useAppContext();
 
     //change the navbar color
     useEffect(() => {
@@ -88,14 +89,13 @@ const handleUpload = async (e) => {
     toast.error("Failed to upload image.");
   }
 };
-
-
+  const { theme, toggleTheme } = useTheme();
   return (
  <>
-    <div className={`flex justify-between md:p-5 p-2 items-center h-20 w-full fixed top-0 left-0 z-50
-       ${!isScrolled ? "bg-transparent" : "bg-[#5885AF]"}`}>
+    <div className={`flex justify-between md:p-5 p-2 items-center h-20 w-full fixed top-0 left-0 z-50 dark:text-white 
+       ${!isScrolled ? "bg-transparent" : "bg-[#5885AF] dark:bg-gray-950"}`}>
       
-        {/* Navbar for desktop View */}
+        {/* Navbar for desktop View */} 
 
         <NavLink to={"/"} onClick={() => scrollTo(0,0)} className='flex justify-center items-center md:gap-3 gap-2'>
             <img src={assets.logo} className=' h-10 w-10 rounded-full' alt='Logo'/>
@@ -119,7 +119,8 @@ const handleUpload = async (e) => {
          <div className='flex items-center md:gap-5 gap-2  px-0 text-gray-700'>
 
           {/* search Bar */}
-            <div className="hidden max-w-96 xl:min-w-96 lg:flex items-center text-base gap-2 border-2 border-gray-800 px-3 rounded-full">
+            <div className="hidden max-w-96 xl:min-w-96 lg:flex items-center dark:text-white text-base gap-2 border-2
+             border-gray-800 dark:border-gray-100 px-3 rounded-full">
                 <input
                 value={searchQuery} 
                 onChange={(e)=> setSearchQuery(e.target.value)} 
@@ -129,23 +130,24 @@ const handleUpload = async (e) => {
             </div>
 
             {/* theme toggler */}
-            <div>
+            <div onClick={toggleTheme}>
               {theme !== "light" ?  
-              <p className='text-2xl relative left-4 cursor-pointer'><CiLight/></p> : 
+              <p className='text-2xl relative left-4 cursor-pointer dark:text-white'><CiLight/></p> : 
               <p className='text-2xl relative left-4 cursor-pointer'><FaMoon/></p>
               }   
             </div>
             
             {/* cart section */}
             <div onClick={() => {navigate('/cart'); scrollTo(0,0)}} className="relative cursor-pointer px-5">
-               <p className='text-2xl'> < LuShoppingCart/> </p>
+               <p className='text-2xl dark:text-gray-200'> < LuShoppingCart/> </p>
                <button className="absolute -top-2 right-1 text-xs text-white bg-[#274472] w-[18px] h-[18px]
                 rounded-full">{getCartCount()}</button>
             </div>
                         
                {!user ? (<div className='group'>
                    <button onClick={() => setShowUserLogin(true)}
-                    className='bg-[#274472] flex justify-center items-center gap-2 text-white px-5 py-2 cursor-pointer
+                    className='bg-[#274472] flex justify-center items-center gap-2
+                     text-white px-5 py-2 cursor-pointer
                     hover:bg-blue-950 rounded transition-all duration-300'>login 
                   </button>
                 </div>) : (

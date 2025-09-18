@@ -65,9 +65,9 @@ useEffect(() => {
                                     </div>
 
                     <div className="mt-6  dark:text-white">
-                        <p className="text-gray-800 line-through">MRP: {currency}{product.price}</p>
+                        <p className="text-gray-800 dark:text-gray-200 line-through">MRP: {currency}{product.price}</p>
                         <p className="text-2xl font-medium">MRP:{currency}{product.offerPrice}</p>
-                        <span className="text-gray-800">(inclusive of all taxes)</span>
+                        <span className="text-gray-800 dark:text-gray-200">(inclusive of all taxes)</span>
                     </div>
 
                     <p className="text-base font-medium mt-6">About Product</p>

@@ -19,7 +19,8 @@ const Footer = () => {
                     <span>TimeAura</span>
                    </div>
                     <p className="mt-6 text-sm text-gray-200 pb-2">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.
+                       Discover premium watches at WatchStore. Stylish designs,
+                        secure shopping, and fast delivery – all in one place.
                     </p>
                     <div className="flex items-center gap-3 mt-3 text-white ">
                         <a href="#">

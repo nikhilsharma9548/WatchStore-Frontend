@@ -7,7 +7,6 @@ import slide4 from './Images/navbar-image4.png'
 import mobile from './Images/phone_view.png'
 import Bg2 from './Images/background.png'
 import upload_area from'./Images/upload_area.png';
-import boxicon from './Images/box_icon.svg'
 import profile from './Images/profile_icon.png'
 import testimonials from './Images/background-2.jpg'
 
@@ -29,7 +28,6 @@ export const assets = {
     Bg2,
     addAdress,
     upload_area,
-    boxicon,
     profile,
     
     testimonials,

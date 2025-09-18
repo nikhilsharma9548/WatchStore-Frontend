@@ -52,9 +52,9 @@ const MyOrders = () => {
         <>
             {!loading ? (
                 <div className={`mt-24 md:px-20 px-6 pb-16 ${myOrders.length === 0 && "h-[70vh]"}`}>
-                    <div className='flex flex-col items-end w-max mb-8'>
+                    <div className='flex flex-col items-end w-max mb-8 dark:text-gray-200'>
                         <p className='text-3xl'>My Orders</p>
-                        <div className='w-16 h-0.5 bg-[#274472] rounded-full'></div>
+                        <div className='w-16 h-0.5 bg-[#274472] dark:bg-gray-200 rounded-full'></div>
                     </div>
 
                     {myOrders.length === 0 && (

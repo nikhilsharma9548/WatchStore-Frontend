@@ -44,7 +44,7 @@ const WatchStore = () => {
         {isAdminPath || isUserDetailsPath ? null :  <Navbar/>}
         {showUserLogin ? <Login/> : null}
 
-  <div className={`w-full overflow-hidden bg-[#C3E0E5] dark:bg-[#0D0D11] `}>
+  <div className={`w-full overflow-hidden bg-[#C3E0E5] dark:bg-[#0F0E0E] `}>
    
       <Routes>
         <Route path='/' element= {<Home/>} />

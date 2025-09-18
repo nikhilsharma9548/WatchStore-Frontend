@@ -25,7 +25,7 @@ import { useAppContext } from "../Context/AppContext";
   if (!showSplash) return null; 
   
   return (
-    <div className="relative min-h-screen bg-[#C3E0E5] dark:bg-[#0D0D11] flex items-center justify-center z-50">
+    <div className="relative min-h-screen bg-[#C3E0E5] dark:bg-[#0F0E0E] flex items-center justify-center z-50">
       {/* Splash Screen */}
       {showSplash && (
         <div className="fixed inset-0 bg-[#C3E0E5] dark:bg-[#0D0D11]  flex items-center justify-center z-50 animate-fade">

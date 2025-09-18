@@ -130,7 +130,7 @@ const Cart = () => {
          <div className="  flex flex-col md:flex-row py-16  max-w-6xl w-full px-6 mx-auto">
             <div className='flex-1 max-w-4xl px-5 dark:text-gray-300'>
                 <h1 className="text-3xl font-medium mb-6">
-                    Shopping Cart <span className="text-sm text-[#274472]">{getCartCount()}</span>
+                    Shopping Cart <span className="text-sm text-[#274472] dark:text-red-500">{getCartCount()}</span>
                 </h1>
 
                 <div className="grid grid-cols-[2fr_1fr_1fr] text-gray-500 dark:text-white text-base font-medium pb-3 ">

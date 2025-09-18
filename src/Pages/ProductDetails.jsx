@@ -97,7 +97,7 @@ useEffect(() => {
         <div className='flex flex-col mt-[119px]'>
           <div className=' flex flex-col items-end w-max '>
             <p className='text-3xl dark:text-gray-100 '>Related Products</p>
-            <div className='w-20 h-0.5 bg-[#274472] dark:text-gray-200 rounded-full'></div>
+            <div className='w-20 h-0.5 bg-[#274472] dark:bg-gray-200 rounded-full'></div>
           </div>
 
           <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-6 mt-6 w-full'>

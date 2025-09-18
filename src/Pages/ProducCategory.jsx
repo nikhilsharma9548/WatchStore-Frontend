@@ -15,13 +15,13 @@ const ProducCategory = () => {
     const searchCategory = categories.find((item) => item.path.toLowerCase() === categoryLower)
 const filteredProducts = products.filter((product) => product.category.toLowerCase() === categoryLower)
   return (
-    <>
-    <div className='mt-32'>
+    <>  
+    <div className='mt-32 mb-10'>
 
         { searchCategory && (
-            <div className='flex flex-col items-end w-max'>
+            <div className='flex flex-col dark:text-gray-100 items-end w-max'>
                 <p className='text-3xl pl-10'>{searchCategory.text}</p>
-                <div className='w-20  h-0.5 bg-[#274472] rounded-full'></div>
+                <div className='w-20  h-0.5 bg-[#274472] dark:bg-gray-200 rounded-full'></div>
             </div>
         )}
 

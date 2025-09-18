@@ -88,8 +88,7 @@ const Cart = () => {
                         })), address: selectedAddress._id
                     })
                     if(data.success){
-                        window.location.replace(data.url)
-                        toast.success(data.message)
+                        window.location.replace(data.url)   
                     }else{
                         toast.error(data.message)
                         console.error(data.message)

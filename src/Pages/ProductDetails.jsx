@@ -33,7 +33,7 @@ useEffect(() => {
              <div className='mt-32 md:px-20 px-5'>
             
  <div className="max-w-4xl w-full px-6 flex flex-col">
-            <p>
+            <p className='dark:text-white'>
                 <Link to={"/"} className='text-blue-800 underline text-xl'>Home</Link> /
                 <Link to={"/products"} className='text-blue-800 underline text-xl'> Products</Link> /
                 <Link to={`/products/${product.category.toLowerCase()}`} className='text-blue-800 underline text-xl'> {product.category}</Link> /
@@ -49,13 +49,13 @@ useEffect(() => {
                 </div>
                 {/* details fo products */}
 
-                <div className="text-sm w-full md:w-1/2 md:bg-transparent bg-white p-5">
+                <div className="text-sm w-full md:w-1/2 md:bg-transparent bg-white dark:text-white p-5">
                     <h1 className="text-3xl font-medium">{product.name}</h1>
 
-                    <div className="flex items-center gap-0.5">
+                    <div className="flex items-center gap-0.5 ">
                                         {Array(5).fill('').map((_, i) => (
                                              4 > i ? (
-                                                <p key={i} className="text-[#274472]"><MdStarRate/></p>
+                                                <p key={i} className="text-[#274472] "><MdStarRate/></p>
                                             ) : (
                                                 <p key={i} className="text-[#274472]/40"><MdStarRate/></p>
                                             )
@@ -64,7 +64,7 @@ useEffect(() => {
                                         <p>({4})</p>
                                     </div>
 
-                    <div className="mt-6">
+                    <div className="mt-6  dark:text-white">
                         <p className="text-gray-800 line-through">MRP: {currency}{product.price}</p>
                         <p className="text-2xl font-medium">MRP:{currency}{product.offerPrice}</p>
                         <span className="text-gray-800">(inclusive of all taxes)</span>

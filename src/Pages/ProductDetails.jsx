@@ -3,6 +3,7 @@ import { useAppContext } from '../Context/AppContext'
 import { Link, useParams } from 'react-router-dom'
 import { MdStarRate } from "react-icons/md";
 import ProductCard from '../Components/ProductCard';
+import Loading from '../Components/Loading';
 
 const ProductDetails = () => { 
 
@@ -28,7 +29,7 @@ useEffect(() => {
 }, [product]);
 
     
-  return product &&(
+  return product ?(
     <>
              <div className='mt-32 md:px-20 px-5'>
             
@@ -112,7 +113,7 @@ useEffect(() => {
         </div>
     </div>
     </>
-  )
+  ): <Loading />
 }
 
 export default ProductDetails

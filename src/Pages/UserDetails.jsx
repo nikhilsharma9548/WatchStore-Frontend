@@ -9,6 +9,7 @@ import { FaPlus } from "react-icons/fa6";
 import { FaUserAlt } from "react-icons/fa";
 import { useAppContext } from '../Context/AppContext'
 import toast from 'react-hot-toast';
+import { useTheme } from '../Context/ThemeContext';
 
 
 
@@ -22,6 +23,7 @@ const UserDetails = () => {
   // };
   
   const {navigate, axios, user, setUser, loading,  setLoading} = useAppContext()
+  const {theme} = useTheme();
 
   const logout = async() =>{
     setLoading(true)
@@ -78,12 +80,13 @@ const handleUpload = async (e) => {
     <div className='min-h-screen '>
       <div className='flex p-5 px-2  border-b'>
          <NavLink to={"/"} onClick={() => scrollTo(0,0)} className='flex justify-center items-center md:gap-3 gap-2'>
-            <img src={assets.logo} className=' h-10 w-10 rounded-full' alt='Logo'/>
-            <p className='text-xl font-semibold dark:text-gray-200'>TimeAura</p>
-        </NavLink>
+                     {theme === "light" ? <img src={assets.logo} className=' h-10 w-10 rounded-full' alt='Logo'/>:
+                     <img src={assets.darkLogo} className=' h-10 w-10 rounded-full' alt='Logo'/>}
+                     <p className='text-xl font-semibold dark:text-white'>TimeAura</p>
+                 </NavLink>  
       </div>
       <div className='mx-5 dark:text-white'>
-        <div className='my-5 px-5 py-4 rounded bg-[#5885AF]/30 dark:bg-gray-950/60 items-center gap-5 flex '>
+        <div className='my-5 px-5 py-4 rounded bg-[#5885AF]/30 dark:bg-gray-700/80 items-center gap-5 flex '>
 
         <label htmlFor="image">
     <input type="file" id="image" onChange={handleUpload} hidden/>
@@ -103,8 +106,8 @@ const handleUpload = async (e) => {
         </div>
 
 
-        <div className=' rounded bg-[#5885AF]/30 dark:bg-gray-950/60 mt-10 p-2'>
-          <div className='flex dark:text-gray-200 '>
+        <div className=' rounded bg-[#5885AF]/30 dark:bg-gray-700/80 mt-10 p-2'>
+          <div className='flex dark:text-gray-300 '>
             <NavLink to={'/my-orders'}
           className='text-base w-[50vh] m-2 p-2 shadow-xl  rounded border  border-gray-600 flex items-center max-w-sm  gap-2'>
             <span className='text-2xl'>< LuBox/></span>
@@ -115,7 +118,7 @@ const handleUpload = async (e) => {
            Wishlist</NavLink>
           </div>
 
-          <div className='flex'>
+          <div className='flex dark:text-gray-300 '>
             <NavLink
             className='text-base w-[50vh] m-2 p-2 shadow-xl rounded flex border border-gray-600 items-center gap-2'>
             <span className='text-2xl'>< HiGift/></span>
@@ -128,7 +131,7 @@ const handleUpload = async (e) => {
 
             <NavLink
             to={'/admin'}
-            className='text-base m-2 p-2 shadow-xl justify-center rounded flex border border-gray-600 items-center gap-2'>
+            className='text-base m-2 p-2 shadow-xl justify-center rounded flex border dark:text-gray-300  border-gray-600 items-center gap-2'>
             <span className='text-2xl'>< FaUserAlt/></span>
             Become Seller</NavLink>
         </div>

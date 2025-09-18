@@ -1,4 +1,5 @@
 import logo from './Images/logo.svg'
+import darkLogo from './Images/logo2.svg'
 import slider1 from './Images/navbar-image.png'
 import slide2 from './Images/navbar-image2.png'
 import slide3 from './Images/navbar-image3.png'
@@ -32,6 +33,7 @@ import product12 from './Images/SmartW-4.png'
 
 export const assets = {
     logo,
+    darkLogo,
     mobile, 
     Bg2,
     addAdress,

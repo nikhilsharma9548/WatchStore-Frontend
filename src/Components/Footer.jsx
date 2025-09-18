@@ -15,9 +15,9 @@ const Footer = () => {
                 
                 <div className="max-w-96">
                    <div className='flex items-center gap-2 text-2xl font-bold text-white                                                                          '>
-                     <img src={assets.logo} className='w-10' />
+                     <img src={assets.darkLogo} className='w-10' />
                     <span>TimeAura</span>
-                   </div>
+                   </div>   
                     <p className="mt-6 text-sm text-gray-200 pb-2">
                        Discover premium watches at WatchStore. Stylish designs,
                         secure shopping, and fast delivery – all in one place.

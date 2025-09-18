@@ -8,7 +8,7 @@ const Features = () => {
 
     return (
         <>
-    <div id='features' className='sm:px-10 px-5 scroll-mt-24'>
+    <div id='features' className='sm:px-10 px-5 scroll-mt-24 dark:text-gray-200'>
             <p className='text-3xl w-32 border-b-2'>Features</p>
             <div className='py-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-6 lg:grid-cols-5 mt-6 '>
                 {products.filter((product) =>product.inStock).slice(0,5).map((product, index) =>(

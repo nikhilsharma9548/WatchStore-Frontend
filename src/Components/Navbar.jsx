@@ -63,7 +63,6 @@ const logout = async() =>{
   } 
 }
 const [menu, setMenu] = useState(false)
-
 const [file, setFile] = useState([]);
 
 const handleUpload = async (e) => {
@@ -123,7 +122,9 @@ const handleUpload = async (e) => {
             <div className="hidden max-w-96 xl:min-w-96 lg:flex items-center text-base gap-2 border-2 border-gray-800 px-3 rounded-full">
                 <input
                 value={searchQuery} 
-                onChange={(e)=> setSearchQuery(e.target.value)} className="py-2.5 w-full bg-transparent  outline-none px-3 " type="text" placeholder="Search products" />
+                onChange={(e)=> setSearchQuery(e.target.value)} 
+                className="py-2.5 w-full bg-transparent outline-none px-3 " 
+                type="text" placeholder="Search products" />
                 <p className='text-xl  cursor-pointer '>< CiSearch/></p>
             </div>
 
@@ -149,9 +150,12 @@ const handleUpload = async (e) => {
                   </button>
                 </div>) : (
 
+
+                // menu section
+
                   <div className='relative flex flex-col cursor-pointer'>
 
-                    <img src={user.image ? user.image : assets.profile} className='w-10 h-10 rounded-full' onClick={() =>setMenu(!menu)}/>
+                    <img src={user.image ? user.image : assets.profile} className='w-10 h-10 object-cover rounded-full' onClick={() =>setMenu(!menu)}/>
 
                     {menu && (<div className='hidden   md:flex flex-col gap-5 h-96 w-72 rounded-xl p-5 bg-white  absolute top-10 right-0'>
                      <div className='flex gap-3  items-center'>
@@ -163,7 +167,7 @@ const handleUpload = async (e) => {
                           alt="Profile"
                         />) : (
                           <img 
-                          className="w-16 h-16 rounded-full border cursor-pointer"
+                          className="w-16 h-16 object-cover rounded-full border cursor-pointer"
                           src={file instanceof File ? URL.createObjectURL(file) : assets.profile} />
                         )}
                       </label>

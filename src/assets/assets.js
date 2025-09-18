@@ -4,7 +4,7 @@ import slider1 from './Images/navbar-image.png'
 import slide2 from './Images/navbar-image2.png'
 import slide3 from './Images/navbar-image3.png'
 import slide4 from './Images/navbar-image4.png'
-import mobile from './Images/phone-4.png'
+import mobile from './Images/phone_view.png'
 import Bg2 from './Images/background.png'
 import upload_area from'./Images/upload_area.png';
 import boxicon from './Images/box_icon.svg'
@@ -18,17 +18,8 @@ import profile_img_3 from './Images/profile_img_3.png'
 
 
 import product1 from './Images/Product-1.png'
-import product2 from './Images/Product-2.png'
-import product3 from './Images/Product-3.png'
-import product4 from './Images/Product-4.png'
 import product5 from './Images/DigitalW-1.png'
-import product6 from './Images/DigitalW-2.png'
-import product7 from './Images/DigitalW-3.png'
-import product8 from './Images/DigitalW-4.png'
-import product9 from './Images/SmartW-1.png'
 import product10 from './Images/SmartW-2.png'
-import product11 from './Images/SmartW-3.png'
-import product12 from './Images/SmartW-4.png'
 
 
 export const assets = {
@@ -46,10 +37,7 @@ export const assets = {
     profile_img_2,
     profile_img_3,
 
-    product1,product2,product3,
-    product4,product5,product6,
-    product7,product8,product9,
-    product10,product11,product12
+    product1,product5,product10
 }
 
 export const imageSlider = [

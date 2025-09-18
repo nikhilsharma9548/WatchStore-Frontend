@@ -105,18 +105,18 @@ const handleUpload = async (e) => {
         </NavLink>  
 
         <div className='hidden md:flex'>   
-            <ul className=' activeLink flex justify-between items-center gap-7 text-lg '>
+            <ul className=' activeLink flex justify-between items-center gap-14 text-lg '>
 
                 <NavLink className='hover:text-[#274472] transition-all duration-300 cursor-pointer' 
                 to={'/'}onClick={() => scrollTo(0,0)}>Home</NavLink>
                 <a className='hover:text-[#274472] transition-all duration-300 cursor-pointer'href='#features'onClick={() => navigate('/')}>features</a>
                 <NavLink className='hover:text-[#274472] transition-all duration-300 cursor-pointer' 
                 to={'/products'}onClick={() => scrollTo(0,0)}>Products</NavLink>  
-                <a className='hover:text-[#274472] transition-all duration-300 cursor-pointer' 
-                href='#testimonials'onClick={() => navigate('/')}>Testimonials</a>  
+                {/* <a className='hover:text-[#274472] transition-all duration-300 cursor-pointer' 
+                href='#testimonials'onClick={() => navigate('/')}>Testimonials</a>   */}
 
             </ul>           
-        </div>
+        </div>  
 
          <div className='flex items-center md:gap-5 gap-2  px-0 text-gray-700'>
 

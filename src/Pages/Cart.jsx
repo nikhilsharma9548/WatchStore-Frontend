@@ -128,12 +128,12 @@ const Cart = () => {
        <>
        {!loading ? (<div className="mt-20 ">
          <div className="  flex flex-col md:flex-row py-16  max-w-6xl w-full px-6 mx-auto">
-            <div className='flex-1 max-w-4xl px-5'>
+            <div className='flex-1 max-w-4xl px-5 dark:text-gray-300'>
                 <h1 className="text-3xl font-medium mb-6">
                     Shopping Cart <span className="text-sm text-[#274472]">{getCartCount()}</span>
                 </h1>
 
-                <div className="grid grid-cols-[2fr_1fr_1fr] text-gray-500 text-base font-medium pb-3 ">
+                <div className="grid grid-cols-[2fr_1fr_1fr] text-gray-500 dark:text-white text-base font-medium pb-3 ">
                     <p className="text-left">Product Details</p>
                     <p className="text-center">Subtotal</p>
                     <p className="text-center">Action</p>
@@ -169,7 +169,7 @@ const Cart = () => {
                 )}
 
                 <button onClick={()=>{navigate('/products'); scrollTo(0,0)}} className="group cursor-pointer flex items-center 
-                mt-8 gap-2 text-[#274472] font-medium">
+                mt-8 gap-2 text-[#274472] dark:text-gray-200 font-medium">
                     <p className="hover:-translate-x-1 transition">< FaArrowLeftLong/></p>
                     Continue Shopping
                 </button>

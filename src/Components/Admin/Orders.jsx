@@ -50,13 +50,24 @@ const Orders = () => {
                     </div>
 
                     <div className="text-sm md:text-base my-auto text-black/70">
-                        <p className='font-medium mb-1'>{order.address.firstName} {order.address.lastName}</p>
-                        <p className='text-black/80'>{order.address.street}, {order.address.city},</p>
-                            <p>{order.address.state},{order.address.zipcode},
-                              {order.address.country}</p>
-                            <p></p>
-                            <p>{order.address.phone}</p>
-                    </div>
+                {order.address ? (
+                    <>
+                    <p className="font-medium mb-1">
+                        {order.address.firstName} {order.address.lastName}
+                    </p>
+                    <p className="text-black/80">
+                        {order.address.street}, {order.address.city},
+                    </p>
+                    <p>
+                        {order.address.state}, {order.address.zipcode},{" "}
+                        {order.address.country}
+                    </p>
+                    <p>{order.address.phone}</p>
+                    </>
+                ) : (
+                    <p className="text-red-500">Address Not Available</p>
+                )}
+                </div>
 
                     <p className="font-medium text-lg my-auto">{currency}{order.amount}</p>
 

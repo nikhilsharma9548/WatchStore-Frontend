@@ -36,7 +36,8 @@ useEffect(() => {
             <p className='dark:text-white'>
                 <Link to={"/"} className='text-blue-800 underline text-xl'>Home</Link> /
                 <Link to={"/products"} className='text-blue-800 underline text-xl'> Products</Link> /
-                <Link to={`/products/${product.category.toLowerCase()}`} className='text-blue-800 underline text-xl'> {product.category}</Link> /
+                <Link to={`/products/${product.category.toLowerCase()}`} 
+                className='text-blue-800 dark:text-shadow-cyan-500 underline text-xl'> {product.category}</Link> /
                 <span className="text-xl">{product.name}</span>
             </p>
 

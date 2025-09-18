@@ -34,10 +34,10 @@ useEffect(() => {
             
  <div className="max-w-4xl w-full px-6 flex flex-col">
             <p className='dark:text-white'>
-                <Link to={"/"} className='text-blue-800 underline text-xl'>Home</Link> /
-                <Link to={"/products"} className='text-blue-800 underline text-xl'> Products</Link> /
+                <Link to={"/"} className='text-blue-800 underline text-xl dark:text-gray-500'>Home</Link> /
+                <Link to={"/products"} className='text-blue-800 underline text-xl dark:text-gray-500'> Products</Link> /
                 <Link to={`/products/${product.category.toLowerCase()}`} 
-                className='text-blue-800 dark:text-gray-200 underline text-xl'> {product.category}</Link> /
+                className='text-blue-800 dark:text-gray-500 underline text-xl'> {product.category}</Link> /
                 <span className="text-xl">{product.name}</span>
             </p>
 

@@ -12,6 +12,7 @@ import { CiLight } from "react-icons/ci";
 import { LuBox } from "react-icons/lu";
 import { FaMoon } from "react-icons/fa6";
 import { useTheme } from '../Context/ThemeContext';
+import { AnimatePresence, motion} from 'motion/react';
 
 
 
@@ -130,17 +131,30 @@ const handleUpload = async (e) => {
             </div>
 
             {/* theme toggler */}
-            <div onClick={toggleTheme}>
+
+            <div onClick={toggleTheme} className="cursor-pointer px-2">
+            <AnimatePresence>
               {theme !== "light" ?  
-              <p className='text-2xl relative left-4 cursor-pointer dark:text-white'><CiLight/></p> : 
-              <p className='text-2xl relative left-4 cursor-pointer'><FaMoon/></p>
-              }   
+              <motion.p
+              key="sun"
+                initial={{opacity:0,y:-10}}
+                animate={{opacity:1,y:0}}
+                exit={{y:0}}
+              className='text-2xl relative left-4 dark:text-white'><CiLight/></motion.p> : 
+              <motion.p
+              key="moon"
+              initial={{opacity:0,y:10}}
+              animate={{opacity:1,y:0}}
+              exit={{y:0}}
+              className='text-2xl relative left-4'><FaMoon/></motion.p>}
+            </AnimatePresence>   
             </div>
+
             
             {/* cart section */}
             <div onClick={() => {navigate('/cart'); scrollTo(0,0)}} className="relative cursor-pointer px-5">
                <p className='text-2xl dark:text-gray-200'> < LuShoppingCart/> </p>
-               <button className="absolute -top-2 right-1 text-xs text-white bg-[#274472] w-[18px] h-[18px]
+               <button className="absolute -top-2 right-1 text-xs text-white bg-red-600 w-[18px] h-[18px]
                 rounded-full">{getCartCount()}</button>
             </div>
                         

@@ -20,13 +20,6 @@ html {
   border-bottom: 3px solid white;
 }
 
-/* .dark{
-  background-color: #1F2937;
-  color: white;
-  box-shadow: white;
-} */
-
-
 @keyframes fade {
   0% { opacity: 0; transform: scale(0.8); }
   50% { opacity: 1; transform: scale(1); }

@@ -13,12 +13,12 @@ import { LuBox } from "react-icons/lu";
 import { FaMoon } from "react-icons/fa6";
 
 
+
 const Navbar = () => {
 
     const[isScrolled, setIsScrolled] = useState(false)
-    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
-    const {navigate ,setShowUserLogin, searchQuery, user, setSearchQuery,getCartCount, axios, setUser,getCartAmount} = useAppContext();
+    const {navigate ,setShowUserLogin, searchQuery, user, setSearchQuery,getCartCount, axios, setUser, theme} = useAppContext();
 
     //change the navbar color
     useEffect(() => {
@@ -90,33 +90,10 @@ const handleUpload = async (e) => {
   }
 };
 
-// theme toggler 
-const toggleTheme = async () => {
-  const newTheme = theme === "light" ? "dark" : "light";
-
-  // 🔥 Pehle UI update karo (instant feel)
-  setTheme(newTheme);
-  document.documentElement.className = newTheme;
-  localStorage.setItem("theme", newTheme);
-
-  // 🔄 Backend ko async call, UI ko block mat karo
-  if (user) {
-    axios.put("/api/user/theme", { theme: newTheme })
-      .catch((err) => console.log("Failed to save theme to backend", err));
-  }
-};
-
-
-useEffect(() => {
-  if (user) {
-    setTheme(user.theme || "light");
-    document.documentElement.className = user.theme || "light";
-  }
-}, [user, theme]);
 
   return (
  <>
-    <div className={`flex justify-between md:p-5 p-2 items-center h-20 w-full fixed  top-0 left-0 z-50
+    <div className={`flex justify-between md:p-5 p-2 items-center h-20 w-full fixed top-0 left-0 z-50
        ${!isScrolled ? "bg-transparent" : "bg-[#5885AF]"}`}>
       
         {/* Navbar for desktop View */}
@@ -151,8 +128,8 @@ useEffect(() => {
             </div>
 
             {/* theme toggler */}
-            <div onClick={toggleTheme }>
-              {(user?.theme || theme) !== "light" ?  
+            <div>
+              {theme !== "light" ?  
               <p className='text-2xl relative left-4 cursor-pointer'><CiLight/></p> : 
               <p className='text-2xl relative left-4 cursor-pointer'><FaMoon/></p>
               }   

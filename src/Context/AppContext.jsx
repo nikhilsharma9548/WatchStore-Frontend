@@ -11,8 +11,8 @@ export const AppContext = createContext();
 
 
 export const AppContextProvider = ({children}) => {
-       const [images, setImages] = useState([]);
-
+       
+    const [images, setImages] = useState([]);
     const currency = import.meta.env.VITE_CURRENCY;
 
 
@@ -175,10 +175,8 @@ const getCartAmount = () =>{
     return Math.floor(totalAmount * 100) / 100; 
 }
 
-  const [showSplash, setShowSplash] = useState(true);       
-  
-// theme toggler
-const [theme, setTheme] = useState(false)
+  const [showSplash, setShowSplash] = useState(true);     
+  const [theme, setTheme] = useState("light");
     const value = {
         navigate, user, setUser, isAdmin, setIsAdmin, products, currency, addToCart, updateCartItem, removeFromCart, cartItems,
         images, setImages ,showUserLogin, setShowUserLogin, searchQuery, setSearchQuery, getCartAmount, getCartCount, axios, 

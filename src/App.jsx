@@ -27,7 +27,7 @@ const WatchStore = () => {
 
   const isAdminPath = useLocation().pathname.includes("admin")
   const isUserDetailsPath = useLocation().pathname.includes("user-details")
-  const {showUserLogin, isAdmin, loading, theme, setLoading} = useAppContext()
+  const {showUserLogin, isAdmin,} = useAppContext()
 
   // useEffect(() => {
   // const timer = setTimeout(() => {

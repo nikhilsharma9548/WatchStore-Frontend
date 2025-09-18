@@ -25,12 +25,12 @@ import { useAppContext } from "../Context/AppContext";
   if (!showSplash) return null; 
   
   return (
-    <div className="relative min-h-screen bg-[#C3E0E5] flex items-center justify-center z-50">
+    <div className="relative min-h-screen bg-[#C3E0E5] dark:bg-[#222831] flex items-center justify-center z-50">
       {/* Splash Screen */}
       {showSplash && (
-        <div className="fixed inset-0 bg-[#C3E0E5] flex items-center justify-center z-50 animate-fade">
+        <div className="fixed inset-0 bg-[#C3E0E5] dark:bg-[#222831]  flex items-center justify-center z-50 animate-fade">
             <img src={assets.logo} className=' h-10 w-10 rounded-full' alt="" />
-          <h1 className="text-4xl font-bold text-gray-900 ">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white   ">
             TimeAura
           </h1>
         </div>

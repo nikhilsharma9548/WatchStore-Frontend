@@ -12,7 +12,7 @@ const Category = () => {
      <div className=' px-2 md:px-10 pb-20' >
         <p className='text-3xl border-b-2 w-44 pb-2 dark:text-gray-200'>Category</p>
 
-        <div className='flex gap-5 mt-10'>
+        <div className='flex gap-5 mt-10 '>
           <AnimatePresence>
           {categories.map((category, index) =>(
           <motion.div 

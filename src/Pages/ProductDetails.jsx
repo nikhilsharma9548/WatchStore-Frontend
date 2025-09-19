@@ -57,9 +57,9 @@ useEffect(() => {
                     <div className="flex items-center gap-0.5 ">
                                         {Array(5).fill('').map((_, i) => (
                                              4 > i ? (
-                                                <p key={i} className="text-[#274472] dark:text-white"><MdStarRate/></p>
+                                                <p key={i} className="text-[#274472] md:dark:text-white"><MdStarRate/></p>
                                             ) : (
-                                                <p key={i} className="text-[#274472]/40 dark:text-gray-400"><MdStarRate/></p>
+                                                <p key={i} className="text-[#274472]/40 md:dark:text-gray-400"><MdStarRate/></p>
                                             )
                     
                                         ))}

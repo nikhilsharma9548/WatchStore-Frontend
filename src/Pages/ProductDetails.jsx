@@ -72,7 +72,7 @@ useEffect(() => {
                         <span className="text-gray-800 md:dark:text-gray-200">(inclusive of all taxes)</span>
                     </div>
 
-                    <p className="text-base font-medium mt-6">About Product</p>
+                    <p className="text-base md:dark:text-white font-medium mt-6">About Product</p>
                    <ul className="list-disc ml-4 text-gray-800">
                       {(product.discription ?? []).map((desc, index) => (
                         <li key={index}>{desc}</li>

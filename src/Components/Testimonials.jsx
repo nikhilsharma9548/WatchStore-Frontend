@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { assets, dummyTestimonial } from '../assets/assets'
 import { useAppContext } from '../Context/AppContext';
 

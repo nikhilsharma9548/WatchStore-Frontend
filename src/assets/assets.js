@@ -5,10 +5,8 @@ import slide2 from './Images/navbar-image2.png'
 import slide3 from './Images/navbar-image3.png'
 import slide4 from './Images/navbar-image4.png'
 import mobile from './Images/phone_view.png'
-import Bg2 from './Images/background.png'
 import upload_area from'./Images/upload_area.png';
 import profile from './Images/profile_icon.png'
-import testimonials from './Images/background-2.jpg'
 
 import addAdress from './Images/add_address_image.svg'
 import profile_img_1 from './Images/profile_img_1.png' 
@@ -25,12 +23,10 @@ export const assets = {
     logo,
     darkLogo,
     mobile, 
-    Bg2,
     addAdress,
     upload_area,
     profile,
     
-    testimonials,
     profile_img_1,
     profile_img_2,
     profile_img_3,

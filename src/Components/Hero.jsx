@@ -55,7 +55,8 @@ const Hero = () => {
     {/* Prev Button */}
     <button
       onClick={prevSlide}
-      className="absolute left-2 top-1/2 text-3xl  text-white px-3 rounded-full"
+      className="absolute left-2 top-1/2 text-3xl hover:-translate-x-1 
+      duration-150 transition-all text-white px-3 rounded-full"
     >
         <IoIosArrowBack/>
     </button>
@@ -63,7 +64,8 @@ const Hero = () => {
     {/* Next Button */}
     <button
       onClick={nextSlide}
-      className="absolute right-2 top-1/2 text-3xl text-white px-3 rounded-full rotate-180"
+      className="absolute right-2 top-1/2 text-3xl hover:translate-x-1 
+      duration-150 transition-all text-white px-3 rounded-full rotate-180"
     >
        <IoIosArrowBack/>
     </button>

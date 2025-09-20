@@ -93,8 +93,8 @@ const handleUpload = async (e) => {
   const { theme, toggleTheme } = useTheme();
   return (
  <>
-    <div className={`flex justify-between md:p-5 p-2 items-center h-20 w-full fixed top-0 left-0 z-50 dark:text-white 
-       ${!isScrolled ? "bg-transparent" : "bg-[#5885AF] dark:bg-gray-950"}`}>
+    <div className={`flex dark:bg-[#0F0F0F] justify-between md:p-5 p-2 items-center h-20 w-full fixed top-0 left-0 z-50 dark:text-white 
+       ${!isScrolled ? "bg-transparent" : "bg-[#5885AF]"}`}>
       
         {/* Navbar for desktop View */} 
 

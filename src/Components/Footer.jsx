@@ -10,7 +10,7 @@ import { assets } from '../assets/assets';
 
 const Footer = () => {
   return (
-        <footer className="px-6 md:px-16 lg:px-24 xl:px-32 w-full bg-[#274472] max-md:mb-16">
+        <footer className="px-6 md:px-16 lg:px-24 xl:px-32 w-full dark:bg-[#0F0F0F] bg-[#274472] max-md:mb-16">
             <div className="flex flex-col md:flex-row items-start justify-center gap-10 py-10 border-b border-gray-200">
                 
                 <div className="max-w-96">

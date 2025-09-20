@@ -20,7 +20,7 @@ const ProductCard = ({product}) => {
             transition={{duration:0.7}}
         onClick={() => {navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0,0)}}
           className="border  dark:bg-[#0F0F0F] dark:border-[#303030] border-gray-500/20 rounded-md md:px-4 px-3 py-2 flex justify-between
-           flex-col bg-white   w-full shadow-lg shadow-gray-700">
+           flex-col bg-white   w-full shadow-lg shadow-gray-700 dark:shadow-none">
 
             <div className="group cursor-pointer flex items-center justify-center px-2">
                 <img className="group-hover:scale-105 transition max-w-24 md:max-w-36" src={product.image[0]} alt={product.name} />
@@ -33,7 +33,7 @@ const ProductCard = ({product}) => {
                          4 > i ? (
                             <p key={i} className="text-[#274472] dark:text-gray-200"><MdStarRate/></p>
                         ) : (
-                            <p key={i} className="text-[#274472]/40 dark:text-gray-300"><MdStarRate/></p>
+                            <p key={i} className="text-[#274472]/40 dark:text-gray-500/25"><MdStarRate/></p>
                         )
 
                     ))}
@@ -45,7 +45,7 @@ const ProductCard = ({product}) => {
                     </p>
                     <div className="text-[#274472] dark:text-gray-200">
                         {!cartItems[product._id] ? (
-                            <button className="flex items-center justify-center gap-1 bg-[#274472]/40 dark:text-gray-300/30  dark:border-gray-400 border border-[#274472]/60 md:w-[80px] w-[64px] h-[34px] rounded text-[#274472] font-medium cursor-pointer" onClick={() => addToCart(product._id)} >
+                            <button className="flex items-center justify-center gap-1 bg-[#274472]/40 dark:bg-gray-200/25 dark:text-gray-300/30  dark:border-gray-400 border border-[#274472]/60 md:w-[80px] w-[64px] h-[34px] rounded text-[#274472] font-medium cursor-pointer" onClick={() => addToCart(product._id)} >
                                 <p><IoCartOutline/></p>
                                 Add
                             </button>

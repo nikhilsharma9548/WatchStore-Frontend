@@ -52,7 +52,7 @@ useEffect(() => {
                 {/* details fo products */}
 
                 <div className="text-sm w-full md:w-1/2 md:bg-transparent bg-white p-5">
-                    <h1 className="text-3xl md:dark:white font-medium">{product.name}</h1>
+                    <h1 className="text-3xl md:dark:text-white font-medium">{product.name}</h1>
 
                     <div className="flex items-center gap-0.5 ">
                                         {Array(5).fill('').map((_, i) => (

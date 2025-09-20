@@ -73,7 +73,7 @@ const Address = () => {
 
          <div className='flex flex-col-reverse md:flex-row justify-between mt-10'>
 
-            <div className='flex-1 max-w-md dark:bg-[#0F0F0F] dark:border-[#303030] dark:border '>
+            <div className='flex-1 max-w-md dark:bg-[#0F0F0F] dark:border-[#303030] dark:border p-5 '>
                 <form 
                 onSubmit={onSubmitHandler}
                 className='space-y-3 mt-6 text-sm '>

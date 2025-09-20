@@ -6,7 +6,8 @@ import toast from 'react-hot-toast'
  //input Field Components
     const InputField = ({ type, placeholder, name, handleChange, address }) => (
   <input
-    className="w-full px-2 py-2.5 border dark:text-white dark:border-gray-200 border-gray-900 rounded outline-none text-gray-700 focus:border-pink-600 transition"
+    className="w-full px-2 py-2.5 border dark:text-white dark:border-gray-200 
+    border-gray-900 rounded outline-none text-gray-700 focus:border-pink-600 dark:focus:border-gray-200 transition"
     type={type}
     placeholder={placeholder}
     name={name}
@@ -66,7 +67,7 @@ const Address = () => {
     <div className='mt-24 pb-24 md:px-40  px-5'>
 
         <div className='flex flex-col relative md:right-20 items-end w-max'>
-            <p className='text-3xl dark:text-gray-200'>Add Shipping <span className='text-pink-700'>Address</span></p>
+            <p className='text-3xl dark:text-gray-200'>Add Shipping <span className='text-red-700'>Address</span></p>
             <div className='w-16  h-0.5 bg-[#274472] rounded-full'></div>
         </div>
 
@@ -108,7 +109,7 @@ const Address = () => {
                         placeholder = "Phone"/>
 
                         <button className='w-full mt-6 bg-[#274472] text-white py-3
-                         hover:bg-pink-800 transtion cursor-pointer '>
+                         hover:bg-[#274472]/80 transtion cursor-pointer '>
                             Save Address
                         </button>
                 </form>

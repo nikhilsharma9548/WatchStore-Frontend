@@ -52,6 +52,7 @@ const UserDetails = () => {
 const [file, setFile] = useState([]);
 
 const handleUpload = async (e) => {
+
   try {
     const formData = new FormData();
     formData.append("image", e.target.files[0]);
@@ -66,6 +67,7 @@ const handleUpload = async (e) => {
 
     if (data.success) {
       toast.success("Image Uploaded Successfully!");
+      setLoading(false)
     } else {
       toast.error(data.message);
     }
@@ -88,7 +90,7 @@ const handleUpload = async (e) => {
       <div className='mx-5 dark:text-white'>
         <div className='my-5 px-5 py-4 rounded bg-[#5885AF]/30 dark:bg-gray-700/80 items-center gap-5 flex '>
 
-        <label htmlFor="image">
+        { !loading ? <label htmlFor="image">
     <input type="file" id="image" onChange={handleUpload} hidden/>
       {user && user.image ? (<img
     className="w-16 h-16 object-cover rounded-full border cursor-pointer "
@@ -99,7 +101,12 @@ const handleUpload = async (e) => {
     className="w-16 h-16 rounded-full border cursor-pointer"
     src={file instanceof File ? URL.createObjectURL(file) : assets.profile} />
   )}
-</label>
+
+</label> :
+<div className=" border-2 aspect-square w-5 rounded-full
+         border-white border-t-transparent border-r-0
+          animate-spin"></div>
+}
           <p className='text-xl flex flex-col'>{user ? (user.name).toUpperCase() : "GUEST"}
             <span className='text-sm'>{user ? (user.email) : null}</span>
           </p>

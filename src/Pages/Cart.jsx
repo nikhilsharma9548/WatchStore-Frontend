@@ -139,15 +139,15 @@ const Cart = () => {
                 </div>
 
                 {cartArray.map((product, index) => (
-                    <div key={index} className="grid grid-cols-[2fr_1fr_1fr] bg-white pb-5 rounded mb-1 text-gray-500 items-center text-sm md:text-base font-medium pt-3 ">
+                    <div key={index} className="grid grid-cols-[2fr_1fr_1fr] dark:bg-[#0F0F0F] dark:border-[#303030] bg-white pb-5 rounded mb-1 text-gray-500 dark:text-white items-center text-sm md:text-base font-medium pt-3 ">
                         <div className="flex items-center md:gap-6 gap-3">
                             <div onClick={() =>{navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0,0)}} className="cursor-pointer w-24 h-24 flex items-center justify-center rounded overflow-hidden">
                                 <img className="max-w-full h-full object-cover" src={product.image[0]} alt={product.name} />
                             </div>
                             <div>
                                 <p className="hidden md:block font-semibold">{product.name}</p>
-                                <div className="font-normal text-gray-500/70">
-                                    <div className='flex items-center'>
+                                <div className="font-normal text-gray-500/70 dark:text-white">
+                                    <div className='flex items-center '>
                                         <p>Qty:</p>
                                         <select onChange={e => updateCartItem(product._id, Number(e.target.value)) } 
                                         value= {cartItems[product._id]}
@@ -162,7 +162,7 @@ const Cart = () => {
                         </div>
                         <p className="text-center">{currency}{product.offerPrice * product.quantity}</p>
                         <button onClick={() => removeFromCart(product._id)} className="cursor-pointer mx-auto">
-                            <p className="text-xl text-[#274472]"><ImCross /> </p>
+                            <p className="text-xl text-red-600"><ImCross /> </p>
                         </button>
                     </div>)
                 )}

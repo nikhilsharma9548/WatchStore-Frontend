@@ -139,7 +139,7 @@ const Cart = () => {
                 </div>
 
                 {cartArray.map((product, index) => (
-                    <div key={index} className="grid grid-cols-[2fr_1fr_1fr] dark:bg-[#0F0F0F] dark:border-[#303030] bg-white pb-5 rounded mb-1 text-gray-500 dark:text-white items-center text-sm md:text-base font-medium pt-3 ">
+                    <div key={index} className="grid grid-cols-[2fr_1fr_1fr] dark:border dark:bg-[#0F0F0F] dark:border-[#303030] bg-white pb-5 rounded mb-1 text-gray-500 dark:text-white items-center text-sm md:text-base font-medium pt-3 ">
                         <div className="flex items-center md:gap-6 gap-3">
                             <div onClick={() =>{navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0,0)}} className="cursor-pointer w-24 h-24 flex items-center justify-center rounded overflow-hidden">
                                 <img className="max-w-full h-full object-cover" src={product.image[0]} alt={product.name} />
@@ -176,7 +176,7 @@ const Cart = () => {
             </div>
 
                 {/* right side order summary */}
-            <div className={` max-w-[360px] w-full shadow-xl p-5 max-md:mt-16 border dark:bg-[#0F0F0F] dark:text-white bg-gray-100 border-gray-300/70 `}>
+            <div className={` max-w-[360px] w-full shadow-xl p-5 max-md:mt-16 border dark:bg-[#0F0F0F] dark:border-[#303030]  dark:text-white bg-gray-100 border-gray-300/70 `}>
                 <h2 className="text-xl md:text-xl font-medium">Order Summary</h2>
                 <hr className="border-gray-300 my-5" />
 

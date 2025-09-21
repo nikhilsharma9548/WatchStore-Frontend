@@ -113,7 +113,7 @@ const handleUpload = async (e) => {
         </div>
 
 
-        <div className=' rounded  dark:bg-[#0F0F0F] dark:border-[#303030] border border-gray-200 bg-[#5885AF]/30 mt-10 p-2'>
+        <div className=' rounded   dark:bg-[#0F0F0F] dark:border-[#303030] border border-gray-200 bg-[#5885AF]/30 mt-10 p-2'>
           <div className='flex dark:text-gray-300 '>
             <NavLink to={'/my-orders'}
           className='text-base w-[50vh] m-2 p-2 shadow-xl  rounded border  border-gray-600 flex items-center max-w-sm  gap-2'>
@@ -125,20 +125,20 @@ const handleUpload = async (e) => {
            Wishlist</NavLink>
           </div>
 
-          <div className='flex dark:text-gray-300 '>
+          <div className='flex  dark:text-gray-300 '>
             <NavLink
-            className='text-base w-[50vh] m-2 p-2 shadow-xl rounded flex border border-gray-600 items-center gap-2'>
-            <span className='text-2xl'>< HiGift/></span>
+            className='text-base text w-[50vh] m-2 p-2 shadow-xl rounded flex border border-gray-600 items-center gap-2'>
+            <span className='text-xl'>< HiGift/></span>
             Coupons</NavLink>
 
-          <NavLink className='text-base w-[50vh] m-2 p-2 rounded shadow-xl flex border border-gray-600 items-center gap-2'>
+          <NavLink className='text text-base w-[50vh] m-2 p-2 rounded shadow-xl flex border border-gray-600 items-center gap-2'>
            <span>< ImHeadphones/></span>
            Help Center</NavLink>
           </div>
 
             <NavLink
             to={'/admin'}
-            className='text-base m-2 p-2 shadow-xl justify-center rounded flex border dark:text-gray-300  border-gray-600 items-center gap-2'>
+            className='text-base  m-2 p-2 shadow-xl justify-center rounded flex border dark:text-gray-300  border-gray-600 items-center gap-2'>
             <span className='text-2xl'>< FaUserAlt/></span>
             Become Seller</NavLink>
         </div>

@@ -58,9 +58,12 @@ html {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 350px) {
   .logo {
-    width: 35px;  /* Jo size chahiye wo yaha set karo */
-    height: 35px;
+    width: 30px;  /* Jo size chahiye wo yaha set karo */
+    height: 30px;
+  }
+  .text{
+      font-size: 14px;
   }
 }

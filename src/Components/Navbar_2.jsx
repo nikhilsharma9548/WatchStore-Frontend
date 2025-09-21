@@ -31,7 +31,7 @@ const Navbar_2 = () => {
             <ul className=' text-sm activeLink flex justify-between items-center gap-5 sm:gap-7 sm:text-lg w-full'>
                 <NavLink 
                 className={({isActive}) =>`flex flex-col justify-center items-center cursor-pointer
-                 ${active === 'home' && isActive ? "text-[#274472] dark:bg-red-700" : "text-gray-100" }`} 
+                 ${active === 'home' && isActive ? "text-[#274472] dark:text-red-700" : "text-gray-100" }`} 
                  to={'/'} onClick={() => scrollTo(0,0)}>
                   <span className='text-2xl'><GoHomeFill/></span>
                   Home
@@ -39,7 +39,7 @@ const Navbar_2 = () => {
 
                 <NavLink 
                 className={({isActive}) =>`flex flex-col justify-center items-center cursor-pointer
-                 ${active === 'category' && isActive  ? "text-[#274472] dark:bg-red-700" : "text-gray-100" }`} to={'/'}
+                 ${active === 'category' && isActive  ? "text-[#274472] dark:text-red-700" : "text-gray-100" }`} to={'/'}
                   onClick={() => window.scrollTo({ top: 775, behavior: "smooth" })}>
                   <span className='text-2xl'>< BiSolidCategory/></span>
                   category
@@ -47,14 +47,14 @@ const Navbar_2 = () => {
 
                 <NavLink 
                 className={({isActive}) =>`flex flex-col justify-center items-center cursor-pointer
-                 ${isActive ? "text-[#274472] dark:bg-red-700" : "text-gray-100" }`}  to={'/products'}onClick={() => scrollTo(0,0)}>
+                 ${isActive ? "text-[#274472] dark:text-red-700" : "text-gray-100" }`}  to={'/products'}onClick={() => scrollTo(0,0)}>
                   <span className='text-2xl'>< RiAlignItemBottomFill/></span>
                   Products
                 </NavLink>  
 
                 <NavLink 
                className={({isActive}) =>`flex flex-col justify-center items-center cursor-pointer
-                 ${isActive ? "text-[#274472] dark:bg-red-700" : "text-gray-100" }`} to={'/user-details'}>
+                 ${isActive ? "text-[#274472] dark:text-red-700" : "text-gray-100" }`} to={'/user-details'}>
                   <span className='text-2xl'>< FaUserAlt/></span>
                   Account
                 </NavLink>

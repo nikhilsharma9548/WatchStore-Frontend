@@ -56,7 +56,9 @@ const AdminLogin = () => {
                     required
                     />     
                 </div>
-                <button className='bg-[#274472] text-white w-full py-2 cursor-pointer '>Login</button>
+                <button className='bg-[#274472] 
+                dark:bg-red-700 dark:hover:bg-red-800
+                text-white w-full py-2 cursor-pointer '>Login</button>
             </div>
 
 

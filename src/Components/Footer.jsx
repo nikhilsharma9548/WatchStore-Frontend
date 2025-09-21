@@ -58,7 +58,7 @@ const Footer = () => {
         
             </div>
             <p className="py-4 text-center text-xs md:text-sm text-gray-50">
-                Copyright 2024 © Nikhil Shamra. All Right Reserved.
+                Copyright 2025 © Nikhil Shamra. All Right Reserved.
             </p>
         </footer>
     );

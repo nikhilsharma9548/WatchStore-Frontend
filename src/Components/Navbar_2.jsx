@@ -27,8 +27,8 @@ const Navbar_2 = () => {
   return (
     <div className='dark:bg-[#0F0F0F] md:hidden flex justify-center md:p-5 p-2 items-center h-16 w-full
          fixed bg-[#5885AF] bottom-0 overflow-hidden border border-gray-400 dark:border-0'>
-        <div className='  flex sticky  w-full px-3 mt-1'>
-            <ul className=' text-sm activeLink flex justify-between items-center gap-5 sm:gap-7 sm:text-lg w-full'>
+        <div className='  flex sticky  w-full px-5 mt-1'>
+            <ul className=' text-sm activeLink flex justify-between items-center sm:text-lg w-full'>
                 <NavLink 
                 className={({isActive}) =>`flex flex-col justify-center items-center cursor-pointer
                  ${active === 'home' && isActive ? "text-[#274472] dark:text-red-700" : "text-gray-100" }`} 

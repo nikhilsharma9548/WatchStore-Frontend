@@ -14,9 +14,9 @@ import profile_img_2 from './Images/profile_img_2.png'
 import profile_img_3 from './Images/profile_img_3.png'
 
 
-import product1 from './Images/Product-1.png'
-import product5 from './Images/DigitalW-1.png'
-import product10 from './Images/SmartW-2.png'
+import product1 from './Images/Analog.png'
+import product5 from './Images/Digital.png'
+import product10 from './Images/Smart.png'
 
 
 export const assets = {
@@ -45,19 +45,16 @@ export const categories = [
     text: "Analog Watches",
     path: "Analog",
     image: product1,
-    bgColor: "#ffff",
   },
   {
     text: "Digital Watches",
     path: "Digital",
     image: product5,
-    bgColor: "#ffff",
   },
   {
     text: "Smart Waatches",
     path: "Smart",
     image: product10,
-    bgColor: "#ffff",
   },
 ]
 

@@ -20,12 +20,11 @@ const Category = () => {
             whileInView={{opacity:1,scale:1}}
             transition={{duration:0.3}}
           key ={index}  
-          className= "group cursor-pointer w-40  py-5 px-3 gap-2 rounded-lg flex flex-col justify-between items-center shadow-gray-600 shadow-lg"
-          style = {{backgroundColor: category.bgColor}}
-          onClick={() =>{
+           onClick={() =>{
             navigate(`/products/${category.path.toLowerCase()}`);
             scrollTo(0,0)
           }}
+          className= "group cursor-pointer dark:border bg-white dark:text-white dark:bg-[#0F0F0F] dark:border-[#303030] w-40 py-5 px-3 gap-2 rounded-lg flex flex-col justify-between items-center dark:shadow-none shadow-gray-600 shadow-lg"
           >
             <img src={category.image} alt={category.text} className = "group-hover:scale-108 transition duration-300 max-w-16" />
             <p className = "text-sm text-center font-medium">{category.text}</p> 

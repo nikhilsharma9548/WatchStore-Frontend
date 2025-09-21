@@ -47,7 +47,8 @@ const Testimonials = () => {
 
                 <div className="button-bg rounded-full mt-5 p-0.5 hover:scale-105 transition duration-300 active:scale-100">
                 <button onClick={() => {navigate('/products'), scrollTo(0,0)}}
-                 className="px-8 text-sm py-3 text-white rounded-full font-medium bg-[#274472] hover:bg-[#1e3250] duration-150">
+                 className="px-8 text-sm py-3 text-white rounded-full font-medium
+                 dark:bg-red-700 dark:hover:bg-red-800 bg-[#274472] hover:bg-[#1e3250] duration-150">
                     Shop Now
                 </button>
             </div>

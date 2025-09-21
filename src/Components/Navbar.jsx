@@ -160,8 +160,8 @@ const handleUpload = async (e) => {
                         
                {!user ? (<div className='group'>
                    <button onClick={() => setShowUserLogin(true)}
-                    className='bg-[#274472] flex justify-center items-center gap-2
-                     text-white px-5 py-2 cursor-pointer
+                    className='bg-[#274472] flex justify-center items-center gap-2 dark:border border-gray-400
+                     text-white px-5 py-2 cursor-pointer dark:bg-red-700 dark:hover:bg-red-800
                     hover:bg-blue-950 rounded transition-all duration-300'>login 
                   </button>
                 </div>) : (

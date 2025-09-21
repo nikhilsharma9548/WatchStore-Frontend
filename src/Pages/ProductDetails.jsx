@@ -59,7 +59,7 @@ useEffect(() => {
                                              4 > i ? (
                                                 <p key={i} className="text-[#274472] md:dark:text-white"><MdStarRate/></p>
                                             ) : (
-                                                <p key={i} className="text-[#274472]/40 md:dark:text-gray-400"><MdStarRate/></p>
+                                                  <p key={i} className="text-[#274472]/40 md:dark:text-gray-400"><MdStarRate/></p>
                                             )
                     
                                         ))}
@@ -86,7 +86,9 @@ useEffect(() => {
                         </button>
                         <button
                         onClick={() =>{addToCart(product._id); navigate('/cart')}}
-                        className="w-full py-3.5 cursor-pointer font-medium bg-[#274472] text-white hover:bg-[#274472]/80 transition " >
+                        className="w-full py-3.5 cursor-pointer font-medium
+                         dark:bg-red-700 dark:hover:bg-red-800
+                         bg-[#274472] text-white hover:bg-[#274472]/80 transition " >
                             Buy now
                         </button>
                     </div>

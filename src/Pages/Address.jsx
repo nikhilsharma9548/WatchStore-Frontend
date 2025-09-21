@@ -109,6 +109,7 @@ const Address = () => {
                         placeholder = "Phone"/>
 
                         <button className='w-full mt-6 bg-[#274472] text-white py-3
+                         dark:bg-red-700 dark:hover:bg-red-800
                          hover:bg-[#274472]/80 transtion cursor-pointer '>
                             Save Address
                         </button>

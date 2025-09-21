@@ -88,7 +88,7 @@ const handleUpload = async (e) => {
                  </NavLink>  
       </div>
       <div className='mx-5 dark:text-white'>
-        <div className='my-5  dark:bg-[#0F0F0F] dark:border-[#303030] dark:border px-5 py-4 rounded bg-[#5885AF]/30 items-center gap-5 flex '>
+        <div className='my-5  dark:bg-[#0F0F0F] dark:border-[#303030] border border-gray-200 px-5 py-4 rounded bg-[#5885AF]/30 items-center gap-5 flex '>
 
         { !loading ? <label htmlFor="image">
     <input type="file" id="image" onChange={handleUpload} hidden/>
@@ -113,7 +113,7 @@ const handleUpload = async (e) => {
         </div>
 
 
-        <div className=' rounded  dark:bg-[#0F0F0F] dark:border-[#303030] border bg-[#5885AF]/30 mt-10 p-2'>
+        <div className=' rounded  dark:bg-[#0F0F0F] dark:border-[#303030] border border-gray-200 bg-[#5885AF]/30 mt-10 p-2'>
           <div className='flex dark:text-gray-300 '>
             <NavLink to={'/my-orders'}
           className='text-base w-[50vh] m-2 p-2 shadow-xl  rounded border  border-gray-600 flex items-center max-w-sm  gap-2'>

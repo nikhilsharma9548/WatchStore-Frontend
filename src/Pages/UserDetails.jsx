@@ -143,7 +143,7 @@ const handleUpload = async (e) => {
             Become Seller</NavLink>
         </div>
 
-        <div onClick={logout} className='text-white p-3 flex w-full justify-center items-center gap-5 mt-10  text-center rounded  bg-[#274472]'>
+        <div onClick={logout} className='text-white dark:bg-red-700 p-3 flex w-full justify-center items-center gap-5 mt-10  text-center rounded  bg-[#274472]'>
           logout
           {loading && ( <div className=" border-2 aspect-square w-5 rounded-full
          border-white border-t-transparent border-r-0

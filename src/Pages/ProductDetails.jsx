@@ -45,7 +45,7 @@ useEffect(() => {
             <div className="flex flex-col md:flex-row md:gap-16 gap-5 mt-4">
                 <div className="flex gap-3">
                   
-                    <div className="border border-gray-500/30 max-w-60 rounded overflow-hidden">
+                    <div className="max-w-60 rounded overflow-hidden">
                         <img src={thumbail} alt="Selected product" className="w-full h-full object-cover" />
                     </div>
                 </div>

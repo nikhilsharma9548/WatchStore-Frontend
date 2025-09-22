@@ -14,8 +14,6 @@ import { FaMoon } from "react-icons/fa6";
 import { useTheme } from '../Context/ThemeContext';
 import { AnimatePresence, motion} from 'motion/react';
 
-
-
 const Navbar = () => {
 
     const[isScrolled, setIsScrolled] = useState(false)
@@ -103,21 +101,23 @@ const handleUpload = async (e) => {
             <p className=' text-xl font-semibold '>TimeAura</p>
         </NavLink>  
 
-        <div className='hidden md:flex'>   
-            <ul className=' activeLink flex justify-between items-center gap-14 text-lg '>
+         <div className='flex items-center md:gap-5 gap-2 px-0'>
 
-                <NavLink className='hover:text-[#274472] transition-all duration-300 cursor-pointer' 
+                  <div className='hidden md:flex pr-5'>   
+            <ul className=' activeLink flex justify-between items-center gap-10 xl:text-lg text-sm'>
+
+                <NavLink className='hover:text-[#274472] dark:hover:text-red-700 flex items-center gap-2 transition-all duration-300 cursor-pointer' 
                 to={'/'}onClick={() => scrollTo(0,0)}>Home</NavLink>
-                <a className='hover:text-[#274472] transition-all duration-300 cursor-pointer'href='#features'onClick={() => navigate('/')}>features</a>
-                <NavLink className='hover:text-[#274472] transition-all duration-300 cursor-pointer' 
+
+                <a className='hover:text-[#274472] dark:hover:text-red-700 transition-all duration-300 cursor-pointer'href='#features'onClick={() => navigate('/')}>features</a>
+
+                <NavLink className='hover:text-[#274472] dark:hover:text-red-700 transition-all duration-300 cursor-pointer' 
                 to={'/products'}onClick={() => scrollTo(0,0)}>Products</NavLink>  
                 {/* <a className='hover:text-[#274472] transition-all duration-300 cursor-pointer' 
                 href='#testimonials'onClick={() => navigate('/')}>Testimonials</a>   */}
 
             </ul>           
-        </div>  
-
-         <div className='flex items-center md:gap-5 gap-2  px-0 text-gray-700'>
+        </div>
 
           {/* search Bar */}
             <div className="hidden max-w-96 xl:min-w-96 lg:flex items-center dark:text-white text-base gap-2 border-2

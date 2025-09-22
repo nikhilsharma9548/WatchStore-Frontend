@@ -26,7 +26,7 @@ const Category = () => {
           }}
           className= "group cursor-pointer dark:border bg-white dark:text-white dark:bg-[#0F0F0F] dark:border-[#303030] w-40 py-5 px-3 gap-2 rounded-lg flex flex-col justify-between items-center dark:shadow-none shadow-gray-600 shadow-lg"
           >
-            <img src={category.image} alt={category.text} className = "group-hover:scale-108 transition duration-300 max-w-16" />
+            <img src={category.image} alt={category.text} className = "group-hover:scale-108 transition duration-300 sm:max-w-16 max-w-10 " />
             <p className = "text-sm text-center font-medium">{category.text}</p> 
           </motion.div>))}
           </AnimatePresence>

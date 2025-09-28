@@ -65,7 +65,20 @@ const WatchStore = () => {
 
   {isAdminPath || isUserDetailsPath ? null : <Footer/>}
   {isAdminPath ? null : <Navbar_2 />}
-  <Toaster />
+ 
+ <Toaster
+  toastOptions={{
+    className: "",
+    style: {
+      background: document.documentElement.classList.contains("dark") ? "#181818" : "#C3E0E5", // dark/light
+      color: document.documentElement.classList.contains("dark") ? "#f9fafb" : "#111827", // dark/light text
+      borderRadius: "8px",
+      padding: "12px 16px",
+    },
+  }}
+/>
+
+
   </div>
 
 </div>

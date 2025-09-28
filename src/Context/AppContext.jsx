@@ -39,7 +39,7 @@ export const AppContextProvider = ({children}) => {
         }
     }
 
-    //fetch User Auth Status , user data and caet items
+    //fetch User Auth Status , user data and cart items
 
     const fetchUser = async() =>{
         try {

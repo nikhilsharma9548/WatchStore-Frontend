@@ -184,7 +184,7 @@ const Cart = () => {
                     <p className="text-sm font-medium uppercase">Delivery Address</p>
                     <div className="relative flex justify-between items-start mt-2">
                         <p className="text-gray-500 ">{selectedAddress ? `${selectedAddress.street}, ${selectedAddress.city}, ${selectedAddress.state}, ${selectedAddress.country}` : "No address found"}</p>
-                        <button onClick={() => setShowAddress(!showAddress)} className="text-[#274472] border p-1 dark:text-gray-300 hover:underline cursor-pointer">
+                        <button onClick={() => setShowAddress(!showAddress)} className="text-[#274472] border p-1 ml-1 rounded-md  dark:text-gray-300 hover:underline cursor-pointer">
                             Change
                         </button>
                         {showAddress && (

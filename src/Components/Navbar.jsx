@@ -166,14 +166,12 @@ const handleUpload = async (e) => {
                   </button>
                 </div>) : (
 
-
                 // menu section
 
                   <div className='relative flex flex-col cursor-pointer'>
-
                     <img src={user.image ? user.image : assets.profile} className='w-10 h-10 object-cover rounded-full' onClick={() =>setMenu(!menu)}/>
 
-                    {menu && (<div className='hidden   md:flex flex-col gap-5 h-96 w-72 rounded-xl p-5 bg-white  absolute top-10 right-0'>
+                    {menu && (<div className='hidden dark:bg-[#181818]  md:flex flex-col gap-5 h-96 w-72 rounded-xl p-5 bg-white  absolute top-10 right-0'>
                      <div className='flex gap-3  items-center'>
                       <label htmlFor="image">
                           <input type="file" id="image" onChange={handleUpload} hidden/>
@@ -193,21 +191,20 @@ const handleUpload = async (e) => {
                   </ul>
                      </div>
 
-                      <div className=' 
-                     py-2 rounded-md text-sm flex flex-col gap-3.5 h-full'>
+                      <div className='py-2 rounded-md text-sm flex flex-col gap-3.5 h-full'>
                       <NavLink to={'/my-orders'}
                       onClick={() => {setMenu(false)}}
-                       className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1.5 shadow-lg  bg-gray-300'>
+                       className='rounded cursor-pointer dark:bg-[#0F0F0F]  flex items-center gap-2 py-2 px-1.5 shadow-lg  bg-gray-300'>
                         <span className='text-xl'><LuBox/></span>
                         My Orders</NavLink>
-                        <p  className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1.5 shadow-lg  bg-gray-300'>
+                        <p  className='rounded cursor-pointer dark:bg-[#0F0F0F] flex items-center gap-2 py-2 px-1.5 shadow-lg  bg-gray-300'>
                           <span>< FaRegHeart/></span>Wishlist</p>
-                       <p  className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1.5 shadow-lg  bg-gray-300'>
+                       <p className='rounded cursor-pointer dark:bg-[#0F0F0F] flex items-center gap-2 py-2 px-1.5 shadow-lg  bg-gray-300'>
                           <span>< HiGift/></span>Coupons</p>
-                        <p  className='rounded cursor-pointer  flex items-center gap-2 py-2 px-1.5 shadow-lg  bg-gray-300'>
+                        <p  className='rounded cursor-pointer dark:bg-[#0F0F0F] flex items-center gap-2 py-2 px-1.5 shadow-lg  bg-gray-300'>
                           <span>< ImHeadphones/></span>Help Center</p>
                     </div>
-                    <button onClick={logout} className='p-1.5 bg-[#274472] text-white rounded cursor-pointer'>logout</button>
+                    <button onClick={logout} className='p-1.5 bg-[#274472] dark:bg-red-700 dark:hover:bg-red-800 text-white rounded cursor-pointer'>logout</button>
                     </div>)}
                       
                   </div>

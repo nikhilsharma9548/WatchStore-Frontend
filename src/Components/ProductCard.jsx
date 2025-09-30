@@ -44,24 +44,41 @@ const ProductCard = ({product}) => {
                         {currency}{product.offerPrice} <span className="text-gray-500/60 md:text-sm text-xs line-through">{currency}{product.price}</span>
                     </p>
                     <div className="text-[#274472] dark:text-gray-200">
-                        {!cartItems[product._id] ? (
-                            <button className="flex items-center justify-center gap-1 bg-[#274472]/40 dark:bg-gray-200/25 dark:text-gray-300/30  dark:border-gray-400 border border-[#274472]/60 md:w-[80px] w-[64px] h-[34px] rounded text-[#274472] font-medium cursor-pointer" onClick={() => addToCart(product._id)} >
-                                <p><IoCartOutline/></p>
-                                Add
-                            </button>
-                        ) : (
-                            <div className="flex items-center justify-center gap-2 md:w-20 w-16 h-[34px] dark:bg-gray-200/25 dark:text-gray-300/30  dark:border-gray-400 border border-[#274472]/60 rounded text-[#274472] font-medium cursor-pointer" onClick={() => addToCart(product._id)} >
-                            
-                                <button onClick={() => {removeFromCart(product._id)}} className="cursor-pointer text-md px-2 h-full" >
-                                    -
-                                </button>
-                                <span className="w-5 text-center">{cartItems[product._id]}</span>
-                                <button onClick={() => {addToCart(product._id)}} className="cursor-pointer text-md px-2 h-full" >
-                                    +
-                                </button>
-                            </div>
-                        )}
-                    </div>
+  {!cartItems[product._id] ? (
+    <button 
+      className="flex items-center justify-center gap-1 bg-[#274472]/40 
+                 dark:bg-gray-200/25 dark:text-gray-300/30 dark:border-gray-400 
+                 border border-[#274472]/60 md:w-[80px] w-[64px] h-[34px] 
+                 rounded text-[#274472] font-medium cursor-pointer" 
+      onClick={(e) => { e.stopPropagation(); addToCart(product._id) }}
+    >
+      <IoCartOutline />
+      Add
+    </button>
+  ) : (
+    <div className="flex items-center justify-center gap-2 md:w-20 w-16 h-[34px] 
+                    dark:bg-gray-200/25 dark:text-gray-300/30 dark:border-gray-400 
+                    border border-[#274472]/60 rounded text-[#274472] font-medium">
+      
+      <button 
+        onClick={(e) => { e.stopPropagation(); removeFromCart(product._id) }} 
+        className="cursor-pointer text-md px-2 h-full"
+      >
+        -
+      </button>
+
+      <span className="w-5 text-center">{cartItems[product._id]}</span>
+
+      <button 
+        onClick={(e) => { e.stopPropagation(); addToCart(product._id) }} 
+        className="cursor-pointer text-md px-2 h-full"
+      >
+        +
+      </button>
+    </div>
+  )}
+</div>
+
                 </div>
             </div>
         </motion.div>

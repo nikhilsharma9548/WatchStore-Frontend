@@ -86,9 +86,8 @@ export const AppContextProvider = ({children}) => {
         cartData[itemId] = 1;
     }
     setCartItems(cartData);
-    toast.success("added to cart", {
-        id: "cart-toast",
-    })
+    toast.success("added to cart")
+    toast.dismiss();
    }
 
    //update card item Quantity
@@ -98,9 +97,8 @@ export const AppContextProvider = ({children}) => {
 
     cartData[itemId] = quantity;
     setCartItems(cartData)
-    toast.success("Cart Update",{
-        id: "cart-toast",
-    });
+    toast.success("Cart Update");
+    toast.dismiss();
 
    } 
 
@@ -118,9 +116,8 @@ export const AppContextProvider = ({children}) => {
             
         }      
     }
-   toast.success("remove from cart",{
-    id: "cart-toast",
-   })
+   toast.success("remove from cart",)
+   toast.dismiss();
    setCartItems(cartData)
    }
 

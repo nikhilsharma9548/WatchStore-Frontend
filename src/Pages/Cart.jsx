@@ -151,7 +151,7 @@ const Cart = () => {
                                         <p>Qty:</p>
                                         <select onChange={e => updateCartItem(product._id, Number(e.target.value)) } 
                                         value= {cartItems[product._id]}
-                                        className='outline-none'>
+                                        className='outline-none dark:text-black'>
                                             {Array(cartItems[product._id] > 9 ? cartItems[product._id] : 9 ).fill('').map((_, index) => (
                                                 <option key={index} value={index + 1}>{index + 1}</option>
                                             ))}

@@ -29,7 +29,7 @@ const Testimonials = () => {
                 * {
                     font-family: 'Poppins', sans-serif;
                 }
-            `}</style>
+            `}</style>  a
             
             <div className="max-w-5xl dark:border py-16 md:w-full dark:bg-[#0F0F0F] dark:border-[#303030] mx-2 md:mx-auto flex flex-col items-center justify-center text-center rounded-2xl p-10 text-white bg-[#5885AF]/70">
                 <div className="flex flex-wrap items-center justify-center p-1 rounded-full bg-cyan-600/10 backdrop-blur border border-cyan-500/40 text-sm">
@@ -47,7 +47,7 @@ const Testimonials = () => {
 
                 <div className="button-bg rounded-full mt-5 p-0.5 hover:scale-105 transition duration-300 active:scale-100">
                 <button onClick={() => {navigate('/products'), scrollTo(0,0)}}
-                 className="px-8 text-sm py-3 text-white rounded-full font-medium
+                 className="px-8 text-sm py-3 text-white rounded-full  font-medium
                  dark:bg-red-700 dark:hover:bg-red-800 bg-[#274472] hover:bg-[#1e3250] duration-150">
                     Shop Now
                 </button>

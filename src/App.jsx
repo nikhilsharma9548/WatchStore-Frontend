@@ -73,6 +73,7 @@ const WatchStore = () => {
       background: document.documentElement.classList.contains("dark") ? "#181818" : "#FFFFFF", // dark/light
       color: document.documentElement.classList.contains("dark") ? "#f9fafb" : "#111827", // dark/light text
       borderRadius: "8px",
+      border: "2px",
       padding: "12px 16px",
     },
   }}

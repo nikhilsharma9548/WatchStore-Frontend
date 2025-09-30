@@ -171,7 +171,7 @@ const handleUpload = async (e) => {
                   <div className='relative flex flex-col cursor-pointer'>
                     <img src={user.image ? user.image : assets.profile} className='w-10 h-10 object-cover rounded-full' onClick={() =>setMenu(!menu)}/>
 
-                    {menu && (<div className='hidden dark:bg-[#181818]  md:flex flex-col gap-5 h-[26rem] w-72 rounded dark:border dark:border-gray-300 p-5 bg-white  absolute top-10 right-0'>
+                    {menu && (<div className='hidden dark:bg-[#181818]  md:flex flex-col gap-5 h-[26rem] w-72 rounded dark:border dark:border-[#303030] p-5 bg-white  absolute top-10 right-0'>
                      <div className='flex gap-3  items-center'>
                       <label htmlFor="image">
                           <input type="file" id="image" onChange={handleUpload} hidden/>

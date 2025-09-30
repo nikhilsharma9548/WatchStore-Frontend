@@ -194,17 +194,17 @@ const handleUpload = async (e) => {
                       <div className='py-2 rounded-md text-sm flex flex-col gap-3.5 h-full'>
                       <NavLink to={'/my-orders'}
                       onClick={() => {setMenu(false)}}
-                       className='rounded cursor-pointer dark:bg-[#0F0F0F]  flex items-center gap-2 py-2.5 px-1.5 shadow-lg  bg-gray-300'>
+                       className='rounded cursor-pointer dark:bg-[#0F0F0F] dark:border dark:border-[#303030] flex items-center gap-2 py-2.5 px-1.5 shadow-lg  bg-gray-300'>
                         <span className='text-xl'><LuBox/></span>
                         My Orders</NavLink>
-                        <p  className='rounded cursor-pointer dark:bg-[#0F0F0F] flex items-center gap-2 py-2.5 px-1.5 shadow-lg  bg-gray-300'>
+                        <p  className='rounded cursor-pointer dark:bg-[#0F0F0F] dark:border dark:border-[#303030] flex items-center gap-2 py-2.5 px-1.5 shadow-lg  bg-gray-300'>
                           <span>< FaRegHeart/></span>Wishlist</p>
-                       <p className='rounded cursor-pointer dark:bg-[#0F0F0F] flex items-center gap-2 py-2.5 px-1.5 shadow-lg  bg-gray-300'>
+                       <p className='rounded cursor-pointer dark:bg-[#0F0F0F] dark:border dark:border-[#303030] flex items-center gap-2 py-2.5 px-1.5 shadow-lg  bg-gray-300'>
                           <span>< HiGift/></span>Coupons</p>
-                        <p  className='rounded cursor-pointer dark:bg-[#0F0F0F] flex items-center gap-2 py-2.5 px-1.5 shadow-lg  bg-gray-300'>
+                        <p  className='rounded cursor-pointer dark:bg-[#0F0F0F] dark:border dark:border-[#303030] flex items-center gap-2 py-2.5 px-1.5 shadow-lg  bg-gray-300'>
                           <span>< ImHeadphones/></span>Help Center</p>
                     </div>
-                    <button onClick={logout} className='p-1.5 bg-[#274472] dark:bg-red-700 dark:hover:bg-red-800 text-white rounded cursor-pointer'>logout</button>
+                    <button onClick={logout} className='p-1.5 bg-[#274472] dark:border dark:border-[#303030] dark:bg-red-700 dark:hover:bg-red-800 text-white rounded cursor-pointer'>logout</button>
                     </div>)}
                       
                   </div>

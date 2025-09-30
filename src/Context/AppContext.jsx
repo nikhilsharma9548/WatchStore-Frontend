@@ -86,7 +86,8 @@ export const AppContextProvider = ({children}) => {
         cartData[itemId] = 1;
     }
     setCartItems(cartData);
-    toast.success("added to cart")
+  toast.dismiss();
+  toast.success("Removed from cart", { duration: 2000 });
    }
 
    //update card item Quantity
@@ -96,7 +97,8 @@ export const AppContextProvider = ({children}) => {
 
     cartData[itemId] = quantity;
     setCartItems(cartData)
-    toast.success("Cart Update");
+   toast.dismiss();
+  toast.success("Removed from cart", { duration: 2000 });
    } 
 
    //remove cart
@@ -113,7 +115,8 @@ export const AppContextProvider = ({children}) => {
             
         }      
     }
-   toast.success("remove from cart",)
+   toast.dismiss();
+  toast.success("Removed from cart", { duration: 2000 });
    setCartItems(cartData)
    }
 

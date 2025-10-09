@@ -66,7 +66,7 @@ const Login = () => {
                 <p>Password</p>
                 <input onChange={(e) => setPassword(e.target.value)} value={password} placeholder="type here" className="border border-gray-200 rounded w-full p-2 mt-1 outline-[#274472]" type="password" required />
             </div>
-            <p className='underline cursor-pointer' onClick={() => navigate('/reset')}>forget password</p>
+            <p className='underline cursor-pointer text-blue-700 dark:text-gray-200 ' onClick={() => navigate('/reset')}>forget password</p>
 
             {state === "register" ? (
                 <p>
@@ -85,9 +85,9 @@ const Login = () => {
            <button className="bg-[#274472] dark:bg-red-700 dark:hover:bg-red-800  gap-5 flex justify-center items-center hover:bg-[#274472]/80 transition-all text-white w-full py-2 rounded-md cursor-pointer">
                 {state === "register" ? "Create Account" : "Login"}
                 {loading && ( <div className=" border-2  aspect-square w-5 rounded-full
-         border-white border-t-transparent border-r-0
-          animate-spin">
-        </div>)}
+                border-white border-t-transparent border-r-0
+                 animate-spin">
+                </div>)}
             </button>
 
         </form>

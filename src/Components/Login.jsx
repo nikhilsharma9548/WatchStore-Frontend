@@ -66,7 +66,7 @@ const Login = () => {
                 <p>Password</p>
                 <input onChange={(e) => setPassword(e.target.value)} value={password} placeholder="type here" className="border border-gray-200 rounded w-full p-2 mt-1 outline-[#274472]" type="password" required />
             </div>
-            <p className='underline cursor-pointer text-blue-700 dark:text-gray-200 ' onClick={() => navigate('/reset')}>forget password</p>
+            <p className='underline cursor-pointer text-blue-700 dark:text-gray-200 ' onClick={() => navigate('/reset-password')}>forget password</p>
 
             {state === "register" ? (
                 <p>

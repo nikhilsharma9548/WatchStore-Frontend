@@ -12,7 +12,7 @@ const Category = () => {
      <div className=' px-2 md:px-10 pb-20' >
         <p className='text-3xl border-b-2 w-44 pb-2 dark:text-gray-200'>Category</p>
 
-        <div className='flex gap-5 mt-10 '>
+        <div className='flex sm:gap-5 gap-2 mt-10 '>
           <AnimatePresence>
           {categories.map((category, index) =>(
           <motion.div 
@@ -27,7 +27,7 @@ const Category = () => {
           className= "group cursor-pointer dark:border bg-white dark:text-white dark:bg-[#0F0F0F] dark:border-[#303030] w-40 py-5 px-3 gap-2 rounded-lg flex flex-col justify-between items-center dark:shadow-none shadow-gray-600 shadow-lg"
           >
             <img src={category.image} alt={category.text} className = "group-hover:scale-108 transition duration-300 sm:max-w-16 max-w-10 " />
-            <p className = "text-sm text-center font-medium">{category.text}</p> 
+            <p className = "text-xs  text-center font-medium">{category.text}</p> 
           </motion.div>))}
           </AnimatePresence>
         </div>

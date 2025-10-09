@@ -22,6 +22,7 @@ import Orders from './Components/Admin/Orders'
 import UserDetails from './Pages/UserDetails'
 import Load from './Components/Load'
 import Loading from './Components/Loading'
+import ResetPassword from './Components/resetPassword'
 
 const WatchStore = () => {
 
@@ -44,7 +45,7 @@ const WatchStore = () => {
         {isAdminPath || isUserDetailsPath ? null :  <Navbar/>}
         {showUserLogin ? <Login/> : null}
 
-  <div className={`w-full overflow-hidden bg-[#C3E0E5] dark:bg-[#181818] `}>
+  <div className={`w-full overflow-hidden bg-[#C3E0E5] dark:bg-[#181818]`}>
    
       <Routes>
         <Route path='/' element= {<Home/>} />
@@ -61,6 +62,7 @@ const WatchStore = () => {
           <Route path='orders' element= {<Orders/>} />
         </Route>
         <Route path='/user-details' element= {<UserDetails/>}/>
+        <Route path='/reset-password' element = {<ResetPassword/>} />
       </Routes>
 
   {isAdminPath || isUserDetailsPath ? null : <Footer/>}

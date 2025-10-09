@@ -20,7 +20,6 @@ import AddProduct from './Components/Admin/AddProduct'
 import ProductList from './Components/Admin/ProductList'
 import Orders from './Components/Admin/Orders'
 import UserDetails from './Pages/UserDetails'
-import Load from './Components/Load'
 import Loading from './Components/Loading'
 import ResetPassword from './Components/ResetPassword'
 

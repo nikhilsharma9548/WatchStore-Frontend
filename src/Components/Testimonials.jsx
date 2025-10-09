@@ -29,7 +29,7 @@ const Testimonials = () => {
                 * {
                     font-family: 'Poppins', sans-serif;
                 }
-            `}</style>  a
+            `}</style>
             
             <div className="max-w-5xl dark:border py-16 md:w-full dark:bg-[#0F0F0F] dark:border-[#303030] mx-2 md:mx-auto flex flex-col items-center justify-center text-center rounded-2xl p-10 text-white bg-[#5885AF]/70">
                 <div className="flex flex-wrap items-center justify-center p-1 rounded-full bg-cyan-600/10 backdrop-blur border border-cyan-500/40 text-sm">

@@ -22,7 +22,7 @@ import Orders from './Components/Admin/Orders'
 import UserDetails from './Pages/UserDetails'
 import Load from './Components/Load'
 import Loading from './Components/Loading'
-import ResetPassword from './Components/resetPassword'
+import ResetPassword from './Components/ResetPassword'
 
 const WatchStore = () => {
 

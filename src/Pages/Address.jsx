@@ -118,9 +118,6 @@ const Address = () => {
             </div>
             <img src={assets.addAdress} alt="" />
          </div>
-
-
-
     </div>
   )
 }

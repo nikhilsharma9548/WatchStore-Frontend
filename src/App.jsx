@@ -27,21 +27,13 @@ const WatchStore = () => {
 
   const isAdminPath = useLocation().pathname.includes("admin")
   const isUserDetailsPath = useLocation().pathname.includes("user-details")
+   const isResetPasswordPath = location.pathname.includes("reset-password")
   const {showUserLogin, isAdmin,} = useAppContext()
 
-  // useEffect(() => {
-  // const timer = setTimeout(() => {
-  //       setLoading(false);
-  //     }, 2000);
-
-  //     return () => clearTimeout(timer);
-  // })
-  
-  return (
-    
+  return (  
   <>
 <div>
-        {isAdminPath || isUserDetailsPath ? null :  <Navbar/>}
+        {isAdminPath || isUserDetailsPath || isResetPasswordPath ? null :  <Navbar/>}
         {showUserLogin ? <Login/> : null}
 
   <div className={`w-full overflow-hidden bg-[#C3E0E5] dark:bg-[#181818]`}>
@@ -64,8 +56,8 @@ const WatchStore = () => {
         <Route path='/reset-password' element = {<ResetPassword/>} />
       </Routes>
 
-  {isAdminPath || isUserDetailsPath ? null : <Footer/>}
-  {isAdminPath ? null : <Navbar_2 />}
+  {isAdminPath || isUserDetailsPath || isResetPasswordPath ? null : <Footer/>}
+  {isAdminPath || isResetPasswordPath ? null : <Navbar_2 />}
  
  <Toaster
   toastOptions={{

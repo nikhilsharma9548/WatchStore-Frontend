@@ -10,9 +10,6 @@ import { toast } from 'react-hot-toast'
 const ResetPassword = () => {
 
     const{loading, setLoading, theme} = useAppContext();
-    axios.defaults.withCredentials = true;
-
-
     const navigate = useNavigate()
     const [email, setEmail] = useState('')
     const [newPassword, setNewPassword] = useState('')

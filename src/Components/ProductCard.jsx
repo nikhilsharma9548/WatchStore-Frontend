@@ -12,8 +12,7 @@ const ProductCard = ({product}) => {
 
     return product && (
        <>
-       {!loading ?
-       ( <AnimatePresence>
+        <AnimatePresence>
         <motion.div 
          initial ={{opacity:0, scale:0.7 }}
             whileInView={{opacity:1,scale:1}}
@@ -78,11 +77,10 @@ const ProductCard = ({product}) => {
     </div>
   )}
 </div>
-
                 </div>
             </div>
         </motion.div>
-        </AnimatePresence>) : <Loading/>}
+        </AnimatePresence>
        </>
     );
 };

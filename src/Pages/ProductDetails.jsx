@@ -51,28 +51,28 @@ useEffect(() => {
                 </div>
                 {/* details fo products */}
 
-                <div className="text-sm w-full dark:border md:dark:bg-transparent dark:bg-[#0F0F0F] dark:border-[#303030] md:w-1/2 md:bg-transparent bg-white p-5">
+                <div className="text-sm w-full md:border-none dark:border md:dark:bg-transparent dark:bg-[#0F0F0F] dark:border-[#303030] md:w-1/2 md:bg-transparent bg-white p-5">
                     <h1 className="text-3xl  dark:text-white font-medium">{product.name}</h1>
 
                     <div className="flex items-center gap-0.5 ">
                                         {Array(5).fill('').map((_, i) => (
                                              4 > i ? (
-                                                <p key={i} className="text-[#274472] md:dark:text-white"><MdStarRate/></p>
+                                                <p key={i} className="text-[#274472] dark:text-white"><MdStarRate/></p>
                                             ) : (
-                                                  <p key={i} className="text-[#274472]/40 md:dark:text-gray-400"><MdStarRate/></p>
+                                                  <p key={i} className="text-[#274472]/40 dark:text-gray-400"><MdStarRate/></p>
                                             )
                     
                                         ))}
-                                        <p className='md:dark:text-white'>({4})</p>
+                                        <p className='dark:text-white'>({4})</p>
                                     </div>
 
-                    <div className="mt-6  md:dark:text-white">
-                        <p className="text-gray-800 md:dark:text-gray-200 line-through">MRP: {currency}{product.price}</p>
+                    <div className="mt-6 dark:text-white">
+                        <p className="text-gray-800 dark:text-gray-200 line-through">MRP: {currency}{product.price}</p>
                         <p className="text-2xl font-medium">MRP:{currency}{product.offerPrice}</p>
-                        <span className="text-gray-800 md:dark:text-gray-200">(inclusive of all taxes)</span>
+                        <span className="text-gray-800 dark:text-gray-200">(inclusive of all taxes)</span>
                     </div>
 
-                    <p className="text-base md:dark:text-white font-medium mt-6">About Product</p>
+                    <p className="text-base dark:text-white font-medium mt-6">About Product</p>
                    <ul className="list-disc ml-4 text-gray-800">
                       {(product.discription ?? []).map((desc, index) => (
                         <li key={index}>{desc}</li>

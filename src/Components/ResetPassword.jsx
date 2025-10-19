@@ -85,22 +85,6 @@ const ResetPassword = () => {
 
   return (
     <>
-     <div className='flex p-5 px-2  border-b'>
-      <NavLink to={"/"} onClick={() => scrollTo(0,0)} className='flex justify-center items-center md:gap-3 gap-2'>
-       <img 
-  src={assets.logo} 
-  className='logo h-10 w-10 rounded-full dark:hidden' 
-  alt='Logo Light' 
-/>
-<img 
-  src={assets.darkLogo} 
-  className='logo h-10 w-10 rounded-full hidden dark:block' 
-  alt='Logo Dark' 
-/>
-
-        <p className='dark:text-white text-xl font-semibold '>TimeAura</p>
-      </NavLink>  
-     </div>
     <div  className='flex items-center justify-center min-h-screen  text-black'>
                 {/* Enter Email ID */}
 

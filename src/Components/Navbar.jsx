@@ -153,7 +153,7 @@ const handleUpload = async (e) => {
             
             {/* cart section */}
             <div onClick={() => {navigate('/cart'); scrollTo(0,0)}} className="relative cursor-pointer px-5">
-               <p className='text-2xl dark:text-gray-200'> < LuShoppingCart/> </p>
+               <p className='text-xl dark:text-gray-200'> < LuShoppingCart/> </p>
                <button className="absolute -top-2 right-1 text-xs text-white bg-red-600 w-[18px] h-[18px]
                 rounded-full">{getCartCount()}</button>
             </div>

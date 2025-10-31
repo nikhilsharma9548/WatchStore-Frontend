@@ -96,9 +96,9 @@ const handleUpload = async (e) => {
       
         {/* Navbar for desktop View */} 
 
-        <NavLink to={"/"} onClick={() => scrollTo(0,0)} className='flex justify-center items-center md:gap-3 gap-1'>
-            <img src={theme === "light" ? assets.logo : assets.darkLogo } className=' logo sm:h-10 sm:w-10 h-6 w-6 rounded-full' alt='Logo'/>
-            <p className=' sm:text-xl  font-semibold '>TimeAura</p>
+        <NavLink to={"/"} onClick={() => scrollTo(0,0)} className='flex justify-center items-center md:gap-3 gap-2'>
+            <img src={theme === "light" ? assets.logo : assets.darkLogo } className=' logo h-10 w-10 rounded-full' alt='Logo'/>
+            <p className=' text-xl font-semibold '>TimeAura</p>
         </NavLink>  
 
          <div className='flex items-center md:gap-5 gap-2 px-0'>
@@ -140,28 +140,28 @@ const handleUpload = async (e) => {
                 initial={{opacity:0,y:-10}}
                 animate={{opacity:1,y:0}}
                 exit={{y:0}}
-              className='sm:text-xl text-md relative left-4 dark:text-white'><CiLight/></motion.p> : 
+              className='text-2xl relative left-4 dark:text-white'><CiLight/></motion.p> : 
               <motion.p
               key="moon"
               initial={{opacity:0,y:10}}
               animate={{opacity:1,y:0}}
               exit={{y:0}}
-              className='sm:text-xl text-md relative left-4'><FaMoon/></motion.p>}
+              className='text-2xl relative left-4'><FaMoon/></motion.p>}
             </AnimatePresence>   
             </div>
 
             
             {/* cart section */}
             <div onClick={() => {navigate('/cart'); scrollTo(0,0)}} className="relative cursor-pointer px-5">
-               <p className='sm:text-xl  text-md dark:text-gray-200'> < LuShoppingCart/> </p>
-               <button className="absolute -top-2 right-2 text-xs text-white bg-red-600 w-[15px] h-[15px]
+               <p className='text-2xl dark:text-gray-200'> < LuShoppingCart/> </p>
+               <button className="absolute -top-2 right-1 text-xs text-white bg-red-600 w-[18px] h-[18px]
                 rounded-full">{getCartCount()}</button>
             </div>
                         
                {!user ? (<div className='group'>
                    <button onClick={() => setShowUserLogin(true)}
                     className='bg-[#274472] flex justify-center items-center gap-2 dark:border border-gray-400
-                     text-white px-4 py-1.5 cursor-pointer dark:bg-red-700 dark:hover:bg-red-800
+                     text-white px-5 py-2 cursor-pointer dark:bg-red-700 dark:hover:bg-red-800
                     hover:bg-blue-950 rounded transition-all duration-300'>login 
                   </button>
                 </div>) : (

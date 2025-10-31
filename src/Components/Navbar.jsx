@@ -96,9 +96,9 @@ const handleUpload = async (e) => {
       
         {/* Navbar for desktop View */} 
 
-        <NavLink to={"/"} onClick={() => scrollTo(0,0)} className='flex justify-center items-center md:gap-3 gap-2'>
-            <img src={theme === "light" ? assets.logo : assets.darkLogo } className=' logo h-10 w-10 rounded-full' alt='Logo'/>
-            <p className=' text-xl font-semibold '>TimeAura</p>
+        <NavLink to={"/"} onClick={() => scrollTo(0,0)} className='flex justify-center items-center md:gap-3 gap-1'>
+            <img src={theme === "light" ? assets.logo : assets.darkLogo } className=' logo sm:h-10 sm:w-10 h-6 w-6 rounded-full' alt='Logo'/>
+            <p className=' sm:text-xl  font-semibold '>TimeAura</p>
         </NavLink>  
 
          <div className='flex items-center md:gap-5 gap-2 px-0'>

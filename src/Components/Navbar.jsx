@@ -154,14 +154,14 @@ const handleUpload = async (e) => {
             {/* cart section */}
             <div onClick={() => {navigate('/cart'); scrollTo(0,0)}} className="relative cursor-pointer px-5">
                <p className='sm:text-xl  text-md dark:text-gray-200'> < LuShoppingCart/> </p>
-               <button className="absolute -top-2 right-1 text-xs text-white bg-red-600 w-[18px] h-[18px]
+               <button className="absolute -top-2 right-2 text-xs text-white bg-red-600 w-[15px] h-[15px]
                 rounded-full">{getCartCount()}</button>
             </div>
                         
                {!user ? (<div className='group'>
                    <button onClick={() => setShowUserLogin(true)}
                     className='bg-[#274472] flex justify-center items-center gap-2 dark:border border-gray-400
-                     text-white px-5 py-2 cursor-pointer dark:bg-red-700 dark:hover:bg-red-800
+                     text-white px-4 py-1.5 cursor-pointer dark:bg-red-700 dark:hover:bg-red-800
                     hover:bg-blue-950 rounded transition-all duration-300'>login 
                   </button>
                 </div>) : (

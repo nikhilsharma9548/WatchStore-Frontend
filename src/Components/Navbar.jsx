@@ -140,20 +140,20 @@ const handleUpload = async (e) => {
                 initial={{opacity:0,y:-10}}
                 animate={{opacity:1,y:0}}
                 exit={{y:0}}
-              className='text-2xl relative left-4 dark:text-white'><CiLight/></motion.p> : 
+              className='sm:text-xl text-md relative left-4 dark:text-white'><CiLight/></motion.p> : 
               <motion.p
               key="moon"
               initial={{opacity:0,y:10}}
               animate={{opacity:1,y:0}}
               exit={{y:0}}
-              className='text-2xl relative left-4'><FaMoon/></motion.p>}
+              className='sm:text-xl text-md relative left-4'><FaMoon/></motion.p>}
             </AnimatePresence>   
             </div>
 
             
             {/* cart section */}
             <div onClick={() => {navigate('/cart'); scrollTo(0,0)}} className="relative cursor-pointer px-5">
-               <p className='text-xl dark:text-gray-200'> < LuShoppingCart/> </p>
+               <p className='sm:text-xl  text-md dark:text-gray-200'> < LuShoppingCart/> </p>
                <button className="absolute -top-2 right-1 text-xs text-white bg-red-600 w-[18px] h-[18px]
                 rounded-full">{getCartCount()}</button>
             </div>
